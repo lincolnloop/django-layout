@@ -8,7 +8,6 @@ env.repository = 'git@github.com:lincolnloop/{{ project_name }}.git'
 env.local_branch = 'master'
 env.remote_ref = 'origin/master'
 env.requirements_file = 'requirements.pip'
-env.system_users = {}
 env.restart_command = 'supervisorctl restart {project_name}'.format(**env)
 env.restart_sudo = True
 
@@ -59,22 +58,24 @@ dev()
 
 @task
 @roles('web', 'db')
-def bootstrap():
+def bootstrap(action=''):
     """
     Bootstrap the environment.
     """
     with hide('running', 'stdout'):
-        value = run('if [ -d "{virtualenv_dir}" ]; then echo 1; fi'\
+        exists = run('if [ -d "{virtualenv_dir}" ]; then echo 1; fi'\
             .format(**env))
-    if value:
+    if exists and not action == 'force':
         puts('Assuming {host} has already been bootstrapped since '
             '{virtualenv_dir} exists.'.format(**env))
         return
-    run('virtualenv {virtualenv_dir}'.format(**env))
-    run('mkdir -p {0}'.format(posixpath.dirname(env.virtualenv_dir)))
-    run('clone {repository} {project_dir}'.format(**env))
-    run('{virtualenv_dir}/bin/pip install -e {project_dir}'.format(**env))
+    sudo('virtualenv {virtualenv_dir}'.format(**env))
+    if not exists:
+        sudo('mkdir -p {0}'.format(posixpath.dirname(env.virtualenv_dir)))
+        sudo('git clone {repository} {project_dir}'.format(**env))
+    sudo('{virtualenv_dir}/bin/pip install -e {project_dir}'.format(**env))
     with cd(env.virtualenv_dir):
+        sudo('chown -R {user} .'.format(**env))
         fix_permissions()
     requirements()
     puts('Bootstrapped {host} - database creation needs to be done manually.'\
@@ -88,7 +89,7 @@ def push():
     Push branch to the repository.
     """
     remote, dest_branch = env.remote_ref.split('/', 1)
-    local('git push {remote} {branch}:{dest_branch}'.format(
+    local('git push {remote} {local_branch}:{dest_branch}'.format(
         remote=remote, dest_branch=dest_branch, **env))
 
 
@@ -128,7 +129,7 @@ def update(action='check'):
     """
     with cd(env.project_dir):
         remote, dest_branch = env.remote_ref.split('/', 1)
-        run('git fetch {remote} {branch}:{dest_branch}'.format(remote=remote,
+        run('git fetch {remote}'.format(remote=remote,
             dest_branch=dest_branch, **env))
         with hide('running', 'stdout'):
             changed_files = run('git diff-index --cached --name-only '
