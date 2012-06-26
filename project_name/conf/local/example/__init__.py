@@ -16,8 +16,3 @@ DATABASES = {
 }
 
 ROOT_URLCONF = '{{ project_name }}.conf.local.urls'
-
-INSTALLED_APPS += (
-    'django.contrib.admin',
-    'django.contrib.admindocs',
-)
