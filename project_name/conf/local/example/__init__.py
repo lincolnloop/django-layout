@@ -16,3 +16,4 @@ DATABASES = {
 }
 
 ROOT_URLCONF = '{{ project_name }}.conf.local.urls'
+WSGI_APPLICATION = '{{ project_name }}.wsgi.local.application'

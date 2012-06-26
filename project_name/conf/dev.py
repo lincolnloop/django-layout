@@ -13,3 +13,4 @@ DATABASES = {
     }
 }
 
+WSGI_APPLICATION = '{{ project_name }}.wsgi.dev.application'

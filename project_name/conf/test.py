@@ -15,3 +15,4 @@ INSTALLED_APPS += (
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+WSGI_APPLICATION = '{{ project_name }}.wsgi.test.application'
