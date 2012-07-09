@@ -3,7 +3,6 @@ from {{ project_name }}.settings import *   # pylint: disable=W0614,W0401
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-ROOT_URLCONF = '{{ project_name }}.conf.dev.urls'
 
 DATABASES = {
     'default': {
@@ -14,6 +13,4 @@ DATABASES = {
     }
 }
 
-INSTALLED_APPS += (
-    'django.contrib.admin',
-)
+WSGI_APPLICATION = '{{ project_name }}.wsgi.dev.application'

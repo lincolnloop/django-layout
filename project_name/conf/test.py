@@ -9,11 +9,10 @@ DATABASES = {
         'NAME': ':memory:',
     }
 }
-ROOT_URLCONF = '{{ project_name }}.conf.test.urls'
 
 INSTALLED_APPS += (
-    'django.contrib.admin'
     'django_nose',
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+WSGI_APPLICATION = '{{ project_name }}.wsgi.test.application'

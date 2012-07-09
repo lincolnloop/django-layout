@@ -26,7 +26,7 @@ SECRET_KEY = '{{ secret_key }}'
 INSTALLED_APPS = (
     # '{{ project_name }}.apps.',
 
-    'south',
+    #'south',
 
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -34,6 +34,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
 )
 
 #==============================================================================
