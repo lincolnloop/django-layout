@@ -5,4 +5,4 @@
 #     pip install -r requirements.pip
 
 django==1.4
-south==0.7.5
+#south==0.7.5
