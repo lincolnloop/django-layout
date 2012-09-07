@@ -1,3 +1,4 @@
+"""Settings for Development Server"""
 from {{ project_name }}.settings import *   # pylint: disable=W0614,W0401
 
 DEBUG = True
@@ -13,4 +14,4 @@ DATABASES = {
     }
 }
 
-WSGI_APPLICATION = '{{ project_name }}.wsgi.dev.application'
+# WSGI_APPLICATION = '{{ project_name }}.wsgi.dev.application'

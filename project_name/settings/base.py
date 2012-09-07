@@ -1,3 +1,4 @@
+"""Base settings shared by all environments"""
 # Import global settings to make it easier to extend settings.
 from django.conf.global_settings import *   # pylint: disable=W0614,W0401
 
@@ -60,9 +61,9 @@ elif ve_path and os.path.exists(os.path.join(ve_path, 'bin',
     # We're running in [virtualenv_root]/src/[project_name].
     VAR_ROOT = os.path.join(ve_path, 'var')
 else:
-    # Set the variable root to the local configuration location (which is
-    # ignored by the repository).
-    VAR_ROOT = os.path.join(PROJECT_DIR, 'conf', 'local')
+    # Set the variable root to a path in the project which is
+    # ignored by the repository.
+    VAR_ROOT = os.path.join(PROJECT_DIR, 'var')
 
 if not os.path.exists(VAR_ROOT):
     os.mkdir(VAR_ROOT)

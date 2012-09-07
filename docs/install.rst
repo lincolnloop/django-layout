@@ -40,7 +40,7 @@ Configuring a Local Environment
 If you're just checking the project out locally, you can copy some example
 configuration files to get started quickly::
 
-    cp {{ project_name }}/conf/local/example/* {{ project_name }}/conf/local
+    cp {{ project_name }}/settings/local.py.example {{ project_name }}/settings/local.py
     manage.py syncdb --migrate
 
 

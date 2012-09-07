@@ -1,3 +1,4 @@
+"""Settings for local development"""
 from {{ project_name }}.settings import *   # pylint: disable=W0614,W0401
 
 DEBUG = True
@@ -15,5 +16,5 @@ DATABASES = {
     }
 }
 
-ROOT_URLCONF = '{{ project_name }}.conf.local.urls'
-WSGI_APPLICATION = '{{ project_name }}.wsgi.local.application'
+# ROOT_URLCONF = '{{ project_name }}.conf.local.urls'
+# WSGI_APPLICATION = '{{ project_name }}.wsgi.local.application'

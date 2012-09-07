@@ -29,7 +29,7 @@ def live():
     env.system_users = {server: 'www-data'}
     env.virtualenv_dir = '/srv/www/{project_name}'.format(**env)
     env.project_dir = '{virtualenv_dir}/src/{project_name}'.format(**env)
-    env.project_conf = '{project_name}.conf.local'.format(**env)
+    env.project_conf = '{project_name}.settings.local'.format(**env)
 
 
 @task
