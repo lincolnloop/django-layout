@@ -1,5 +1,5 @@
 """Settings for Development Server"""
-from {{ project_name }}.settings import *   # pylint: disable=W0614,W0401
+from {{ project_name }}.settings.base import *   # pylint: disable=W0614,W0401
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
