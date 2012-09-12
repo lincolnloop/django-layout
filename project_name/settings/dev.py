@@ -1,8 +1,12 @@
+"""Settings for Development Server"""
 from {{ project_name }}.settings import *   # pylint: disable=W0614,W0401
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+VAR_ROOT = '/var/www/{{ project_name }}'
+MEDIA_ROOT = os.path.join(VAR_ROOT, 'uploads')
+STATIC_ROOT = os.path.join(VAR_ROOT, 'static')
 
 DATABASES = {
     'default': {
@@ -13,4 +17,4 @@ DATABASES = {
     }
 }
 
-WSGI_APPLICATION = '{{ project_name }}.wsgi.dev.application'
+# WSGI_APPLICATION = '{{ project_name }}.wsgi.dev.application'
