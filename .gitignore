@@ -1,7 +1,5 @@
 *.pyc
 *.egg-info
 {{ project_name }}/settings/local.py
-{{ project_name }}/urls/local.py
-{{ project_name }}/wsgi/local.py
-var
+{{ project_name }}/settings/local/*
 docs/_build
