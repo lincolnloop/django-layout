@@ -1,7 +1,4 @@
-{{ project_name }}
-======================
-
-{% comment %}
+.. {% comment %}
 
 ===============
 Django Layout
@@ -13,7 +10,12 @@ Django Layout
 
 .. note:: The text following this comment block will become the README.rst of the new project.
 
-{% endcomment %}
+-----
+
+.. {% endcomment %}
+
+{{ project_name }}
+======================
 
 Quickstart
 ----------
@@ -22,7 +24,7 @@ To bootstrap the project::
 
     virtualenv {{ project_name }}
     source {{ project_name }}/bin/activate
-    cd path/to/your/{{ project_name }}/repository
+    cd path/to/{{ project_name }}/repository
     pip install -r requirements.pip
     pip install -e .
     cp {{ project_name }}/settings/local.py.example {{ project_name }}/settings/local.py
