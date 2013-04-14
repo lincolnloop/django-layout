@@ -1,0 +1,9 @@
+# You can install all these apps in a row using pip. Example::
+#
+#     pip install -r requirements.txt
+#
+# Or you can install a more specific set of requirements, for example::
+#
+#     pip install -r requirements/dev.txt
+
+-r requirements/prod.txt

@@ -1,0 +1,15 @@
+-r base.txt
+
+requests
+ipdb
+
+# Mutual Mobile lib
+#svn+https://svn.r.mutualmobile.com/svn/MMSERVENG/tags/mm_core-4.1.0
+#svn+https://svn.r.mutualmobile.com/svn/MMSERVENG/tags/mm_django-3.1.2
+
+# Testing & Documentation
+#django-debug-toolbar
+coverage
+django-coverage
+Sphinx>=1.0
+sphinxcontrib-seqdiag
