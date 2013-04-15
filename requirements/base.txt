@@ -1,31 +1,7 @@
 # This pip requirements list includes all the basic project requirements that
 # should be common for any deployed environment.
 #
-# It is ideal to lock every package down to a specific version.
+# It is ideal to pin packages to specific versions.
 
-Django==1.4
-psycopg2==2.4.1
-#uwsgi
-
-django-secure
-#django-bcrypt
-#py-bcrypt
-
-# TastyPie!
-#-e git+https://github.com/toastdriven/django-tastypie.git#egg=django-tastypie
-
-# Sentry
-#django-sentry
-#django-indexer
-#django-paging
-#django-templatetag-sugar
-#raven
-
-# Deployment
-#south
-fabric
-
-# Testing & Documentation
-#django-debug-toolbar
-factory-boy
-pep8
+django==1.4.1
+#south==0.7.6
