@@ -1,4 +1,4 @@
-# You can install all these apps in a row using pip. Example::
+# You can install all these apps using pip. Example::
 #
 #     pip install -r requirements.txt
 #

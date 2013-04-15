@@ -1,7 +1,5 @@
-# This pip requirements list includes all the basic project requirements that
-# should be common for any deployed environment.
-#
-# It is ideal to pin packages to specific versions.
+# These are the base requirements that are common for any of our deployed
+# environments.
 
 django==1.4.1
 #south==0.7.6
