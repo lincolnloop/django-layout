@@ -1,0 +1,5 @@
+# These are the base requirements that are common for any of our deployed
+# environments.
+
+django==1.4.1
+#south==0.7.6
