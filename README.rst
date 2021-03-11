@@ -6,7 +6,7 @@ Django Layout
 
 ``django-layout`` provides sane defaults for new Django projects based on `established best practices <http://lincolnloop.com/django-best-practices/>`__. To use ``django-layout`` run the following command::
 
-     django-admin.py startproject --template=https://github.com/lincolnloop/django-layout/zipball/master --extension=py,rst,gitignore,example project_name
+     django-admin.py startproject --template=https://github.com/lincolnloop/django-layout/zipball/master --extension=py,rst,gitignore,example {{ project_name }}
 
 .. note:: The text following this comment block will become the README.rst of the new project.
 
@@ -14,26 +14,44 @@ Django Layout
 
 .. {% endcomment %}
 
+======================
 {{ project_name }}
 ======================
 
-Quickstart
-----------
+Installation
+============
 
-To bootstrap the project::
+Pre-Requisites
+--------------
 
-    virtualenv {{ project_name }}
-    source {{ project_name }}/bin/activate
-    cd path/to/{{ project_name }}/repository
-    pip install -r requirements.pip
-    pip install -e .
-    cp {{ project_name }}/settings/local.py.example {{ project_name }}/settings/local.py
-    manage.py syncdb --migrate
+**Python3.9**
 
-Documentation
--------------
+To install all of the system dependencies on a Debian-based system, run::
 
-Developer documentation is available in Sphinx format in the docs directory.
+    sudo apt install software-properties-common
+    sudo add-apt-repository ppa:deadsnakes/ppa
+    sudo apt install python3.9 python3.9-venv python3.9-dev
 
-Initial installation instructions (including how to build the documentation as
-HTML) can be found in docs/install.rst.
+
+Creating the Virtual Environment
+--------------------------------
+
+First, create a clean base environment using virtualenv::
+
+    make .venv/bin/activate
+    . .venv/bin/activate
+
+
+Installing the Project
+----------------------
+
+Compile requirements to make sure you have all the latests dependencies::
+
+    make upgrade-pip
+    make requirements.txt
+    make requirements/dev.txt
+
+
+Install the requirements and the project source::
+
+    make install
