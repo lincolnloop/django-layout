@@ -1,0 +1,9 @@
+#     pip install --upgrade --pre pip wheel setuptools pip-tools
+#     pip-compile --generate-hashes --output-file=requirements.txt requirements/requirements.in
+#     pip install -r requirements.txt
+
+--pre Django==3.2.*
+dj-database-url
+goodconf[yaml]
+django-alive
+django-csp
