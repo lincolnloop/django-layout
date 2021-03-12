@@ -2,7 +2,7 @@
 #     pip-compile --generate-hashes --output-file=requirements.txt requirements/requirements.in
 #     pip install -r requirements.txt
 
---pre Django==3.2.*
+--pre Django=={{ django_version }}
 dj-database-url
 goodconf[yaml]
 django-alive
