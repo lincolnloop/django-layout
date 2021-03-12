@@ -1,0 +1,21 @@
+{
+  "name": "{{ project_name }}",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\"",
+    "build": "echo \"Error: no build specified\"",
+    "dev": "echo \"Error: no dev specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lincolnloop/{{ project_name }}.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lincolnloop/{{ project_name }}/issues"
+  },
+  "homepage": "https://github.com/lincolnloop/{{ project_name }}#readme"
+}
