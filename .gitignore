@@ -2,6 +2,5 @@
 __pycache__
 .venv
 *.egg-info
-{{ project_name }}/settings/local.py
-{{ project_name }}/settings/local/*
+{{ project_name }}.yml
 docs/_build

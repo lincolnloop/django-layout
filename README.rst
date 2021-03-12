@@ -55,3 +55,14 @@ Compile requirements to make sure you have all the latests dependencies::
 Install the requirements and the project source::
 
     make install
+
+
+Configuring a Local Environment
+-------------------------------
+
+If you're just checking the project out locally, you can generate the configuration file with already filled default values::
+
+    make {{ project_name }}.yml
+
+
+This will create the `{{ project_name }}.yml` file where you can customize the appropriate variables.
