@@ -4,3 +4,4 @@ __pycache__
 *.egg-info
 {{ project_name }}.yml
 docs/_build
+.vscode
