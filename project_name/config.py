@@ -6,6 +6,8 @@ from goodconf import Field, GoodConf
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "{{ project_name }}.settings")
 
+PROJECT_DIR = Path(__file__).parents[1].resolve()
+
 
 class AppConfig(GoodConf):
     """Configuration for {{ project_name }}"""
@@ -26,6 +28,10 @@ class AppConfig(GoodConf):
         initial=lambda: base64.b64encode(os.urandom(60)).decode(),
         description="A long random string you keep secret "
         "https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#secret-key",
+    )
+    STATIC_ROOT: str = Field(
+        os.path.join(PROJECT_DIR, "static"),
+        description="Path to static files in the project",
     )
     ENVIRONMENT: str = Field(
         "test",

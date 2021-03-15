@@ -124,6 +124,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+STATIC_ROOT = config.STATIC_ROOT
 
 # Whitenoise
 # http://whitenoise.evans.io/en/stable/
