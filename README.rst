@@ -74,6 +74,15 @@ To run Django commands like migrations and shell or to enter the container bash 
     docker-compose run --rm app manage.py migrate
     docker-compose run --rm app manage.py shell
 
+To stop containers run::
+
+    docker-compose down
+
+To update a container after adding a new requirement for example::
+
+    docker-compose build app
+    docker-compose build client
+
 Local Installation
 ==================
 
@@ -146,6 +155,23 @@ Replace the appropriate credentials if necessary.
 
 Running the project
 ===================
+
+Docker
+------
+
+Run migrations::
+
+    docker-compose run --rm app manage.py migrate
+
+Create super user::
+
+    docker-compose run --rm app manage.py createsuperuser
+
+Make sure you have the containers running::
+
+    docker-compose up
+
+Access `localhost:8000/admin <localhost:8000/admin>`_.
 
 Local
 -----
