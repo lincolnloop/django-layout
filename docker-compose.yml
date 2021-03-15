@@ -21,7 +21,6 @@ services:
   #     - .data/db_dumps:/db_dumps
   #   environment:
   #     - POSTGRES_DB={{ project_name }}
-  #     - POSTGRES_USER=postgres
   #     - POSTGRES_PASSWORD=postgres
 
   app:
