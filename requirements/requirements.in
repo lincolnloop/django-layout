@@ -7,5 +7,6 @@ dj-database-url
 goodconf[yaml]
 django-alive
 django-csp
+whitenoise
 # Postgres
 # psycopg2

@@ -48,15 +48,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django_alive.middleware.healthcheck_bypass_host_check",
-
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
     'csp.middleware.CSPMiddleware',
 ]
 
@@ -126,6 +125,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/{{ docs_version }}/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Whitenoise
+# http://whitenoise.evans.io/en/stable/
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# Match filename with 12 hex digits before the extension
+WHITENOISE_IMMUTABLE_FILE_TEST = lambda path, url: re.match(  # noqa: E731
+    r"^.+\.[0-9a-f]{12}\..+$", url
+)
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#default-auto-field
