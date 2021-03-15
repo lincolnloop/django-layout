@@ -18,7 +18,7 @@ from .config import config
 config.load()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).parents[1].resolve()
 
 
 # Quick-start development settings - unsuitable for production
@@ -47,6 +47,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "django_alive.middleware.healthcheck_bypass_host_check",
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,7 +57,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    "django_alive.middleware.healthcheck_bypass_host_check",
     'csp.middleware.CSPMiddleware',
 ]
 
