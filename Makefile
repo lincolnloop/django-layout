@@ -28,6 +28,11 @@ requirements/dev.txt: requirements/dev.in requirements.txt
 {{ project_name }}.yml:
 	./.venv/bin/generate-config > $@
 
+.PHONY: fmt
+fmt:
+	isort .
+	black .
+
 .PHONY: help
 help:
 	@echo -e "Available make commands:"
