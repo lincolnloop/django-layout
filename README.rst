@@ -110,6 +110,7 @@ Compile requirements to make sure you have all the latests dependencies::
 Install the requirements and the project source::
 
     make install
+    make install-dev
 
 
 Configuring a Local Environment
