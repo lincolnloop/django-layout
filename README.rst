@@ -4,7 +4,13 @@
 Django Layout
 ===============
 
-``django-layout`` provides sane defaults for new Django projects based on `established best practices <http://lincolnloop.com/django-best-practices/>`__.
+``django-layout`` provides sane defaults for new Django projects based on 
+`established best practices <http://lincolnloop.com/django-best-practices/>`__ and some configuration setups 
+frequently used in Lincoln Loop's projects, like 
+`using pip-tools for dependency locking <https://lincolnloop.com/blog/python-dependency-locking-pip-tools/>`__, 
+`using setup.py <https://lincolnloop.com/blog/using-setuppy-your-django-project/>`__ and 
+`making manage.py a console script <https://lincolnloop.com/blog/goodbye-managepy/>`__.
+
 
 To use ``django-layout``:
 
