@@ -17,7 +17,7 @@ install-dev: .venv/bin/activate  # Install Python dependencies
 	./.venv/bin/pip install -e .
 
 upgrade-pip:
-	pip install --upgrade --pre pip wheel setuptools pip-tools
+	pip install --upgrade pip wheel setuptools pip-tools
 
 requirements.txt: requirements/requirements.in
 	pip-compile --generate-hashes --output-file=$@ requirements/requirements.in
