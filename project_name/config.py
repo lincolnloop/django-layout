@@ -3,7 +3,6 @@ import os
 from typing import List
 
 from goodconf import GoodConf, Field
-from pathlib import Path
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "{{ project_name }}.settings")
 
@@ -13,14 +12,12 @@ class AppConfig(GoodConf):
 
     DEBUG: bool
     ALLOWED_HOSTS: List[str] = Field(
-        ["*"],
-        initial=lambda: ["*"],
+        default=["*"],
         description="Hosts allowed to serve the site "
         "https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#allowed-hosts",
     )
     DATABASE_URL: str = Field(
-        "sqlite:///PATH",
-        initial=lambda: "sqlite:///PATH",
+        default="sqlite:///./sqlite3.db",
         description="A string with the database URL as defined in"
         "https://github.com/jacobian/dj-database-url#url-schema"
     )
@@ -32,7 +29,6 @@ class AppConfig(GoodConf):
     )
     ENVIRONMENT: str = Field(
         "test",
-        initial=lambda: "test",
         description="Deploy environment",
     )
 
