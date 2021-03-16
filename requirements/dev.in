@@ -1,0 +1,4 @@
+--constraint ../requirements.txt
+pip-tools
+black
+isort
