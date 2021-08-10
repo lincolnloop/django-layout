@@ -14,7 +14,7 @@ frequently used in Lincoln Loop's projects, like
 
 To use ``django-layout``:
 
-1. follow the steps for Python instalation from the `Pre-Requisites`_ section;
+1. follow the steps for Python installation from the `Pre-Requisites`_ section;
 2. create and activate a virtualenv::
 
     python3.9 -m venv .venv
@@ -109,7 +109,7 @@ First, create a clean base environment using virtualenv::
 Installing the Project
 ----------------------
 
-Compile requirements to make sure you have all the latests dependencies::
+Compile requirements to make sure you have all the latest dependencies::
 
     make upgrade-pip
     make requirements.txt
