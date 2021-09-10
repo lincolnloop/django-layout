@@ -12,6 +12,12 @@ dj-database-url==0.5.0 \
     --hash=sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163 \
     --hash=sha256:851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9
     # via -r requirements/requirements.in
+django==3.2b1 \
+    --hash=sha256:b3f1afcab9bd5a6250be9caff4cdc505f4f4313cb6c0b301e92739cb80820b3f \
+    --hash=sha256:b6349c182a1985b7488365ec6bb0042446153601b2d7af02e4e768f618ba25b6
+    # via
+    #   django-alive
+    #   django-csp
 django-alive==1.1.0 \
     --hash=sha256:78c9d6ec4b6a611107ed282ab6c5c05bc558acddcd8fa653c9650e57eca0c67a \
     --hash=sha256:b4a3cb39122d57ad1d536709167987affc5bd0826d95f026e64e81ecd92e2f4c
@@ -20,12 +26,6 @@ django-csp==3.7 \
     --hash=sha256:01443a07723f9a479d498bd7bb63571aaa771e690f64bde515db6cdb76e8041a \
     --hash=sha256:01eda02ad3f10261c74131cdc0b5a6a62b7c7ad4fd017fbefb7a14776e0a9727
     # via -r requirements/requirements.in
-django==3.2b1 \
-    --hash=sha256:b3f1afcab9bd5a6250be9caff4cdc505f4f4313cb6c0b301e92739cb80820b3f \
-    --hash=sha256:b6349c182a1985b7488365ec6bb0042446153601b2d7af02e4e768f618ba25b6
-    # via
-    #   django-alive
-    #   django-csp
 goodconf[yaml]==2.0b2 \
     --hash=sha256:97c288a9798da381e809486c62ac5e75f3c05d03b53a0b87e3ba3d6916ffd892 \
     --hash=sha256:bab6012045464e2991a577d42b0feb4e11eb7998842a73f56a7db5687d2f9d43
@@ -58,6 +58,10 @@ pytz==2021.1 \
     --hash=sha256:83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da \
     --hash=sha256:eb10ce3e7736052ed3623d49975ce333bcd712c7bb19a58b9e2089d4057d0798
     # via django
+ruamel.yaml==0.16.13 \
+    --hash=sha256:64b06e7873eb8e1125525ecef7345447d786368cadca92a7cd9b59eae62e95a3 \
+    --hash=sha256:bb48c514222702878759a05af96f4b7ecdba9b33cd4efcf25c86b882cef3a942
+    # via goodconf
 ruamel.yaml.clib==0.2.2 \
     --hash=sha256:058a1cc3df2a8aecc12f983a48bda99315cebf55a3b3a5463e37bb599b05727b \
     --hash=sha256:1236df55e0f73cd138c0eca074ee086136c3f16a97c2ac719032c050f7e0622f \
@@ -91,13 +95,9 @@ ruamel.yaml.clib==0.2.2 \
     --hash=sha256:e9f7d1d8c26a6a12c23421061f9022bb62704e38211fe375c645485f38df34a2 \
     --hash=sha256:f6061a31880c1ed6b6ce341215336e2f3d0c1deccd84957b6fa8ca474b41e89f
     # via ruamel.yaml
-ruamel.yaml==0.16.13 \
-    --hash=sha256:64b06e7873eb8e1125525ecef7345447d786368cadca92a7cd9b59eae62e95a3 \
-    --hash=sha256:bb48c514222702878759a05af96f4b7ecdba9b33cd4efcf25c86b882cef3a942
-    # via goodconf
-sqlparse==0.4.1 \
-    --hash=sha256:017cde379adbd6a1f15a61873f43e8274179378e95ef3fede90b5aa64d304ed0 \
-    --hash=sha256:0f91fd2e829c44362cbcfab3e9ae12e22badaa8a29ad5ff599f9ec109f0454e8
+sqlparse==0.4.2 \
+    --hash=sha256:0c00730c74263a94e5a9919ade150dfc3b19c574389985446148402998287dae \
+    --hash=sha256:48719e356bb8b42991bdbb1e8b83223757b93789c00910a616a071910ca4a64d
     # via django
 typing-extensions==3.7.4.3 \
     --hash=sha256:7cb407020f00f7bfc3cb3e7881628838e69d8f3fcab2f64742a5e76b2f841918 \
