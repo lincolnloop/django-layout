@@ -1,5 +1,5 @@
 # STAGE 1: BUILD NODE
-FROM node:14-alpine as build-node
+FROM node:18-alpine as build-node
 
 WORKDIR /home/node/app
 COPY package-lock.json package.json ./
