@@ -1,6 +1,7 @@
 import base64
 import os
 from typing import List
+from pathlib import Path
 
 from goodconf import Field, GoodConf
 
