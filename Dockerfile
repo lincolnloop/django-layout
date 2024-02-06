@@ -9,7 +9,7 @@ RUN set -ex && npm run build && npm test
 
 
 # STAGE 2: BUILD PYTHON
-FROM python:3.9-buster as build-python
+FROM python:3.12-bullseye as build-python
 RUN mkdir /app && python -m venv /app/.venv && /app/.venv/bin/python -m pip install -U pip wheel setuptools
 
 ENV LC_ALL=C.UTF-8 LANG=C.UTF-8 \
