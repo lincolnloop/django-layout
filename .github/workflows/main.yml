@@ -13,11 +13,11 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.12' 
-      - name: update requirements
-        run: |
-          pip install pip-tools
-          rm requirements.txt requirements/dev.txt
-          make requirements.txt requirements/dev.txt
+      # - name: update requirements
+      #   run: |
+      #     pip install pip-tools
+      #     rm requirements.txt requirements/dev.txt
+      #     make requirements.txt requirements/dev.txt
       - name: create project
         run: |
           pip install django
