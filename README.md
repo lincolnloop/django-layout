@@ -15,16 +15,18 @@ script](https://lincolnloop.com/blog/goodbye-managepy/).
 
 To use `django-layout`:
 
-1.  follow the steps for Python installation from the
-    [Pre-Requisites](#pre-requisites) section;
+1. create and activate a virtualenv:
 
-2.  create and activate a virtualenv:
+        python -m venv --prompt . --upgrade-deps .venv
 
-        python3.9 -m venv .venv
-        . .venv/bin/activate
+2. install Django with `pip install django`
 
-3.  install Django with `pip install django`
+3. run the following command (replace `YOUR_PROJECT_NAME` with your preferred name):
 
+        django-admin.py startproject \
+         --template=https://github.com/lincolnloop/django-layout/zipball/main \
+         --extension=py,md,gitignore,cfg,in,yml,json,dockerignore \
+         --name=Makefile,Dockerfile YOUR_PROJECT_NAME
 
 *Note:  The text following this comment block will become the README.md of the new project.*
 
