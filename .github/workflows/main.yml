@@ -24,9 +24,7 @@ jobs:
         working-directory: testproj
       - name: verify website running
         run: |
-          WEBSITE_URL="http://0.0.0.0:8000"
-          curl -sSf -I --retry 10 --retry-connrefused --fail "$WEBSITE_URL" > /dev/null || { echo "Website is not reachable"; exit 1; }
-          echo "Website is running"
+          curl -I --retry 10 --retry-connrefused --fail localhost:8000
       - name: verify services running
         run: |
           docker ps  # show service status for debugging
