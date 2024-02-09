@@ -27,6 +27,7 @@ jobs:
           docker compose up -d
           # wait for migrations to finish
           docker attach $(docker compose ps -q django-migrate)
+        timeout-minutes: 5
         working-directory: testproj
       - name: verify services running
         run: |
