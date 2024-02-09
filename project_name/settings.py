@@ -124,7 +124,12 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-STATIC_ROOT = config.STATIC_ROOT
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+STATICFILES_DIRS = [
+    BASE_DIR / "{{ project_name }}" / "static",
+    BASE_DIR / "client" / "dist",
+]
 
 # Whitenoise
 # http://whitenoise.evans.io/en/stable/

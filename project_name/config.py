@@ -30,10 +30,6 @@ class AppConfig(GoodConf):
         description="A long random string you keep secret "
         "https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#secret-key",
     )
-    STATIC_ROOT: str = Field(
-        os.path.join(PROJECT_DIR, "static"),
-        description="Path to static files in the project",
-    )
     ENVIRONMENT: str = Field(
         "test",
         description="Deploy environment",

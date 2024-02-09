@@ -2,6 +2,6 @@
 __pycache__
 .venv
 *.egg-info
-{{ project_name }}.yml
-docs/_build
+/{{ project_name }}.yml
+/staticfiles
 .vscode
