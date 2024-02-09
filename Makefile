@@ -30,8 +30,7 @@ requirements/dev.txt: requirements/dev.in requirements.txt
 
 .PHONY: fmt
 fmt:
-	isort .
-	black .
+	ruff format .
 
 .PHONY: help
 help:
