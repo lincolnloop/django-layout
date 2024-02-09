@@ -13,7 +13,7 @@ PROJECT_DIR = Path(__file__).parents[1].resolve()
 class AppConfig(GoodConf):
     """Configuration for {{ project_name }}"""
 
-    DEBUG: bool
+    DEBUG: bool = False
     ALLOWED_HOSTS: List[str] = Field(
         default=["*"],
         description="Hosts allowed to serve the site "
