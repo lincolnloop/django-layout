@@ -25,7 +25,7 @@ jobs:
       - name: verify website running
         run: |
           WEBSITE_URL="http://0.0.0.0:8000"
-          curl -sSf "$WEBSITE_URL" > /dev/null || { echo "Website is not reachable"; exit 1; }
+          curl -sSf -I --retry 10 --retry-connrefused --fail "$WEBSITE_URL" > /dev/null || { echo "Website is not reachable"; exit 1; }
           echo "Website is running"
       - name: verify services running
         run: |
