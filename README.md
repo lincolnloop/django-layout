@@ -57,11 +57,13 @@ Another alternative is to
 -   run the command with the appropriate path to the `django-layout`
     folder:
 
+```
         django-admin.py startproject --template=<PATH_TO>/django-layout --extension=py,rst,gitignore,cfg,in,yml,json,dockerignore --name=Makefile,Dockerfile {{ project_name }}
+```
 
 Note
 
-The text following this comment block will become the README.rst of the new project.
+The text following this comment block will become the README.md of the new project.
 
 ------------------------------------------------------------------------
 
