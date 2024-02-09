@@ -10,12 +10,11 @@ RUN npm run build
 
 # STAGE 2: BUILD PYTHON
 FROM python:3.12-bullseye as build-python
-RUN mkdir /app && python -m venv /app/.venv && /app/.venv/bin/python -m pip install -U pip wheel setuptools
+WORKDIR /app
+RUN python -m venv --prompt . --upgrade-deps /app/.venv
 
 ENV LC_ALL=C.UTF-8 LANG=C.UTF-8 \
     PATH=/app/.venv/bin:${PATH}
-
-WORKDIR /app
 
 COPY requirements.txt ./
 COPY requirements ./requirements
