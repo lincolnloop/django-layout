@@ -36,13 +36,11 @@ If you want to use Postgres database, you can
 
 -   go to the generated project folder,
 
--   
+-   uncomment the lines preceded by `# Postgres` in
 
-    uncomment the lines preceded by `# Postgres` in
-
-    :   -   `requirements/requirements.in`
-        -   `docker-compose.yml`
-        -   `{{ project_name }}/config.py`
+    -   `requirements/requirements.in`
+    -   `docker-compose.yml`
+    -   `{{ project_name }}/config.py`
 
 -   replace `{{ project_name }}` with the project name you chose.
 
@@ -50,27 +48,20 @@ Another alternative is to
 
 -   download this repository to your local machine,
 
--   
+-   uncomment the lines preceded by `# Postgres` in
 
-    uncomment the lines preceded by `# Postgres` in
-
-    :   -   `requirements/requirements.in`
-        -   `docker-compose.yml`
-        -   `{{ project_name }}/config.py`
+    -   `requirements/requirements.in`
+    -   `docker-compose.yml`
+    -   `{{ project_name }}/config.py`
 
 -   run the command with the appropriate path to the `django-layout`
     folder:
 
         django-admin.py startproject --template=<PATH_TO>/django-layout --extension=py,rst,gitignore,cfg,in,yml,json,dockerignore --name=Makefile,Dockerfile {{ project_name }}
 
-::: note
-::: title
 Note
-:::
 
-The text following this comment block will become the README.rst of the
-new project.
-:::
+The text following this comment block will become the README.rst of the new project.
 
 ------------------------------------------------------------------------
 
