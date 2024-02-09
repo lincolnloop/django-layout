@@ -34,7 +34,7 @@ jobs:
           test $(docker ps -q | wc -l) = "2"
       - name: verify website running
         run: |
-          curl -I --retry 10 --retry-connrefused --fail localhost:8000
+          curl -I --retry 10 --retry-connrefused --fail localhost:8000/testproj-admin/login/
       - name: verify client build
         run: |
           curl -I --retry 10 --retry-connrefused --fail localhost:8000/static/index.js
