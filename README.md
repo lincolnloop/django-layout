@@ -28,7 +28,7 @@ To use `django-layout`:
 
 4.  run the following command:
 
-        django-admin.py startproject --template=https://github.com/lincolnloop/django-layout/zipball/main --extension=py,rst,gitignore,cfg,in,yml,json,dockerignore --name=Makefile,Dockerfile {{ project_name }}
+        django-admin.py startproject --template=https://github.com/lincolnloop/django-layout/zipball/main --extension=py,md,gitignore,cfg,in,yml,json,dockerignore --name=Makefile,Dockerfile {{ project_name }}
 
 ## Postgres
 
@@ -58,7 +58,7 @@ Another alternative is to
     folder:
 
 ```
-        django-admin.py startproject --template=<PATH_TO>/django-layout --extension=py,rst,gitignore,cfg,in,yml,json,dockerignore --name=Makefile,Dockerfile {{ project_name }}
+        django-admin.py startproject --template=<PATH_TO>/django-layout --extension=py,md,gitignore,cfg,in,yml,json,dockerignore --name=Makefile,Dockerfile {{ project_name }}
 ```
 
 Note
