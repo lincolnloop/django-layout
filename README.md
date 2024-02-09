@@ -25,20 +25,6 @@ To use `django-layout`:
 
 3.  install Django with `pip install django`
 
-4.  run the following command (replace `YOUR_PROJECT_NAME` with your preferred name):
-
-        django-admin.py startproject --template=https://github.com/lincolnloop/django-layout/zipball/main --extension=py,md,gitignore,cfg,in,yml,json,dockerignore --name=Makefile,Dockerfile YOUR_PROJECT_NAME
-
-## Postgres
-
-If you want to use Postgres database, you can
-
--   go to the generated project folder,
--   uncomment the lines preceded by `# Postgres` in
-    -   `requirements/requirements.in`
-    -   `docker-compose.yml`
-    -   `{{ project_name }}/config.py`
--   replace `{{ project_name }}` with the project name you chose.
 
 *Note:  The text following this comment block will become the README.md of the new project.*
 

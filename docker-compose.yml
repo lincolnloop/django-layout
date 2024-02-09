@@ -13,28 +13,28 @@ services:
       - /home/node/app/node_modules
       - client:/home/node/app/client/dist
 
-  # Postgres
-  # db:
-  #   image: postgres:13.2-alpine
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data/
-  #     - .data/db_dumps:/db_dumps
-  #   environment:
-  #     - POSTGRES_DB={{ project_name }}
-  #     - POSTGRES_PASSWORD=postgres
+  db:
+    image: postgres:16-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+      - .data/db_dumps:/db_dumps
+    healthcheck:
+      test: /usr/bin/pg_isready
+      interval: 5s
+      timeout: 10s
+      retries: 120
+    environment:
+      - POSTGRES_DB={{ project_name }}
+      - POSTGRES_PASSWORD=postgres
 
   app:
     <<: &COMMON
       build:
         context: .
         target: build-python
-      # Postgres
-      # depends_on:
-      #   - db
       environment:
         - DEBUG=true
-        # Postgres
-        # - DATABASE_URL=postgres://postgres:postgres@db:5432/{{ project_name }}
+        - DATABASE_URL=postgres://postgres:postgres@db:5432/{{ project_name }}
     stdin_open: true
     tty: true
     restart: on-failure
@@ -45,6 +45,9 @@ services:
       - client:/app/client/dist
     ports:
       - ${PORT:-8000}:8000
+    depends_on:
+      db:
+        condition: service_healthy
 
   django-migrate:
     <<: *COMMON
@@ -56,5 +59,4 @@ services:
 
 volumes:
   client:
-  # Postgres
-  # pgdata:
+  pgdata:

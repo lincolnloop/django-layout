@@ -8,5 +8,4 @@ goodconf[yaml]
 django-alive
 django-csp
 whitenoise
-# Postgres
-# psycopg2
+psycopg2
