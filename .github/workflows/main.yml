@@ -20,7 +20,8 @@ jobs:
       - name: start services
         run: |
           docker compose up -d
-          # docker attach $(docker compose ps -q django-migrate)
+          # wait for migrations to finish
+          docker attach $(docker compose ps -q django-migrate)
         working-directory: testproj
       - name: verify services running
         run: |
