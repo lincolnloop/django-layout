@@ -40,23 +40,23 @@ To use `django-layout`:
 
 Build and run the project:
 
-    docker-compose up --build
+    docker compose up --build
 
 To run Django commands like migrations and shell or to enter the
 container bash do:
 
-    docker-compose run --rm app bash
-    docker-compose run --rm app manage.py createsuperuser
-    docker-compose run --rm app manage.py migrate
-    docker-compose run --rm app manage.py shell
+    docker compose run --rm app bash
+    docker compose run --rm app manage.py createsuperuser
+    docker compose run --rm app manage.py migrate
+    docker compose run --rm app manage.py shell
 
 To stop containers run:
 
-    docker-compose down
+    docker compose down
 
 To update a container after adding a new requirement for example:
 
-    docker-compose build
+    docker compose build
 
 ## Running the project
 
@@ -64,10 +64,10 @@ To update a container after adding a new requirement for example:
 
 Create super user:
 
-    docker-compose run --rm app manage.py createsuperuser
+    docker compose run --rm app manage.py createsuperuser
 
 Make sure you have the containers running:
 
-    docker-compose up
+    docker compose up
 
 Access [localhost:8000/{{ project_name }}/admin/](http://localhost:8000/{{ project_name }}/admin/).
