@@ -31,6 +31,3 @@ jobs:
         run: |
           docker ps  # show service status for debugging
           test $(docker ps -q | wc -l) = "2"
-
-docker ps  # show service status for debugging
-test $(docker ps -q | wc -l) = "2"
