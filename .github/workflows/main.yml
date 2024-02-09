@@ -1,0 +1,31 @@
+name: test
+
+on:
+  schedule:
+    - cron:  '0 5 * * 0'
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.12' 
+      - name: create project
+        run: |
+          pip install django
+          django-admin startproject --template="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/zipball/$GITHUB_REF_NAME" --extension=py,rst,gitignore,cfg,in,yml,json,dockerignore --name=Makefile,Dockerfile testproj
+      - name: start services
+        run: |
+          docker compose up -d
+          # docker attach $(docker compose ps -q django-migrate)
+        working-directory: testproj
+      - name: verify services running
+        run: |
+          docker ps  # show service status for debugging
+          test $(docker ps -q | wc -l) = "2"
+      - name: verify website running
+        run: |
+          curl -I --retry 10 --retry-connrefused --fail localhost:8000
