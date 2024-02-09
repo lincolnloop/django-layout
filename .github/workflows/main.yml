@@ -22,10 +22,10 @@ jobs:
           docker compose up -d
           # docker attach $(docker compose ps -q django-migrate)
         working-directory: testproj
-      - name: verify website running
-        run: |
-          curl -I --retry 10 --retry-connrefused --fail localhost:8000
       - name: verify services running
         run: |
           docker ps  # show service status for debugging
           test $(docker ps -q | wc -l) = "2"
+      - name: verify website running
+        run: |
+          curl -I --retry 10 --retry-connrefused --fail localhost:8000
