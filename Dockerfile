@@ -1,11 +1,11 @@
 # STAGE 1: BUILD NODE
-FROM node:18-alpine as build-node
+FROM node:20-alpine as build-node
 
-WORKDIR /home/node/app
-COPY package-lock.json package.json ./
+WORKDIR /home/node/app/client
+COPY client/package-lock.json client/package.json ./
 RUN set -ex && npm install -g npm@latest && npm ci
-COPY client/ ./client
-RUN set -ex && npm run build && npm test
+COPY client/ ./
+RUN npm run build
 
 
 # STAGE 2: BUILD PYTHON
@@ -25,5 +25,7 @@ COPY {{ project_name }}/__init__.py ./{{ project_name }}/
 RUN pip install --no-deps -e .
 
 COPY . ./
+COPY --from=build-node /home/node/app/client/dist ./client/dist
+RUN SECRET_KEY=s python manage.py collectstatic --noinput
 
 CMD /app/.venv/bin/manage.py runserver 0.0.0.0:8000

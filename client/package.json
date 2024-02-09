@@ -1,0 +1,14 @@
+{
+  "name": "{{ project_name }}",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Your client build command goes here\" && mkdir dist",
+    "dev": "node -e \"console.log('Your client build/watch process goes here'); setInterval(() => {}, 99999999);\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
