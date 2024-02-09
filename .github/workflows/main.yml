@@ -30,3 +30,10 @@ jobs:
       - name: verify website running
         run: |
           curl -I --retry 10 --retry-connrefused --fail localhost:8000
+      - name: dump docker logs
+        run: |
+          set -x
+          docker compose ps
+          docker compose logs
+        working-directory: testproj
+        if: always()
