@@ -13,11 +13,6 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.12' 
-      # - name: update requirements
-      #   run: |
-      #     pip install pip-tools
-      #     rm requirements.txt requirements/dev.txt
-      #     make requirements.txt requirements/dev.txt
       - name: create project
         run: |
           pip install django
@@ -27,4 +22,15 @@ jobs:
           docker compose up -d
           # docker attach $(docker compose ps -q django-migrate)
         working-directory: testproj
-     # ...
+      - name: verify website running
+        run: |
+          WEBSITE_URL="http://0.0.0.0:8000"
+          curl -sSf "$WEBSITE_URL" > /dev/null || { echo "Website is not reachable"; exit 1; }
+          echo "Website is running"
+      - name: verify services running
+        run: |
+          docker ps  # show service status for debugging
+          test $(docker ps -q | wc -l) = "2"
+
+docker ps  # show service status for debugging
+test $(docker ps -q | wc -l) = "2"
