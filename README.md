@@ -24,7 +24,9 @@ To use `django-layout`:
         django-admin.py startproject \
          --template=https://github.com/lincolnloop/django-layout/zipball/main \
          --extension=py,md,gitignore,yml,json,dockerignore \
-         --name=Makefile,Dockerfile YOUR_PROJECT_NAME
+         --name=Makefile,Dockerfile \
+         --exclude=.github \
+         YOUR_PROJECT_NAME
 
 *Note:  The text following this comment block will become the README.md of the new project.*
 

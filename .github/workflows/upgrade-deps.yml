@@ -1,0 +1,24 @@
+name: upgrade-deps
+
+on:
+  schedule:
+    - cron:  '0 4 * * 0'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: upgrade deps
+        run: |
+          pip install -U pip pip-tools
+          make upgrade-requirements
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update Python dependencies
+          file_pattern: requirements*.txt
