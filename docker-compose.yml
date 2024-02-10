@@ -36,6 +36,7 @@ services:
           PY_REQUIREMENTS_FILE: requirements-dev.txt
       environment:
         - DEBUG=true
+        - DJANGO_ENV=development
         - DATABASE_URL=postgres://postgres:postgres@db:5432/{{ project_name }}
         - SECRET_KEY=not-secret
       restart: on-failure

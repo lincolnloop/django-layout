@@ -100,7 +100,7 @@ cog.out('\n'.join(mdown.split('\n')[1:]))
   * description: Python logging level
   * type: `Literal['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']`
   * default: `INFO`
-* **SECRET_KEY**  _REQUIRED_
+* **SECRET_KEY** _REQUIRED_
   * description: A long random string you keep secret https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#secret-key
   * type: `str`
 * **ENVIRONMENT**

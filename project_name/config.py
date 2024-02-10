@@ -25,7 +25,7 @@ class Config(GoodConf):
         "https://github.com/jacobian/dj-database-url#url-schema",
     )
     DJANGO_ENV: Literal["development", "production"] = Field(
-        default="development",
+        default="production",
         description="Toggle deployment settings for local development or production",
     )
     LOG_LEVEL: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = Field(
