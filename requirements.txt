@@ -40,20 +40,9 @@ packaging==23.2 \
     --hash=sha256:048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5 \
     --hash=sha256:8c491190033a9af7e1d931d0b5dacc2ef47509b34dd0de67ed209b5203fc88c7
     # via gunicorn
-psycopg2==2.9.9 \
-    --hash=sha256:121081ea2e76729acfb0673ff33755e8703d45e926e416cb59bae3a86c6a4981 \
-    --hash=sha256:38a8dcc6856f569068b47de286b472b7c473ac7977243593a288ebce0dc89516 \
-    --hash=sha256:426f9f29bde126913a20a96ff8ce7d73fd8a216cfb323b1f04da402d452853c3 \
-    --hash=sha256:5e0d98cade4f0e0304d7d6f25bbfbc5bd186e07b38eac65379309c4ca3193efa \
-    --hash=sha256:7e2dacf8b009a1c1e843b5213a87f7c544b2b042476ed7755be813eaf4e8347a \
-    --hash=sha256:a7653d00b732afb6fc597e29c50ad28087dcb4fbfb28e86092277a559ae4e693 \
-    --hash=sha256:ade01303ccf7ae12c356a5e10911c9e1c51136003a9a1d92f7aa9d010fb98372 \
-    --hash=sha256:bac58c024c9922c23550af2a581998624d6e02350f4ae9c5f0bc642c633a2d5e \
-    --hash=sha256:c92811b2d4c9b6ea0285942b2e7cac98a59e166d59c588fe5cfe1eda58e72d59 \
-    --hash=sha256:d1454bde93fb1e224166811694d600e746430c006fbb031ea06ecc2ea41bf156 \
-    --hash=sha256:d735786acc7dd25815e89cc4ad529a43af779db2e25aa7c626de864127e5a024 \
-    --hash=sha256:de80739447af31525feddeb8effd640782cf5998e1a4e9192ebdf829717e3913 \
-    --hash=sha256:ff432630e510709564c01dafdbe996cb552e0b9f3f065eb89bdce5bd31fabf4c
+psycopg==3.1.18 \
+    --hash=sha256:31144d3fb4c17d78094d9e579826f047d4af1da6a10427d91dfcfb6ecdf6f12b \
+    --hash=sha256:4d5a0a5a8590906daa58ebd5f3cfc34091377354a1acced269dd10faf55da60e
     # via django-layout (pyproject.toml)
 pydantic==1.10.14 \
     --hash=sha256:08b6ec0917c30861e3fe71a93be1648a2aa4f62f866142ba21670b24444d7fd8 \
@@ -162,6 +151,7 @@ typing-extensions==4.9.0 \
     --hash=sha256:af72aea155e91adfc61c3ae9e0e342dbc0cba726d6cba4b6c72c1f34e47291cd
     # via
     #   dj-database-url
+    #   psycopg
     #   pydantic
 webob==1.8.7 \
     --hash=sha256:73aae30359291c14fa3b956f8b5ca31960e420c28c1bec002547fb04928cf89b \

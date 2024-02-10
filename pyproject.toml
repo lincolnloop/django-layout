@@ -12,10 +12,10 @@ dependencies = [
   "django-alive",
   "django-csp",
   "gunicorn",
+  "psycopg",
   "python-json-logger",
   "whitenoise",
   "wsgi-basic-auth",
-  "psycopg2",
 ]
 
 [project.optional-dependencies]
