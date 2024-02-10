@@ -22,7 +22,7 @@ class Config(GoodConf):
     DATABASE_URL: str = Field(
         default="sqlite:///./sqlite3.db",
         description="A string with the database URL as defined in "
-        "https://github.com/jacobian/dj-database-url#url-schema",
+        "https://github.com/jazzband/dj-database-url#url-schema",
     )
     DJANGO_ENV: Literal["development", "dev", "production"] = Field(
         default="production",
@@ -38,8 +38,8 @@ class Config(GoodConf):
         "https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#secret-key",
     )
     ENVIRONMENT: str = Field(
-        "test",
-        description="Deploy environment",
+        "development",
+        description="Name of deployed environment (e.g. 'staging', 'production')",
     )
     BASIC_AUTH_CREDENTIALS: str = Field(
         default="",

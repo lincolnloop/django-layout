@@ -100,7 +100,7 @@ cog.out('\n'.join(mdown.split('\n')[1:]))
   * type: `list[str]`
   * default: `['*']`
 * **DATABASE_URL**
-  * description: A string with the database URL as defined in https://github.com/jacobian/dj-database-url#url-schema
+  * description: A string with the database URL as defined in https://github.com/jazzband/dj-database-url#url-schema
   * type: `str`
   * default: `sqlite:///./sqlite3.db`
 * **DJANGO_ENV**
@@ -115,9 +115,9 @@ cog.out('\n'.join(mdown.split('\n')[1:]))
   * description: A long random string you keep secret https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#secret-key
   * type: `str`
 * **ENVIRONMENT**
-  * description: Deploy environment
+  * description: Name of deployed environment (e.g. 'staging', 'production')
   * type: `str`
-  * default: `test`
+  * default: `development`
 * **BASIC_AUTH_CREDENTIALS**
   * description: Basic Auth credentials for the site in the format 'username:password'
   * type: `str`
