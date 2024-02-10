@@ -33,6 +33,10 @@ class AppConfig(GoodConf):
         "test",
         description="Deploy environment",
     )
+    BASIC_AUTH_CREDENTIALS: str = Field(
+        default="",
+        description="Basic Auth credentials for the site in the format 'username:password'",
+    )
 
     class Config:
         default_files = ["{{ project_name }}.yml"]

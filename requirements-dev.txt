@@ -270,6 +270,12 @@ typing-extensions==4.9.0 \
     #   django-stubs-ext
     #   mypy
     #   pydantic
+webob==1.8.7 \
+    --hash=sha256:73aae30359291c14fa3b956f8b5ca31960e420c28c1bec002547fb04928cf89b \
+    --hash=sha256:b64ef5141be559cfade448f044fa45c2260351edcb6a8ef6b7e00c7dcef0c323
+    # via
+    #   -c /app/requirements.txt
+    #   wsgi-basic-auth
 wheel==0.42.0 \
     --hash=sha256:177f9c9b0d45c47873b619f5b650346d632cdc35fb5e4d25058e09c9e581433d \
     --hash=sha256:c45be39f7882c9d34243236f2d63cbd58039e360f85d0913425fbd7ceea617a8
@@ -277,6 +283,12 @@ wheel==0.42.0 \
 whitenoise==6.6.0 \
     --hash=sha256:8998f7370973447fac1e8ef6e8ded2c5209a7b1f67c1012866dbcd09681c3251 \
     --hash=sha256:b1f9db9bf67dc183484d760b99f4080185633136a273a03f6436034a41064146
+    # via
+    #   -c /app/requirements.txt
+    #   django-layout (pyproject.toml)
+wsgi-basic-auth==1.1.0 \
+    --hash=sha256:4afe7bafc2c8dae4d4232adca06d3cd49c833565378a3133a53d788cda5c37b3 \
+    --hash=sha256:956e61eaca26c5834bbce0097be5d4aaf19a86df3bc873988764ebf0f8422b66
     # via
     #   -c /app/requirements.txt
     #   django-layout (pyproject.toml)

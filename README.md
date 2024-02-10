@@ -69,3 +69,7 @@ Make sure you have the containers running:
     docker compose up
 
 Access [localhost:8000/{{ project_name }}/admin/](http://localhost:8000/{{ project_name }}/admin/).
+
+## Configuration / Environment Variables
+
+See `{{ project_name }}/config.py` for available configuration/environment variables.

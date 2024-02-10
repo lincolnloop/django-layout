@@ -12,6 +12,7 @@ dependencies = [
   "django-alive",
   "django-csp",
   "whitenoise",
+  "wsgi-basic-auth",
   "psycopg2",
 ]
 
