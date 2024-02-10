@@ -159,9 +159,6 @@ SECURE_REDIRECT_EXEMPT = [r"^-/"]  # django-alive URLs
 CSP_DEFAULT_SRC = ("'self'",)
 
 
-LOGLEVEL = os.getenv("LOGLEVEL", "info").upper()
-
-
 def log_format() -> str:
     """
     Dump all available values into the JSON log output
@@ -207,8 +204,8 @@ LOGGING = {
             "handlers": ["console"],
         },
         # Our application code
-        "{{ testproj }}": {
-            "level": LOGLEVEL,
+        "{{ project_name }}": {
+            "level": config.LOG_LEVEL,
             "handlers": ["console"],
             # Avoid double logging because of root logger
             "propagate": False,

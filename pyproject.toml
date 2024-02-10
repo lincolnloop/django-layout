@@ -20,6 +20,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
+  "cogapp",
   "django-stubs",
   "mypy",
   "pip-tools",

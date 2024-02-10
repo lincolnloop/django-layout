@@ -3,32 +3,30 @@
 
 SHELL=/bin/bash -eu -o pipefail
 
-requirements.txt: pyproject.toml  # Generate requirements.txt (and requirements-dev.txt) from pyproject.toml
+requirements.txt: pyproject.toml  ## Generate requirements.txt (and requirements-dev.txt) from pyproject.toml
 	./bin/lock-requirements.sh
 
 .PHONY: upgrade-requirements
-upgrade-requirements:  # Upgrade all requirements to the latest version
+upgrade-requirements:  ## Upgrade all dependencies in requirements.txt and requirements-dev.txt
 	./bin/lock-requirements.sh --upgrade
 
-{{ project_name }}.yml:
-	./.venv/bin/generate-config > $@
-
-
+README.md: {{ project_name }}/config.py Makefile ## Update dynamic blocks in README.md
+	cog -r README.md
 
 .PHONY: fmt
-fmt:  # Format Python code
+fmt:  ## Format Python code
 	ruff format .
 
 .PHONY: lint
-lint:  # Lint Python code
+lint:  ## Lint Python code
 	ruff check .
 
 .PHONY: fix
-fix:  # Fix linting errors
+fix:  ## Fix linting errors
 	ruff check --fix .
 
 .PHONY: test
-test:  # Run tests
+test:  ## Run tests
 	python manage.py test --parallel
 
 .PHONY: help
