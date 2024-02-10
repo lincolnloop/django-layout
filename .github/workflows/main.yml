@@ -16,7 +16,12 @@ jobs:
       - name: create project
         run: |
           pip install django
-          django-admin startproject --template="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/zipball/$GITHUB_REF_NAME" --extension=py,rst,gitignore,cfg,in,yml,json,dockerignore --name=Makefile,Dockerfile testproj
+          django-admin.py startproject \
+           --template=https://github.com/lincolnloop/django-layout/zipball/main \
+           --extension=py,md,gitignore,yml,json \
+           --name=Makefile,Dockerfile \
+           --exclude=.github \
+           testproj
       - name: mock client build
         run: |
           mkdir -p client/dist
