@@ -1,6 +1,7 @@
 *.pyc
 __pycache__
 .venv
+/.ruff_cache
 *.egg-info
 /{{ project_name }}.yml
 /staticfiles
