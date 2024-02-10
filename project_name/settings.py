@@ -158,6 +158,9 @@ SECURE_REDIRECT_EXEMPT = [r"^-/"]  # django-alive URLs
 # https://django-csp.readthedocs.io/en/latest/configuration.html#configuration-chapter
 CSP_DEFAULT_SRC = ("'self'",)
 
+X_FRAME_OPTIONS = "DENY"
+REFERRER_POLICY = "same-origin"
+
 
 def log_format() -> str:
     """
@@ -220,3 +223,15 @@ with contextlib.suppress(ModuleNotFoundError):
     LOGGING["formatters"]["default"] = {
         "()": "readable_log_formatter.ReadableFormatter",
     }
+
+if config.DJANGO_ENV == "production":
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+
+    # HTTPS only behind a proxy that terminates SSL/TLS
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_PRELOAD = True
