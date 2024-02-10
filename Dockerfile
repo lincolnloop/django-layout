@@ -29,4 +29,8 @@ COPY . ./
 COPY --from=build-node /home/node/app/client/dist ./client/dist
 RUN SECRET_KEY=s python manage.py collectstatic --noinput
 
-CMD python manage.py runserver 0.0.0.0:8000
+EXPOSE 8000
+ENV PORT=8000
+# assumes the server is running behind a reverse proxy (Nginx, AWS ALB, etc.)
+# set the `WEB_CONCURRENCY` environment variable to the number of workers you'd like to run
+CMD gunicorn --access-logfile=- --timeout=10 --bind=0.0.0.0:$PORT --forwarded-allow-ips '*' {{ project_name }}.wsgi:application

@@ -32,6 +32,14 @@ goodconf==3.0.1 \
     --hash=sha256:1ef27441538acae4e5e28e9bf1ee36ebb2fd175c4546a46415977d459608b507 \
     --hash=sha256:e688b799330892d08afddcd1165996fbddb115c463d6ddb9b6ce1a6bfa6c1c02
     # via django-layout (pyproject.toml)
+gunicorn==21.2.0 \
+    --hash=sha256:3213aa5e8c24949e792bcacfc176fef362e7aac80b76c56f6b5122bf350722f0 \
+    --hash=sha256:88ec8bff1d634f98e61b9f65bc4bf3cd918a90806c6f5c48bc5603849ec81033
+    # via django-layout (pyproject.toml)
+packaging==23.2 \
+    --hash=sha256:048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5 \
+    --hash=sha256:8c491190033a9af7e1d931d0b5dacc2ef47509b34dd0de67ed209b5203fc88c7
+    # via gunicorn
 psycopg2==2.9.9 \
     --hash=sha256:121081ea2e76729acfb0673ff33755e8703d45e926e416cb59bae3a86c6a4981 \
     --hash=sha256:38a8dcc6856f569068b47de286b472b7c473ac7977243593a288ebce0dc89516 \

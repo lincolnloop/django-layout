@@ -11,6 +11,7 @@ dependencies = [
   "goodconf[yaml]",
   "django-alive",
   "django-csp",
+  "gunicorn",
   "whitenoise",
   "wsgi-basic-auth",
   "psycopg2",

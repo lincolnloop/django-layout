@@ -28,6 +28,9 @@ services:
       - POSTGRES_PASSWORD=postgres
 
   app:
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - ${PORT:-8000}:8000
     <<: &COMMON
       build:
         context: .
@@ -45,8 +48,6 @@ services:
       - /app/.venv
       - /app/{{ project_name }}.egg-info
       - client:/app/client/dist
-    ports:
-      - ${PORT:-8000}:8000
     depends_on:
       db:
         condition: service_healthy
