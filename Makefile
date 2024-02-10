@@ -19,11 +19,12 @@ install-dev: .venv/bin/activate  # Install Python dependencies
 upgrade-pip:
 	pip install --upgrade pip wheel setuptools pip-tools
 
-requirements.txt: requirements/requirements.in
-	pip-compile --generate-hashes --output-file=$@ requirements/requirements.in
+requirements.txt: pyproject.toml
+	./bin/lock-requirements.sh
 
-requirements/dev.txt: requirements/dev.in requirements.txt
-	pip-compile --generate-hashes --output-file=$@ requirements/dev.in
+.PHONY: upgrade-requirements
+upgrade-requirements:
+	./bin/lock-requirements.sh --upgrade
 
 {{ project_name }}.yml:
 	./.venv/bin/generate-config > $@

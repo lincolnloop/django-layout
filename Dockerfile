@@ -15,7 +15,7 @@ WORKDIR /app
 RUN --mount=type=cache,target=/root/.cache \
     set -ex && \
     python -m venv --prompt . --upgrade-deps /app/.venv && \
-    pip install --disable-pip-version-check --root-user-action=ignore --no-cache-dir --upgrade setuptools wheel
+    /app/.venv/bin/pip install --disable-pip-version-check --root-user-action=ignore --no-cache-dir --upgrade setuptools wheel
 
 ENV LC_ALL=C.UTF-8 LANG=C.UTF-8 \
     PATH=/app/.venv/bin:${PATH}

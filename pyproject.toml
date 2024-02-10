@@ -6,7 +6,13 @@ build-backend = "setuptools.build_meta"
 name = "django-layout"
 version = "4.0"
 dependencies = [
-  "django==5.*",
+  "django==5.0.*",
+  "dj-database-url",
+  "goodconf[yaml]",
+  "django-alive",
+  "django-csp",
+  "whitenoise",
+  "psycopg2",
 ]
 
 [project.optional-dependencies]
