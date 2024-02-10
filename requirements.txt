@@ -93,6 +93,10 @@ pydantic==1.10.14 \
     --hash=sha256:f9f674b5c3bebc2eba401de64f29948ae1e646ba2735f884d1594c5f675d6f2a \
     --hash=sha256:fa7790e94c60f809c95602a26d906eba01a0abee9cc24150e4ce2189352deb1b
     # via goodconf
+python-json-logger==2.0.7 \
+    --hash=sha256:23e7ec02d34237c5aa1e29a070193a4ea87583bb4e7f8fd06d3de8264c4b2e1c \
+    --hash=sha256:f380b826a991ebbe3de4d897aeec42760035ac760345e57b812938dc8b35e2bd
+    # via django-layout (pyproject.toml)
 ruamel-yaml==0.18.6 \
     --hash=sha256:57b53ba33def16c4f3d807c0ccbc00f8a6081827e81ba2491691b76882d0c636 \
     --hash=sha256:8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b

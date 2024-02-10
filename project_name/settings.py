@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 """
 
+import contextlib
+import os
 import re
 from pathlib import Path
 
@@ -155,3 +157,69 @@ SECURE_REDIRECT_EXEMPT = [r"^-/"]  # django-alive URLs
 # CSP
 # https://django-csp.readthedocs.io/en/latest/configuration.html#configuration-chapter
 CSP_DEFAULT_SRC = ("'self'",)
+
+
+LOGLEVEL = os.getenv("LOGLEVEL", "info").upper()
+
+
+def log_format() -> str:
+    """
+    Dump all available values into the JSON log output
+    """
+    keys = (
+        "asctime",
+        "created",
+        "levelname",
+        "levelno",
+        "filename",
+        "funcName",
+        "lineno",
+        "module",
+        "message",
+        "name",
+        "pathname",
+        "process",
+        "processName",
+    )
+    return " ".join([f"%({i:s})" for i in keys])
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "default": {
+            "format": log_format(),
+            "class": "pythonjsonlogger.jsonlogger.JsonFormatter",
+        },
+    },
+    "handlers": {
+        # console logs to stderr
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "default",
+        },
+    },
+    "loggers": {
+        # default for all Python modules not listed below
+        "": {
+            "level": "WARNING",
+            "handlers": ["console"],
+        },
+        # Our application code
+        "{{ testproj }}": {
+            "level": LOGLEVEL,
+            "handlers": ["console"],
+            # Avoid double logging because of root logger
+            "propagate": False,
+        },
+    },
+}
+
+# setup pretty logging for local dev
+with contextlib.suppress(ModuleNotFoundError):
+    import readable_log_formatter  # noqa: F401
+
+    LOGGING["formatters"]["default"] = {
+        "()": "readable_log_formatter.ReadableFormatter",
+    }

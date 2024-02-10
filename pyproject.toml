@@ -12,6 +12,7 @@ dependencies = [
   "django-alive",
   "django-csp",
   "gunicorn",
+  "python-json-logger",
   "whitenoise",
   "wsgi-basic-auth",
   "psycopg2",
