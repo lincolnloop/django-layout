@@ -28,6 +28,17 @@ To use `django-layout`:
          --exclude=.github \
          YOUR_PROJECT_NAME
 
+## Development
+
+To update `README.md` after making changes to the config, run:
+
+```
+find . -type f -name "*.py" -or -name Makefile -or -name README.md | xargs sed -i '' 's/{{ project_name }}/project_name/g'
+docker compose run --rm --no-deps app make README.md
+```
+
+Then use `git add -p README.md` to only commit the changes you want. You can `git stash` the template changes after your commit.
+
 *Note:  The text following this comment block will become the README.md of the new project.*
 
 ------------------------------------------------------------------------
