@@ -20,16 +20,13 @@ RUN --mount=type=cache,target=/root/.cache \
 ENV LC_ALL=C.UTF-8 LANG=C.UTF-8 \
     PATH=/app/.venv/bin:${PATH}
 
-COPY requirements.txt ./
-COPY requirements ./requirements
+ARG PY_REQUIREMENTS_FILE=requirements.txt
+COPY requirements.txt requirements-dev.txt ./
 RUN --mount=type=cache,target=/root/.cache \
-    pip install --disable-pip-version-check --root-user-action=ignore --no-cache-dir -r requirements.txt -r requirements/dev.txt
-COPY setup.cfg setup.py ./
-COPY {{ project_name }}/__init__.py ./{{ project_name }}/
-RUN pip install --no-deps -e .
+    pip install --disable-pip-version-check --root-user-action=ignore --no-cache-dir -r "$PY_REQUIREMENTS_FILE"
 
 COPY . ./
 COPY --from=build-node /home/node/app/client/dist ./client/dist
 RUN SECRET_KEY=s python manage.py collectstatic --noinput
 
-CMD /app/.venv/bin/manage.py runserver 0.0.0.0:8000
+CMD python manage.py runserver 0.0.0.0:8000

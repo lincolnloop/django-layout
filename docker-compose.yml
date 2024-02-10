@@ -32,6 +32,8 @@ services:
       build:
         context: .
         target: build-python
+        args:
+          PY_REQUIREMENTS_FILE: requirements-dev.txt
       environment:
         - DEBUG=true
         - DATABASE_URL=postgres://postgres:postgres@db:5432/{{ project_name }}
