@@ -19,7 +19,7 @@ services:
       - pgdata:/var/lib/postgresql/data/
       - .data/db_dumps:/db_dumps
     healthcheck:
-      test: /usr/bin/pg_isready -d {{project_name}} -U postgres
+      test: pg_isready -d {{ project_name }}
       interval: 5s
       timeout: 10s
       retries: 120
@@ -53,7 +53,7 @@ services:
 
   django-migrate:
     <<: *COMMON
-    command: /app/.venv/bin/manage.py migrate --noinput
+    command: python manage.py migrate --noinput
     volumes:
       - .:/app
       - /app/.venv
