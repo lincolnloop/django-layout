@@ -94,8 +94,8 @@ cog.out('\n'.join(mdown.split('\n')[1:]))
   * default: `sqlite:///./sqlite3.db`
 * **DJANGO_ENV**
   * description: Toggle deployment settings for local development or production
-  * type: `Literal['development', 'production']`
-  * default: `development`
+  * type: `Literal['development', 'dev', 'production']`
+  * default: `production`
 * **LOG_LEVEL**
   * description: Python logging level
   * type: `Literal['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']`
