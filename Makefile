@@ -33,6 +33,6 @@ test:  ## Run tests
 help:
 	@echo -e "Available make commands:"
 	@echo -e ""
-	@echo -e "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sort | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\\x1b[36m\1\\x1b[m:\2/' | column -c2 -t -s :)"
+	@echo "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sort | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\1:\2/' | awk -F: '{ printf "%-20s %s\n", $$1, $$2 }')"
 
 .DEFAULT_GOAL := help

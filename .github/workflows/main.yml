@@ -48,7 +48,7 @@ jobs:
         run: docker compose run --rm app make test
         working-directory: testproj
       - name: verify README.md
-        run: docker compose run --rm app cog --check README.md
+        run: docker compose run --rm --no-deps app cog --check README.md
         working-directory: testproj
       - name: dump docker logs
         run: |

@@ -117,18 +117,18 @@ import subprocess
 cog.out(
     "```shell\n" +
     subprocess.check_output(["make", "help"]).decode() +
-    "```",
+    "```"
 )
 ]]] -->
 ```shell
 Available make commands:
 
-README.md              Update dynamic blocks in README.md
-fix                    Fix linting errors
-fmt                    Format Python code
-lint                   Lint Python code
-requirements.txt       Generate requirements.txt (and requirements-dev.txt) from pyproject.toml
-test                   Run tests
-upgrade-requirements   Upgrade all dependencies in requirements.txt and requirements-dev.txt
+README.md                 Update dynamic blocks in README.md
+fix                       Fix linting errors
+fmt                       Format Python code
+lint                      Lint Python code
+requirements.txt          Generate requirements.txt (and requirements-dev.txt) from pyproject.toml
+test                      Run tests
+upgrade-requirements      Upgrade all dependencies in requirements.txt and requirements-dev.txt
 ```
 <!-- [[[end]]] -->
