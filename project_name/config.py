@@ -24,7 +24,6 @@ class AppConfig(GoodConf):
         "https://github.com/jacobian/dj-database-url#url-schema",
     )
     SECRET_KEY: str = Field(
-        base64.b64encode(os.urandom(60)).decode(),
         initial=lambda: base64.b64encode(os.urandom(60)).decode(),
         description="A long random string you keep secret "
         "https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#secret-key",

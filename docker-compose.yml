@@ -40,6 +40,7 @@ services:
       environment:
         - DEBUG=true
         - DATABASE_URL=postgres://postgres:postgres@db:5432/{{ project_name }}
+        - SECRET_KEY=not-secret
     stdin_open: true
     tty: true
     restart: on-failure
