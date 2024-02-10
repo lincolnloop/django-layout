@@ -19,7 +19,7 @@ services:
       - pgdata:/var/lib/postgresql/data/
       - .data/db_dumps:/db_dumps
     healthcheck:
-      test: /usr/bin/pg_isready
+      test: /usr/bin/pg_isready -d {{project_name}} -U postgres
       interval: 5s
       timeout: 10s
       retries: 120
