@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 """
 
 import contextlib
-import os
 import re
 from pathlib import Path
 

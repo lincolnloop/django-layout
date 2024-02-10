@@ -59,9 +59,9 @@ django-stubs-ext==4.2.7 \
     --hash=sha256:45a5d102417a412e3606e3c358adb4744988a92b7b58ccf3fd64bddd5d04d14c \
     --hash=sha256:519342ac0849cda1559746c9a563f03ff99f636b0ebe7c14b75e816a00dfddc3
     # via django-stubs
-goodconf[yaml]==3.0.1 \
-    --hash=sha256:1ef27441538acae4e5e28e9bf1ee36ebb2fd175c4546a46415977d459608b507 \
-    --hash=sha256:e688b799330892d08afddcd1165996fbddb115c463d6ddb9b6ce1a6bfa6c1c02
+goodconf[yaml]==4.0.0 \
+    --hash=sha256:af3c6dce410821841ed64c9d36f7aa911da55cd4b2a19db84f85923cf5665e88 \
+    --hash=sha256:b194e3e094923c23d59299cb2628d602c6aac792ab7f3a8c8b727b1fbeb31b35
     # via
     #   -c /app/requirements.txt
     #   django-layout (pyproject.toml)
