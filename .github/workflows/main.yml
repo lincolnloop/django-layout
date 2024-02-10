@@ -25,6 +25,7 @@ jobs:
       - name: start services
         run: |
           docker compose up -d
+          sleep 2  # give the service time to start
           # wait for migrations to finish
           docker attach $(docker compose ps -q django-migrate)
         timeout-minutes: 5
