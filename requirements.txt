@@ -28,9 +28,9 @@ django-csp==3.7 \
     --hash=sha256:01443a07723f9a479d498bd7bb63571aaa771e690f64bde515db6cdb76e8041a \
     --hash=sha256:01eda02ad3f10261c74131cdc0b5a6a62b7c7ad4fd017fbefb7a14776e0a9727
     # via django-layout (pyproject.toml)
-goodconf==4.0.0 \
-    --hash=sha256:af3c6dce410821841ed64c9d36f7aa911da55cd4b2a19db84f85923cf5665e88 \
-    --hash=sha256:b194e3e094923c23d59299cb2628d602c6aac792ab7f3a8c8b727b1fbeb31b35
+goodconf==4.0.1 \
+    --hash=sha256:2a617401281258ea9ad2fbeca31bf06251336c7fd89a02d7beb9a4497dec5bba \
+    --hash=sha256:44b38f1c78dd8af054be508b0019798f5e0a21dad0023ee515b9ccbe8afe2535
     # via django-layout (pyproject.toml)
 gunicorn==21.2.0 \
     --hash=sha256:3213aa5e8c24949e792bcacfc176fef362e7aac80b76c56f6b5122bf350722f0 \
