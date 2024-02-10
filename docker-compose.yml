@@ -28,9 +28,6 @@ services:
       - POSTGRES_PASSWORD=postgres
 
   app:
-    command: python manage.py runserver 0.0.0.0:8000
-    ports:
-      - ${PORT:-8000}:8000
     <<: &COMMON
       build:
         context: .
@@ -41,17 +38,20 @@ services:
         - DEBUG=true
         - DATABASE_URL=postgres://postgres:postgres@db:5432/{{ project_name }}
         - SECRET_KEY=not-secret
+      restart: on-failure
+      depends_on:
+        db:
+          condition: service_healthy
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - ${PORT:-8000}:8000
     stdin_open: true
     tty: true
-    restart: on-failure
     volumes:
       - .:/app
       - /app/.venv
       - /app/{{ project_name }}.egg-info
       - client:/app/client/dist
-    depends_on:
-      db:
-        condition: service_healthy
 
   django-migrate:
     <<: *COMMON

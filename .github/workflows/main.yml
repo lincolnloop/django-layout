@@ -25,7 +25,6 @@ jobs:
       - name: start services
         run: |
           docker compose up -d
-          sleep 2  # give the service time to start
           # wait for migrations to finish
           docker attach $(docker compose ps -q django-migrate)
         timeout-minutes: 5
@@ -33,7 +32,7 @@ jobs:
       - name: verify services running
         run: |
           docker ps  # show service status for debugging
-          test $(docker ps -q | wc -l) = "2"
+          test $(docker ps -q | wc -l) = "3"
       - name: verify website running
         run: |
           curl -I --retry 10 --retry-connrefused --fail localhost:8000/testproj-admin/login/
