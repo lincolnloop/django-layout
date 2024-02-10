@@ -21,7 +21,7 @@ To use `django-layout`:
 
 3. run the following command (replace `YOUR_PROJECT_NAME` with your preferred name):
 
-        django-admin.py startproject \
+        django-admin startproject \
          --template=https://github.com/lincolnloop/django-layout/zipball/main \
          --extension=py,md,gitignore,yml,json \
          --name=Makefile,Dockerfile \

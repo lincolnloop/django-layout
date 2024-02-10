@@ -16,7 +16,7 @@ jobs:
       - name: create project
         run: |
           pip install django
-          django-admin.py startproject \
+          django-admin startproject \
            --template=https://github.com/lincolnloop/django-layout/zipball/main \
            --extension=py,md,gitignore,yml,json \
            --name=Makefile,Dockerfile \
