@@ -81,32 +81,32 @@ mdown = Config.generate_markdown()
 cog.out('\n'.join(mdown.split('\n')[1:]))
 ]]] -->
 
-* **DEBUG**  
-  type: `False`  
-  default: `False`  
-* **ALLOWED_HOSTS**  
-  Hosts allowed to serve the site https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#allowed-hosts  
-  type: `False`  
-  default: `['*']`  
-* **DATABASE_URL**  
-  A string with the database URL as defined in https://github.com/jacobian/dj-database-url#url-schema  
-  type: `False`  
-  default: `sqlite:///./sqlite3.db`  
-* **LOG_LEVEL**  
-  Python logging level  
-  type: `False`  
-  default: `INFO`  
-* **SECRET_KEY**  _REQUIRED_  
-  A long random string you keep secret https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#secret-key  
-  type: `False`  
-* **ENVIRONMENT**  
-  Deploy environment  
-  type: `False`  
-  default: `test`  
-* **BASIC_AUTH_CREDENTIALS**  
-  Basic Auth credentials for the site in the format 'username:password'  
-  type: `False`  
-  default: ``  
+* **DEBUG**
+  type: `False`
+  default: `False`
+* **ALLOWED_HOSTS**
+  Hosts allowed to serve the site https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#allowed-hosts
+  type: `False`
+  default: `['*']`
+* **DATABASE_URL**
+  A string with the database URL as defined in https://github.com/jacobian/dj-database-url#url-schema
+  type: `False`
+  default: `sqlite:///./sqlite3.db`
+* **LOG_LEVEL**
+  Python logging level
+  type: `False`
+  default: `INFO`
+* **SECRET_KEY**  _REQUIRED_
+  A long random string you keep secret https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#secret-key
+  type: `False`
+* **ENVIRONMENT**
+  Deploy environment
+  type: `False`
+  default: `test`
+* **BASIC_AUTH_CREDENTIALS**
+  Basic Auth credentials for the site in the format 'username:password'
+  type: `False`
+  default: ``
 <!-- [[[end]]] -->
 
 ## Makefile commands
