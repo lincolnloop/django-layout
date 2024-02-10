@@ -39,6 +39,9 @@ jobs:
       - name: verify client build
         run: |
           curl -I --retry 10 --retry-connrefused --fail localhost:8000/static/index.js
+      - name: run tests
+        run: docker compose run --rm app make test
+        working-directory: testproj
       - name: dump docker logs
         run: |
           set -x
