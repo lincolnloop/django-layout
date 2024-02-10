@@ -13,8 +13,11 @@ https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 import contextlib
 import re
 from pathlib import Path
+from typing import Any
 
 import dj_database_url
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 from .config import config
 
@@ -234,3 +237,21 @@ if config.DJANGO_ENV == "production":
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECURE_HSTS_SECONDS = 31536000
     SECURE_HSTS_PRELOAD = True
+
+
+def _sentry_traces_sampler(ctx: dict[str, Any]) -> float:
+    """Don't capture traces on static files or healthchecks."""
+    path = ctx["wsgi_environ"].get("PATH_INFO", "")
+    is_healthcheck = path.startswith("/-/")
+    is_static = path.startswith("/static/")
+    return 0 if is_static or is_healthcheck else config.SENTRY_TRACES_SAMPLE_RATE
+
+
+if config.SENTRY_DSN:
+    sentry_sdk.init(
+        dsn=config.SENTRY_DSN,
+        integrations=[DjangoIntegration()],
+        environment=config.ENVIRONMENT,
+        send_default_pii=True,
+        traces_sampler=_sentry_traces_sampler,
+    )

@@ -45,6 +45,15 @@ class Config(GoodConf):
         default="",
         description="Basic Auth credentials for the site in the format 'username:password'",
     )
+    SENTRY_DSN: str = Field(
+        default="",
+        description="Sentry DSN to enable error logging",
+    )
+    SENTRY_TRACE_SAMPLE_RATE: float = Field(
+        default=0.25,
+        description="Sentry trace sample rate "
+        "https://docs.sentry.io/product/sentry-basics/concepts/tracing/trace-view/",
+    )
 
     class Config:
         default_files = ["{{ project_name }}.yml"]

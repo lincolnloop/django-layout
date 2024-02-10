@@ -111,6 +111,14 @@ cog.out('\n'.join(mdown.split('\n')[1:]))
   * description: Basic Auth credentials for the site in the format 'username:password'
   * type: `str`
   * default: ``
+* **SENTRY_DSN**
+  * description: Sentry DSN to enable error logging
+  * type: `str`
+  * default: ``
+* **SENTRY_TRACE_SAMPLE_RATE**
+  * description: Sentry trace sample rate https://docs.sentry.io/product/sentry-basics/concepts/tracing/trace-view/
+  * type: `float`
+  * default: `0.25`
 <!-- [[[end]]] -->
 
 ## Makefile commands

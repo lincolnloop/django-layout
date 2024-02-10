@@ -14,6 +14,12 @@ build==1.0.3 \
     --hash=sha256:538aab1b64f9828977f84bc63ae570b060a8ed1be419e7870b8b4fc5e6ea553b \
     --hash=sha256:589bf99a67df7c9cf07ec0ac0e5e2ea5d4b37ac63301c4986d1acb126aa83f8f
     # via pip-tools
+certifi==2024.2.2 \
+    --hash=sha256:0569859f95fc761b18b45ef421b1290a0f65f147e92a1e5eb3e635f9a5e4e66f \
+    --hash=sha256:dc383c07b76109f368f6106eee2b593b04a011ea4d55f652c6ca24a754d1cdd1
+    # via
+    #   -c /app/requirements.txt
+    #   sentry-sdk
 click==8.1.7 \
     --hash=sha256:ae74fb96c20a0277a1d615f1e4d73c8414f5a98db8b799a7931d1582f3390c28 \
     --hash=sha256:ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de
@@ -254,6 +260,12 @@ ruff==0.2.1 \
     --hash=sha256:f3ef052283da7dec1987bba8d8733051c2325654641dfe5877a4022108098683 \
     --hash=sha256:fbd2288890b88e8aab4499e55148805b58ec711053588cc2f0196a44f6e3d855
     # via django-layout (pyproject.toml)
+sentry-sdk==1.40.3 \
+    --hash=sha256:3c2b027979bb400cd65a47970e64f8cef8acda86b288a27f42a98692505086cd \
+    --hash=sha256:73383f28311ae55602bb6cc3b013830811135ba5521e41333a6e68f269413502
+    # via
+    #   -c /app/requirements.txt
+    #   django-layout (pyproject.toml)
 sqlparse==0.4.4 \
     --hash=sha256:5430a4fe2ac7d0f93e66f1efc6e1338a41884b7ddf2a350cedd20ccc4d9d28f3 \
     --hash=sha256:d446183e84b8349fa3061f0fe7f06ca94ba65b426946ffebe6e3e8295332420c
@@ -279,6 +291,12 @@ typing-extensions==4.9.0 \
     #   mypy
     #   psycopg
     #   pydantic
+urllib3==2.2.0 \
+    --hash=sha256:051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20 \
+    --hash=sha256:ce3711610ddce217e6d113a2732fafad960a03fd0318c91faa79481e35c11224
+    # via
+    #   -c /app/requirements.txt
+    #   sentry-sdk
 webob==1.8.7 \
     --hash=sha256:73aae30359291c14fa3b956f8b5ca31960e420c28c1bec002547fb04928cf89b \
     --hash=sha256:b64ef5141be559cfade448f044fa45c2260351edcb6a8ef6b7e00c7dcef0c323
