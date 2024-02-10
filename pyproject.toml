@@ -30,6 +30,12 @@ dev = [
 packages = { "find" = { } }
 include-package-data = true
 
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "{{ project_name }}.settings"
+
 [tool.ruff]
 target-version = "py312"
 exclude = ["migrations"]
