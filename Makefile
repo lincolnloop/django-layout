@@ -3,35 +3,33 @@
 
 SHELL=/bin/bash -eu -o pipefail
 
-.venv/bin/activate:
-	python3.9 -m venv --prompt $(shell basename $(shell pwd)) .venv
-
-.PHONY: install
-install: .venv/bin/activate  # Install Python dependencies
-	./.venv/bin/pip install -r requirements.txt
-	./.venv/bin/pip install -e .
-
-.PHONY: install-dev
-install-dev: .venv/bin/activate  # Install Python dependencies
-	./.venv/bin/pip install -r requirements/dev.txt
-	./.venv/bin/pip install -e .
-
-upgrade-pip:
-	pip install --upgrade pip wheel setuptools pip-tools
-
-requirements.txt: pyproject.toml
+requirements.txt: pyproject.toml  # Generate requirements.txt (and requirements-dev.txt) from pyproject.toml
 	./bin/lock-requirements.sh
 
 .PHONY: upgrade-requirements
-upgrade-requirements:
+upgrade-requirements:  # Upgrade all requirements to the latest version
 	./bin/lock-requirements.sh --upgrade
 
 {{ project_name }}.yml:
 	./.venv/bin/generate-config > $@
 
+
+
 .PHONY: fmt
-fmt:
+fmt:  # Format Python code
 	ruff format .
+
+.PHONY: lint
+lint:  # Lint Python code
+	ruff check .
+
+.PHONY: fix
+fix:  # Fix linting errors
+	ruff check --fix .
+
+.PHONY: test
+test:  # Run tests
+	python manage.py test --parallel
 
 .PHONY: help
 help:

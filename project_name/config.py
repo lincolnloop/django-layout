@@ -1,6 +1,5 @@
 import base64
 import os
-from typing import List
 from pathlib import Path
 
 from goodconf import Field, GoodConf
@@ -14,7 +13,7 @@ class AppConfig(GoodConf):
     """Configuration for {{ project_name }}"""
 
     DEBUG: bool = False
-    ALLOWED_HOSTS: List[str] = Field(
+    ALLOWED_HOSTS: list[str] = Field(
         default=["*"],
         description="Hosts allowed to serve the site "
         "https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#allowed-hosts",
@@ -40,7 +39,3 @@ class AppConfig(GoodConf):
 
 
 config = AppConfig()
-
-
-def generate_config():
-    print(AppConfig.generate_yaml(DEBUG=True))

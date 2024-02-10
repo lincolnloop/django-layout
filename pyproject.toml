@@ -29,8 +29,10 @@ packages = { "find" = { } }
 include-package-data = true
 
 [tool.ruff]
-target-version = "py12"
+target-version = "py312"
 exclude = ["migrations"]
+
+[tool.ruff.lint]
 select = ["ALL"]
 ignore = [
   "ANN101",   # Missing Type Annotation for "self"
@@ -38,6 +40,7 @@ ignore = [
   "ARG001",   # Unused function argument (request, ...)
   "ARG002",   # Unused method argument (*args, **kwargs)
   "D",        # Missing or badly formatted docstrings
+  "E501",     # Let the formatter handle long lines
   "FBT",      # Flake Boolean Trap (don't use arg=True in functions)
   "RUF012",   # Mutable class attributes https://github.com/astral-sh/ruff/issues/5243
 
@@ -45,7 +48,7 @@ ignore = [
   "ISC001",   # (ruff format) Checks for implicitly concatenated strings on a single line
 ]
 
-[tool.ruff.extend-per-file-ignores]
+[tool.ruff.lint.extend-per-file-ignores]
 # Also ignore `E402` in all `__init__.py` files.
 "test_*.py" = [
   "S101",     # S101 Use of `assert` detected

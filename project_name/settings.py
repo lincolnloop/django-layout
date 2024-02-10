@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 """
 
+import re
 from pathlib import Path
 
 import dj_database_url
@@ -137,7 +138,7 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Match filename with 12 hex digits before the extension
-WHITENOISE_IMMUTABLE_FILE_TEST = lambda path, url: re.match(  # noqa: E731
+WHITENOISE_IMMUTABLE_FILE_TEST = lambda _, url: re.match(  # noqa: E731
     r"^.+\.[0-9a-f]{12}\..+$", url
 )
 
