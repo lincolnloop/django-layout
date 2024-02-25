@@ -262,9 +262,9 @@ ruff==0.2.2 \
     --hash=sha256:ecd46e3106850a5c26aee114e562c329f9a1fbe9e4821b008c4404f64ff9ce73 \
     --hash=sha256:f63d96494eeec2fc70d909393bcd76c69f35334cdbd9e20d089fb3f0640216ca
     # via django-layout (pyproject.toml)
-sentry-sdk==1.40.4 \
-    --hash=sha256:657abae98b0050a0316f0873d7149f951574ae6212f71d2e3a1c4c88f62d6456 \
-    --hash=sha256:ac5cf56bb897ec47135d239ddeedf7c1c12d406fb031a4c0caa07399ed014d7e
+sentry-sdk==1.40.5 \
+    --hash=sha256:d188b407c9bacbe2a50a824e1f8fb99ee1aeb309133310488c570cb6d7056643 \
+    --hash=sha256:d2dca2392cc5c9a2cc9bb874dd7978ebb759682fe4fe889ee7e970ee8dd1c61e
     # via
     #   -c /home/runner/work/django-layout/django-layout/requirements.txt
     #   django-layout (pyproject.toml)
