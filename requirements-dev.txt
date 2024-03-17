@@ -110,9 +110,9 @@ mypy-extensions==1.0.0 \
     --hash=sha256:4392f6c0eb8a5668a69e23d168ffa70f0be9ccfd32b5cc2d26a34ae5b844552d \
     --hash=sha256:75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782
     # via mypy
-packaging==23.2 \
-    --hash=sha256:048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5 \
-    --hash=sha256:8c491190033a9af7e1d931d0b5dacc2ef47509b34dd0de67ed209b5203fc88c7
+packaging==24.0 \
+    --hash=sha256:2ddfb553fdf02fb784c234c7ba6ccc288296ceabec964ad2eae3777778130bc5 \
+    --hash=sha256:eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9
     # via
     #   -c /home/runner/work/django-layout/django-layout/requirements.txt
     #   build
@@ -243,28 +243,28 @@ ruamel-yaml-clib==0.2.8 \
     # via
     #   -c /home/runner/work/django-layout/django-layout/requirements.txt
     #   ruamel-yaml
-ruff==0.3.2 \
-    --hash=sha256:0ac06a3759c3ab9ef86bbeca665d31ad3aa9a4b1c17684aadb7e61c10baa0df4 \
-    --hash=sha256:0c1bdd9920cab5707c26c8b3bf33a064a4ca7842d91a99ec0634fec68f9f4037 \
-    --hash=sha256:1231eacd4510f73222940727ac927bc5d07667a86b0cbe822024dd00343e77e9 \
-    --hash=sha256:2c6d613b19e9a8021be2ee1d0e27710208d1603b56f47203d0abbde906929a9b \
-    --hash=sha256:5f65103b1d76e0d600cabd577b04179ff592064eaa451a70a81085930e907d0b \
-    --hash=sha256:77f2612752e25f730da7421ca5e3147b213dca4f9a0f7e0b534e9562c5441f01 \
-    --hash=sha256:967978ac2d4506255e2f52afe70dda023fc602b283e97685c8447d036863a302 \
-    --hash=sha256:9966b964b2dd1107797be9ca7195002b874424d1d5472097701ae8f43eadef5d \
-    --hash=sha256:9bd640a8f7dd07a0b6901fcebccedadeb1a705a50350fb86b4003b805c81385a \
-    --hash=sha256:b74c3de9103bd35df2bb05d8b2899bf2dbe4efda6474ea9681280648ec4d237d \
-    --hash=sha256:b83d17ff166aa0659d1e1deaf9f2f14cbe387293a906de09bc4860717eb2e2da \
-    --hash=sha256:bb875c6cc87b3703aeda85f01c9aebdce3d217aeaca3c2e52e38077383f7268a \
-    --hash=sha256:be75e468a6a86426430373d81c041b7605137a28f7014a72d2fc749e47f572aa \
-    --hash=sha256:c8439338a6303585d27b66b4626cbde89bb3e50fa3cae86ce52c1db7449330a7 \
-    --hash=sha256:de8b480d8379620cbb5ea466a9e53bb467d2fb07c7eca54a4aa8576483c35d36 \
-    --hash=sha256:f380be9fc15a99765c9cf316b40b9da1f6ad2ab9639e551703e581a5e6da6745 \
-    --hash=sha256:fa78ec9418eb1ca3db392811df3376b46471ae93792a81af2d1cbb0e5dcb5142
+ruff==0.3.3 \
+    --hash=sha256:0171aab5fecdc54383993389710a3d1227f2da124d76a2784a7098e818f92d61 \
+    --hash=sha256:0da458989ce0159555ef224d5b7c24d3d2e4bf4c300b85467b08c3261c6bc6a8 \
+    --hash=sha256:1eca7ff7a47043cf6ce5c7f45f603b09121a7cc047447744b029d1b719278eb5 \
+    --hash=sha256:2700a804d5336bcffe063fd789ca2c7b02b552d2e323a336700abb8ae9e6a3f8 \
+    --hash=sha256:352e95ead6964974b234e16ba8a66dad102ec7bf8ac064a23f95371d8b198aab \
+    --hash=sha256:38671be06f57a2f8aba957d9f701ea889aa5736be806f18c0cd03d6ff0cbca8d \
+    --hash=sha256:45817af234605525cdf6317005923bf532514e1ea3d9270acf61ca2440691376 \
+    --hash=sha256:5a6cbf216b69c7090f0fe4669501a27326c34e119068c1494f35aaf4cc683778 \
+    --hash=sha256:79bca3a03a759cc773fca69e0bdeac8abd1c13c31b798d5bb3c9da4a03144a9f \
+    --hash=sha256:8d6ab88c81c4040a817aa432484e838aaddf8bfd7ca70e4e615482757acb64f8 \
+    --hash=sha256:973a0e388b7bc2e9148c7f9be8b8c6ae7471b9be37e1cc732f8f44a6f6d7720d \
+    --hash=sha256:b24c19e8598916d9c6f5a5437671f55ee93c212a2c4c569605dc3842b6820386 \
+    --hash=sha256:be90bcae57c24d9f9d023b12d627e958eb55f595428bafcb7fec0791ad25ddfc \
+    --hash=sha256:cfa60d23269d6e2031129b053fdb4e5a7b0637fc6c9c0586737b962b2f834493 \
+    --hash=sha256:e7d3f6762217c1da954de24b4a1a70515630d29f71e268ec5000afe81377642d \
+    --hash=sha256:f2831ec6a580a97f1ea82ea1eda0401c3cdf512cf2045fa3c85e8ef109e87de0 \
+    --hash=sha256:fd66469f1a18fdb9d32e22b79f486223052ddf057dc56dea0caaf1a47bdfaf4e
     # via django-layout (pyproject.toml)
-sentry-sdk==1.41.0 \
-    --hash=sha256:4f2d6c43c07925d8cd10dfbd0970ea7cb784f70e79523cca9dbcd72df38e5a46 \
-    --hash=sha256:be4f8f4b29a80b6a3b71f0f31487beb9e296391da20af8504498a328befed53f
+sentry-sdk==1.42.0 \
+    --hash=sha256:4a8364b8f7edbf47f95f7163e48334c96100d9c098f0ae6606e2e18183c223e6 \
+    --hash=sha256:a654ee7e497a3f5f6368b36d4f04baeab1fe92b3105f7f6965d6ef0de35a9ba4
     # via
     #   -c /home/runner/work/django-layout/django-layout/requirements.txt
     #   django-layout (pyproject.toml)
@@ -278,9 +278,9 @@ types-pytz==2024.1.0.20240203 \
     --hash=sha256:9679eef0365db3af91ef7722c199dbb75ee5c1b67e3c4dd7bfbeb1b8a71c21a3 \
     --hash=sha256:c93751ee20dfc6e054a0148f8f5227b9a00b79c90a4d3c9f464711a73179c89e
     # via django-stubs
-types-pyyaml==6.0.12.12 \
-    --hash=sha256:334373d392fde0fdf95af5c3f1661885fa10c52167b14593eb856289e1855062 \
-    --hash=sha256:c05bc6c158facb0676674b7f11fe3960db4f389718e19e62bd2b84d6205cfd24
+types-pyyaml==6.0.12.20240311 \
+    --hash=sha256:a9e0f0f88dc835739b0c1ca51ee90d04ca2a897a71af79de9aec5f38cb0a5342 \
+    --hash=sha256:b845b06a1c7e54b8e5b4c683043de0d9caf205e7434b3edc678ff2411979b8f6
     # via django-stubs
 typing-extensions==4.10.0 \
     --hash=sha256:69b1a937c3a517342112fb4c6df7e72fc39a38e7891a5730ed4985b5214b5475 \
@@ -305,9 +305,9 @@ webob==1.8.7 \
     # via
     #   -c /home/runner/work/django-layout/django-layout/requirements.txt
     #   wsgi-basic-auth
-wheel==0.42.0 \
-    --hash=sha256:177f9c9b0d45c47873b619f5b650346d632cdc35fb5e4d25058e09c9e581433d \
-    --hash=sha256:c45be39f7882c9d34243236f2d63cbd58039e360f85d0913425fbd7ceea617a8
+wheel==0.43.0 \
+    --hash=sha256:465ef92c69fa5c5da2d1cf8ac40559a8c940886afcef87dcf14b9470862f1d85 \
+    --hash=sha256:55c570405f142630c6b9f72fe09d9b67cf1477fcf543ae5b8dcb1f5b7377da81
     # via pip-tools
 whitenoise==6.6.0 \
     --hash=sha256:8998f7370973447fac1e8ef6e8ded2c5209a7b1f67c1012866dbcd09681c3251 \
