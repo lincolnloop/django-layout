@@ -15,9 +15,9 @@ build==1.2.1 \
     --hash=sha256:526263f4870c26f26c433545579475377b2b7588b6f1eac76a001e873ae3e19d \
     --hash=sha256:75e10f767a433d9a86e50d83f418e83efc18ede923ee5ff7df93b6cb0306c5d4
     # via pip-tools
-certifi==2024.2.2 \
-    --hash=sha256:0569859f95fc761b18b45ef421b1290a0f65f147e92a1e5eb3e635f9a5e4e66f \
-    --hash=sha256:dc383c07b76109f368f6106eee2b593b04a011ea4d55f652c6ca24a754d1cdd1
+certifi==2024.6.2 \
+    --hash=sha256:3cd43f1c6fa7dedc5899d69d3ad0398fd018ad1a17fba83ddaf78aa46c747516 \
+    --hash=sha256:ddc6c8ce995e6987e7faf5e3f1b02b302836a0e5d98ece18392cb1a36c72ad56
     # via
     #   -c /home/runner/work/django-layout/django-layout/requirements.txt
     #   sentry-sdk
@@ -29,9 +29,9 @@ cogapp==3.4.1 \
     --hash=sha256:1daba7b6c8bb23b733c64833de7aa3a42476c05afba19cff937e1b522216859d \
     --hash=sha256:a806d5db9e318a1a2d3fce988008179168e7db13e5e55b19b79763f9bb9d2982
     # via django-layout (pyproject.toml)
-dj-database-url==2.1.0 \
-    --hash=sha256:04bc34b248d4c21aaa13e4ab419ae6575ef5f10f3df735ce7da97722caa356e0 \
-    --hash=sha256:f2042cefe1086e539c9da39fad5ad7f61173bf79665e69bf7e4de55fa88b135f
+dj-database-url==2.2.0 \
+    --hash=sha256:3e792567b0aa9a4884860af05fe2aa4968071ad351e033b6db632f97ac6db9de \
+    --hash=sha256:9f9b05058ddf888f1e6f840048b8d705ff9395e3b52a07165daa3d8b9360551b
     # via
     #   -c /home/runner/work/django-layout/django-layout/requirements.txt
     #   django-layout (pyproject.toml)
@@ -58,13 +58,13 @@ django-csp==3.8 \
     # via
     #   -c /home/runner/work/django-layout/django-layout/requirements.txt
     #   django-layout (pyproject.toml)
-django-stubs==5.0.0 \
-    --hash=sha256:084484cbe16a6d388e80ec687e46f529d67a232f3befaf55c936b3b476be289d \
-    --hash=sha256:b8a792bee526d6cab31e197cb414ee7fa218abd931a50948c66a80b3a2548621
+django-stubs==5.0.2 \
+    --hash=sha256:236bc5606e5607cb968f92b648471f9edaa461a774bc013bf9e6bff8730f6bdf \
+    --hash=sha256:cb0c506cb5c54c64612e4a2ee8d6b913c6178560ec168009fe847c09747c304b
     # via django-layout (pyproject.toml)
-django-stubs-ext==5.0.0 \
-    --hash=sha256:5bacfbb498a206d5938454222b843d81da79ea8b6fcd1a59003f529e775bc115 \
-    --hash=sha256:8e1334fdf0c8bff87e25d593b33d4247487338aaed943037826244ff788b56a8
+django-stubs-ext==5.0.2 \
+    --hash=sha256:409c62585d7f996cef5c760e6e27ea3ff29f961c943747e67519c837422cad32 \
+    --hash=sha256:8d8efec5a86241266bec94a528fe21258ad90d78c67307f3ae5f36e81de97f12
     # via django-stubs
 goodconf[yaml]==4.0.2 \
     --hash=sha256:29e212a1b44cbe99616cc5aa2c90309414f8eb8b7c5cde744437f02a446de5e3 \
@@ -244,24 +244,24 @@ ruamel-yaml-clib==0.2.8 \
     # via
     #   -c /home/runner/work/django-layout/django-layout/requirements.txt
     #   ruamel-yaml
-ruff==0.4.5 \
-    --hash=sha256:1169e47e9c4136c997f08f9857ae889d614c5035d87d38fda9b44b4338909cdf \
-    --hash=sha256:25f483ad9d50b00e7fd577f6d0305aa18494c6af139bce7319c68a17180087f4 \
-    --hash=sha256:286eabd47e7d4d521d199cab84deca135557e6d1e0f0d01c29e757c3cb151b54 \
-    --hash=sha256:441dab55c568e38d02bbda68a926a3d0b54f5510095c9de7f95e47a39e0168aa \
-    --hash=sha256:63fde3bf6f3ad4e990357af1d30e8ba2730860a954ea9282c95fc0846f5f64af \
-    --hash=sha256:6e1b139b45e2911419044237d90b60e472f57285950e1492c757dfc88259bb06 \
-    --hash=sha256:755ac9ac2598a941512fc36a9070a13c88d72ff874a9781493eb237ab02d75df \
-    --hash=sha256:75a426506a183d9201e7e5664de3f6b414ad3850d7625764106f7b6d0486f0a1 \
-    --hash=sha256:78e3ba4620dee27f76bbcad97067766026c918ba0f2d035c2fc25cbdd04d9c97 \
-    --hash=sha256:84dd157474e16e3a82745d2afa1016c17d27cb5d52b12e3d45d418bcc6d49264 \
-    --hash=sha256:8f58e615dec58b1a6b291769b559e12fdffb53cc4187160a2fc83250eaf54e96 \
-    --hash=sha256:9d15de3425f53161b3f5a5658d4522e4eee5ea002bf2ac7aa380743dd9ad5fba \
-    --hash=sha256:a6f29a8221d2e3d85ff0c7b4371c0e37b39c87732c969b4d90f3dad2e721c5b1 \
-    --hash=sha256:aed8166c18b1a169a5d3ec28a49b43340949e400665555b51ee06f22813ef062 \
-    --hash=sha256:b0b03c619d2b4350b4a27e34fd2ac64d0dabe1afbf43de57d0f9d8a05ecffa45 \
-    --hash=sha256:d6ef817124d72b54cc923f3444828ba24fa45c3164bc9e8f1813db2f3d3a8a11 \
-    --hash=sha256:f4b02a65985be2b34b170025a8b92449088ce61e33e69956ce4d316c0fe7cce0
+ruff==0.4.7 \
+    --hash=sha256:07fc80bbb61e42b3b23b10fda6a2a0f5a067f810180a3760c5ef1b456c21b9db \
+    --hash=sha256:10f2204b9a613988e3484194c2c9e96a22079206b22b787605c255f130db5ed7 \
+    --hash=sha256:10f973d521d910e5f9c72ab27e409e839089f955be8a4c8826601a6323a89753 \
+    --hash=sha256:13a1768b0691619822ae6d446132dbdfd568b700ecd3652b20d4e8bc1e498f78 \
+    --hash=sha256:2331d2b051dc77a289a653fcc6a42cce357087c5975738157cd966590b18b5e1 \
+    --hash=sha256:50e9651578b629baec3d1513b2534de0ac7ed7753e1382272b8d609997e27e83 \
+    --hash=sha256:59c3d110970001dfa494bcd95478e62286c751126dfb15c3c46e7915fc49694f \
+    --hash=sha256:769e5a51df61e07e887b81e6f039e7ed3573316ab7dd9f635c5afaa310e4030e \
+    --hash=sha256:8874a9df7766cb956b218a0a239e0a5d23d9e843e4da1e113ae1d27ee420877a \
+    --hash=sha256:9e3ab684ad403a9ed1226894c32c3ab9c2e0718440f6f50c7c5829932bc9e054 \
+    --hash=sha256:a7c0083febdec17571455903b184a10026603a1de078428ba155e7ce9358c5f6 \
+    --hash=sha256:ad1b20e66a44057c326168437d680a2166c177c939346b19c0d6b08a62a37589 \
+    --hash=sha256:b9de9a6e49f7d529decd09381c0860c3f82fa0b0ea00ea78409b785d2308a567 \
+    --hash=sha256:cbf5d818553add7511c38b05532d94a407f499d1a76ebb0cad0374e32bc67202 \
+    --hash=sha256:e089371c67892a73b6bb1525608e89a2aca1b77b5440acf7a71dda5dac958f9e \
+    --hash=sha256:fa4dafe3fe66d90e2e2b63fa1591dd6e3f090ca2128daa0be33db894e6c18648 \
+    --hash=sha256:fa9773c6c00f4958f73b317bc0fd125295110c3776089f6ef318f4b775f0abe4
     # via django-layout (pyproject.toml)
 sentry-sdk==2.3.1 \
     --hash=sha256:139a71a19f5e9eb5d3623942491ce03cf8ebc14ea2e39ba3e6fe79560d8a5b1f \
@@ -279,9 +279,9 @@ types-pyyaml==6.0.12.20240311 \
     --hash=sha256:a9e0f0f88dc835739b0c1ca51ee90d04ca2a897a71af79de9aec5f38cb0a5342 \
     --hash=sha256:b845b06a1c7e54b8e5b4c683043de0d9caf205e7434b3edc678ff2411979b8f6
     # via django-stubs
-typing-extensions==4.12.0 \
-    --hash=sha256:8cbcdc8606ebcb0d95453ad7dc5065e6237b6aa230a31e81d0f440c30fed5fd8 \
-    --hash=sha256:b349c66bea9016ac22978d800cfff206d5f9816951f12a7d0ec5578b0a819594
+typing-extensions==4.12.1 \
+    --hash=sha256:6024b58b69089e5a89c347397254e35f1bf02a907728ec7fee9bf0fe837d203a \
+    --hash=sha256:915f5e35ff76f56588223f15fdd5938f9a1cf9195c0de25130c627e4d597f6d1
     # via
     #   -c /home/runner/work/django-layout/django-layout/requirements.txt
     #   dj-database-url
