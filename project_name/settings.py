@@ -241,7 +241,8 @@ if config.DJANGO_ENV == "production":
 
 def _sentry_traces_sampler(ctx: dict[str, Any]) -> float:
     """Don't capture traces on static files or healthchecks."""
-    path = ctx["wsgi_environ"].get("PATH_INFO", "")
+    wsgi_environ = ctx.get("wsgi_environ", {})
+    path = wsgi_environ.get("PATH_INFO", "")
     is_healthcheck = path.startswith("/-/")
     is_static = path.startswith("/static/")
     return 0 if is_static or is_healthcheck else config.SENTRY_TRACES_SAMPLE_RATE
