@@ -55,8 +55,7 @@ class Config(GoodConf):
         "https://docs.sentry.io/product/sentry-basics/concepts/tracing/trace-view/",
     )
 
-    class Config:
-        default_files = ["{{ project_name }}.yml"]
+    model_config = {"default_files": ["{{ project_name }}.yml"]}
 
 
 config = Config()
