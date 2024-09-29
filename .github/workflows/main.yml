@@ -40,10 +40,10 @@ jobs:
           test $(docker ps -q | wc -l) = "3"
       - name: verify website running
         run: |
-          curl -I --retry 10 --retry-connrefused --fail localhost:8000/testproj-admin/login/
+          curl -I --retry 10 --retry-all-errors --fail localhost:8000/testproj-admin/login/
       - name: verify client build
         run: |
-          curl -I --retry 10 --retry-connrefused --fail localhost:8000/static/index.js
+          curl -I --retry 10 --retry-all-errors --fail localhost:8000/static/index.js
       - name: run tests
         run: docker compose run --rm app make test
         working-directory: testproj
