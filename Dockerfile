@@ -1,5 +1,5 @@
 # STAGE 1: BUILD NODE
-FROM node:20-alpine as build-node
+FROM node:20-alpine AS build-node
 
 WORKDIR /home/node/app/client
 COPY client/package-lock.json client/package.json ./
@@ -10,7 +10,7 @@ RUN npm run build
 
 
 # STAGE 2: BUILD PYTHON
-FROM python:3.12-bullseye as build-python
+FROM python:3.12-bullseye AS build-python
 WORKDIR /app
 RUN --mount=type=cache,target=/root/.cache \
     set -ex && \
