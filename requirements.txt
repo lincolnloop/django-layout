@@ -36,9 +36,9 @@ django-csp==3.8 \
     --hash=sha256:19b2978b03fcd73517d7d67acbc04fbbcaec0facc3e83baa502965892d1e0719 \
     --hash=sha256:ef0f1a9f7d8da68ae6e169c02e9ac661c0ecf04db70e0d1d85640512a68471c0
     # via django-layout (pyproject.toml)
-goodconf==5.0.0 \
-    --hash=sha256:630822364298b83ac70cd195baff7a274394fa34b34dc7c3e4afec2cbb09b3bd \
-    --hash=sha256:96f9a50267622426c90fb0900b5541671ae6fa2a4ee31213ac0a809765d0dd02
+goodconf==6.0.0 \
+    --hash=sha256:8fdb5a45979ba605e268a56beb24cabd429e440c017a0dbc944e214d670331cd \
+    --hash=sha256:efdbf719145a5ca2a2fa4ee20f9c825acad26cdf57a6e43c95811771f9ce9739
     # via django-layout (pyproject.toml)
 gunicorn==23.0.0 \
     --hash=sha256:ec400d38950de4dfd418cff8328b2c8faed0edb0d517d3394e457c317908ca4d \
@@ -217,9 +217,9 @@ ruamel-yaml-clib==0.2.8 \
     --hash=sha256:f481f16baec5290e45aebdc2a5168ebc6d35189ae6fea7a58787613a25f6e875 \
     --hash=sha256:fff3573c2db359f091e1589c3d7c5fc2f86f5bdb6f24252c2d8e539d4e45f412
     # via ruamel-yaml
-sentry-sdk==2.15.0 \
-    --hash=sha256:8fb0d1a4e1a640172f31502e4503543765a1fe8a9209779134a4ac52d4677303 \
-    --hash=sha256:a599e7d3400787d6f43327b973e55a087b931ba2c592a7a7afa691f8eb5e75e2
+sentry-sdk==2.16.0 \
+    --hash=sha256:49139c31ebcd398f4f6396b18910610a0c1602f6e67083240c33019d1f6aa30c \
+    --hash=sha256:90f733b32e15dfc1999e6b7aca67a38688a567329de4d6e184154a73f96c6892
     # via django-layout (pyproject.toml)
 sqlparse==0.5.1 \
     --hash=sha256:773dcbf9a5ab44a090f3441e2180efe2560220203dc2f8c0b0fa141e18b505e4 \

@@ -17,9 +17,9 @@ asgiref==3.8.1 \
     #   -c /home/runner/work/django-layout/django-layout/requirements.txt
     #   django
     #   django-stubs
-build==1.2.2 \
-    --hash=sha256:119b2fb462adef986483438377a13b2f42064a2a3a4161f24a0cca698a07ac8c \
-    --hash=sha256:277ccc71619d98afdd841a0e96ac9fe1593b823af481d3b0cea748e8894e0613
+build==1.2.2.post1 \
+    --hash=sha256:1d61c0887fa860c01971625baae8bdd338e517b836a2f70dd1f7aa3a6b2fc5b5 \
+    --hash=sha256:b36993e92ca9375a219c99e606a122ff365a760a2d4bba0caa09bd5278b608b7
     # via pip-tools
 certifi==2024.8.30 \
     --hash=sha256:922820b53db7a7257ffbda3f597266d435245903d80737e34f8a45ff3e3230d8 \
@@ -72,9 +72,9 @@ django-stubs-ext==5.1.0 \
     --hash=sha256:a455fc222c90b30b29ad8c53319559f5b54a99b4197205ddbb385aede03b395d \
     --hash=sha256:ed7d51c0b731651879fc75f331fb0806d98b67bfab464e96e2724db6b46ef926
     # via django-stubs
-goodconf[yaml]==5.0.0 \
-    --hash=sha256:630822364298b83ac70cd195baff7a274394fa34b34dc7c3e4afec2cbb09b3bd \
-    --hash=sha256:96f9a50267622426c90fb0900b5541671ae6fa2a4ee31213ac0a809765d0dd02
+goodconf[yaml]==6.0.0 \
+    --hash=sha256:8fdb5a45979ba605e268a56beb24cabd429e440c017a0dbc944e214d670331cd \
+    --hash=sha256:efdbf719145a5ca2a2fa4ee20f9c825acad26cdf57a6e43c95811771f9ce9739
     # via
     #   -c /home/runner/work/django-layout/django-layout/requirements.txt
     #   django-layout (pyproject.toml)
@@ -342,9 +342,9 @@ ruff==0.6.9 \
     --hash=sha256:eae02b700763e3847595b9d2891488989cac00214da7f845f4bcf2989007d577 \
     --hash=sha256:eb61ec9bdb2506cffd492e05ac40e5bc6284873aceb605503d8494180d6fc84d
     # via django-layout (pyproject.toml)
-sentry-sdk==2.15.0 \
-    --hash=sha256:8fb0d1a4e1a640172f31502e4503543765a1fe8a9209779134a4ac52d4677303 \
-    --hash=sha256:a599e7d3400787d6f43327b973e55a087b931ba2c592a7a7afa691f8eb5e75e2
+sentry-sdk==2.16.0 \
+    --hash=sha256:49139c31ebcd398f4f6396b18910610a0c1602f6e67083240c33019d1f6aa30c \
+    --hash=sha256:90f733b32e15dfc1999e6b7aca67a38688a567329de4d6e184154a73f96c6892
     # via
     #   -c /home/runner/work/django-layout/django-layout/requirements.txt
     #   django-layout (pyproject.toml)
