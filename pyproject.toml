@@ -7,7 +7,7 @@ name = "django-layout"
 version = "4.0"
 requires-python = ">=3.12"
 dependencies = [
-  "django==5.0.*",
+  "django==5.1.*",
   "dj-database-url",
   "goodconf[yaml]",
   "django-alive",

@@ -12,7 +12,7 @@ services:
       - client:/home/node/app/client/dist
 
   db:
-    image: postgres:16-alpine
+    image: postgres:17-alpine
     volumes:
       - pgdata:/var/lib/postgresql/data/
       - .data/db_dumps:/db_dumps
