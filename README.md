@@ -2,16 +2,19 @@
 
 # Django Layout
 
-`django-layout` provides sane defaults for new Django projects based on
-[established best
-practices](http://lincolnloop.com/django-best-practices/) and some
-configuration setups frequently used in Lincoln Loop\'s projects, like
-[using `pip-tools` for dependency
-locking](https://lincolnloop.com/blog/python-dependency-locking-pip-tools/),
-[using
-`pyproject.toml`](https://lincolnloop.com/insights/using-pyprojecttoml-in-your-django-project/).
+`django-layout` provides sane defaults for new Django projects based on established best
+practices and some configuration setups frequently used in Lincoln Loop\'s projects. It includes:
 
-To use `django-layout`:
+* `uv` for fast dependency management
+* `ruff` for formatting and linting
+* `goodconf` for structured & documented environment variable configuration
+* structured logging in deployment and pretty logging in development
+* `gunicorn` and `whitenoise` for production deployments
+* production-hardened settings
+
+## Usage
+
+### With `pip`
 
 1. create and activate a virtualenv:
 
@@ -22,6 +25,17 @@ To use `django-layout`:
 3. run the following command (replace `YOUR_PROJECT_NAME` with your preferred name):
 
         django-admin startproject \
+         --template=https://github.com/lincolnloop/django-layout/zipball/main \
+         --extension=py,md,gitignore,yaml,json,toml \
+         --name=Makefile,Dockerfile \
+         --exclude=.github \
+         YOUR_PROJECT_NAME
+
+### With `uv`
+
+If you're using `uv`, you can run the following command (replace `YOUR_PROJECT_NAME` with your preferred name):
+
+        uv run --with django django-admin startproject \
          --template=https://github.com/lincolnloop/django-layout/zipball/main \
          --extension=py,md,gitignore,yaml,json,toml \
          --name=Makefile,Dockerfile \
@@ -150,8 +164,7 @@ README.md                 Update dynamic blocks in README.md
 fix                       Fix linting errors
 fmt                       Format Python code
 lint                      Lint Python code
-requirements.txt          Generate requirements.txt (and requirements-dev.txt) from pyproject.toml
 test                      Run tests
-upgrade-requirements      Upgrade all dependencies in requirements.txt and requirements-dev.txt
+upgrade-requirements      Upgrade all dependencies in uv.lock
 ```
 <!-- [[[end]]] -->

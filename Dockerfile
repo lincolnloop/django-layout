@@ -12,18 +12,16 @@ RUN npm run build
 # STAGE 2: BUILD PYTHON
 FROM python:3.12-bullseye AS build-python
 WORKDIR /app
-RUN --mount=type=cache,target=/root/.cache \
-    set -ex && \
-    python -m venv --prompt . --upgrade-deps /app/.venv && \
-    /app/.venv/bin/pip install --disable-pip-version-check --root-user-action=ignore --no-cache-dir --upgrade setuptools wheel
+RUN set -ex && pip install --root-user-action=ignore --no-cache-dir uv && uv venv
 
 ENV LC_ALL=C.UTF-8 LANG=C.UTF-8 \
     PATH=/app/.venv/bin:${PATH}
 
-ARG PY_REQUIREMENTS_FILE=requirements.txt
-COPY requirements.txt requirements-dev.txt ./
+# A blank string installs all extras. A non-existent extra will be ignored.
+ARG UV_EXTRA_DEPENDENCIES="null"
+COPY pyproject.toml uv.lock ./
 RUN --mount=type=cache,target=/root/.cache \
-    pip install --disable-pip-version-check --root-user-action=ignore --no-cache-dir -r "$PY_REQUIREMENTS_FILE"
+    uv sync --frozen --extra="${UV_EXTRA_DEPENDENCIES}"
 
 COPY . ./
 COPY --from=build-node /home/node/app/client/dist ./client/dist

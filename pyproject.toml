@@ -5,6 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "django-layout"
 version = "4.0"
+requires-python = ">=3.12"
 dependencies = [
   "django==5.0.*",
   "dj-database-url",
@@ -24,7 +25,6 @@ dev = [
   "cogapp",
   "django-stubs",
   "mypy",
-  "pip-tools",
   "readable-log-formatter",
   "ruff",
 ]

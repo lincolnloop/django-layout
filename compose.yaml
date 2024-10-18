@@ -31,7 +31,7 @@ services:
         context: .
         target: build-python
         args:
-          PY_REQUIREMENTS_FILE: requirements-dev.txt
+          UV_EXTRA_DEPENDENCIES: "dev"
       environment:
         - DEBUG=true
         - DJANGO_ENV=development
