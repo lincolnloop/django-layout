@@ -3,12 +3,9 @@
 
 SHELL=/bin/bash -eu -o pipefail
 
-requirements.txt: pyproject.toml  ## Generate requirements.txt (and requirements-dev.txt) from pyproject.toml
-	./bin/lock-requirements.sh
-
 .PHONY: upgrade-requirements
-upgrade-requirements:  ## Upgrade all dependencies in requirements.txt and requirements-dev.txt
-	./bin/lock-requirements.sh --upgrade
+upgrade-requirements:  ## Upgrade all dependencies in uv.lock
+	uv lock --upgrade
 
 README.md: {{ project_name }}/config.py Makefile ## Update dynamic blocks in README.md
 	cog -r README.md

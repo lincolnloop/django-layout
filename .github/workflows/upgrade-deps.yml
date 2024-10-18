@@ -16,9 +16,9 @@ jobs:
           python-version: '3.12'
       - name: upgrade deps
         run: |
-          pip install -U pip pip-tools
+          pip install -U uv
           make upgrade-requirements
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update Python dependencies
-          file_pattern: requirements*.txt
+          file_pattern: uv.lock
