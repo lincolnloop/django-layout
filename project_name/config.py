@@ -49,7 +49,7 @@ class Config(GoodConf):
         default="",
         description="Sentry DSN to enable error logging",
     )
-    SENTRY_TRACE_SAMPLE_RATE: float = Field(
+    SENTRY_TRACES_SAMPLE_RATE: float = Field(
         default=0.25,
         description="Sentry trace sample rate "
         "https://docs.sentry.io/product/sentry-basics/concepts/tracing/trace-view/",

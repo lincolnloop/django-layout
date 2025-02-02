@@ -95,7 +95,7 @@ Make sure you have the containers running:
 
     docker compose up
 
-Access [localhost:8000/{{ project_name }}/admin/](http://localhost:8000/{{ project_name }}/admin/).
+Access [localhost:8000/{{ project_name }}-admin/](http://localhost:8000/{{ project_name }}-admin/).
 
 ## Configuration / Environment Variables
 
@@ -140,7 +140,7 @@ cog.out('\n'.join(mdown.split('\n')[1:]))
   * description: Sentry DSN to enable error logging
   * type: `str`
   * default: ``
-* **SENTRY_TRACE_SAMPLE_RATE**
+* **SENTRY_TRACES_SAMPLE_RATE**
   * description: Sentry trace sample rate https://docs.sentry.io/product/sentry-basics/concepts/tracing/trace-view/
   * type: `float`
   * default: `0.25`
