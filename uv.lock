@@ -26,20 +26,20 @@ wheels = [
 
 [[package]]
 name = "certifi"
-version = "2025.4.26"
+version = "2025.6.15"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/e8/9e/c05b3920a3b7d20d3d3310465f50348e5b3694f4f88c6daf736eef3024c4/certifi-2025.4.26.tar.gz", hash = "sha256:0a816057ea3cdefcef70270d2c515e4506bbc954f417fa5ade2021213bb8f0c6", size = 160705, upload-time = "2025-04-26T02:12:29.51Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/73/f7/f14b46d4bcd21092d7d3ccef689615220d8a08fb25e564b65d20738e672e/certifi-2025.6.15.tar.gz", hash = "sha256:d747aa5a8b9bbbb1bb8c22bb13e22bd1f18e9796defa16bab421f7f7a317323b", size = 158753, upload-time = "2025-06-15T02:45:51.329Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/4a/7e/3db2bd1b1f9e95f7cddca6d6e75e2f2bd9f51b1246e546d88addca0106bd/certifi-2025.4.26-py3-none-any.whl", hash = "sha256:30350364dfe371162649852c63336a15c70c6510c2ad5015b21c2345311805f3", size = 159618, upload-time = "2025-04-26T02:12:27.662Z" },
+    { url = "https://files.pythonhosted.org/packages/84/ae/320161bd181fc06471eed047ecce67b693fd7515b16d495d8932db763426/certifi-2025.6.15-py3-none-any.whl", hash = "sha256:2e0c7ce7cb5d8f8634ca55d2ba7e6ec2689a2fd6537d8dec1296a477a4910057", size = 157650, upload-time = "2025-06-15T02:45:49.977Z" },
 ]
 
 [[package]]
 name = "cogapp"
-version = "3.5.0"
+version = "3.5.1"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/7a/d5/2f2b609acc6689c9bbe5d419f00db8bcdf7553e0d71c6454645517fb8acf/cogapp-3.5.0.tar.gz", hash = "sha256:f190c4a0f04bb389320a668bc71b13b0b886c0aa1cfa8e7a95bd7ef912e0e3b1", size = 59375, upload-time = "2025-06-05T15:18:52.628Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/27/04/395d2067e7cb2e0c847dad74ef6048ce9cdf2c77c7add3805485455ac288/cogapp-3.5.1.tar.gz", hash = "sha256:a9e8b8c31e5e47de722f27eaba1ec128dd6c8e7b6015555d9c8edaa5ad6092b4", size = 59428, upload-time = "2025-06-10T12:42:39.607Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/54/20/ee89b55a7e4f22451550e98a9f08fccf6db5d050e278ceedbe9bc52c81c1/cogapp-3.5.0-py3-none-any.whl", hash = "sha256:25c3bdd6d6cf54eb09bdd875a2f81786aaac3fae62457c15bd8c2be3ff52ca5a", size = 30391, upload-time = "2025-06-05T15:18:50.825Z" },
+    { url = "https://files.pythonhosted.org/packages/4c/dd/563b4d1c7446fb64c264ed74a637512fdfa451a44cae7d002e5623d15de8/cogapp-3.5.1-py3-none-any.whl", hash = "sha256:c14b906ff4d0386735c2d8022ce3d582bf0ec3215a66e9bbb2019e9b4230f413", size = 30390, upload-time = "2025-06-10T12:42:38.203Z" },
 ]
 
 [[package]]
@@ -57,16 +57,16 @@ wheels = [
 
 [[package]]
 name = "django"
-version = "5.1.10"
+version = "5.1.11"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "asgiref" },
     { name = "sqlparse" },
     { name = "tzdata", marker = "sys_platform == 'win32'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/73/ca/1c724be89e603eb8b5587ea24c63a8c30094c8ff4d990780b5033ee15c40/django-5.1.10.tar.gz", hash = "sha256:73e5d191421d177803dbd5495d94bc7d06d156df9561f4eea9e11b4994c07137", size = 10714538, upload-time = "2025-06-04T13:53:18.805Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/83/80/bf0f9b0aa434fca2b46fc6a31c39b08ea714b87a0a72a16566f053fb05a8/django-5.1.11.tar.gz", hash = "sha256:3bcdbd40e4d4623b5e04f59c28834323f3086df583058e65ebce99f9982385ce", size = 10734926, upload-time = "2025-06-10T10:12:48.229Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/9e/fc/80dc741ba0acb3241aac1213d7272c573d52d8a62ec2c69e9b3bef1547f2/django-5.1.10-py3-none-any.whl", hash = "sha256:19c9b771e9cf4de91101861aadd2daaa159bcf10698ca909c5755c88e70ccb84", size = 8277457, upload-time = "2025-06-04T13:53:07.676Z" },
+    { url = "https://files.pythonhosted.org/packages/59/91/2972ce330c6c0bd5b3200d4c2ad5cbf47eecff5243220c5a56444d3267a0/django-5.1.11-py3-none-any.whl", hash = "sha256:e48091f364007068728aca938e7450fbfe3f2217079bfd2b8af45122585acf64", size = 8277453, upload-time = "2025-06-10T10:12:42.236Z" },
 ]
 
 [[package]]
@@ -278,7 +278,7 @@ wheels = [
 
 [[package]]
 name = "pydantic"
-version = "2.11.5"
+version = "2.11.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "annotated-types" },
@@ -286,9 +286,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "typing-inspection" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f0/86/8ce9040065e8f924d642c58e4a344e33163a07f6b57f836d0d734e0ad3fb/pydantic-2.11.5.tar.gz", hash = "sha256:7f853db3d0ce78ce8bbb148c401c2cdd6431b3473c0cdff2755c7690952a7b7a", size = 787102, upload-time = "2025-05-22T21:18:08.761Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/00/dd/4325abf92c39ba8623b5af936ddb36ffcfe0beae70405d456ab1fb2f5b8c/pydantic-2.11.7.tar.gz", hash = "sha256:d989c3c6cb79469287b1569f7447a17848c998458d49ebe294e975b9baf0f0db", size = 788350, upload-time = "2025-06-14T08:33:17.137Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b5/69/831ed22b38ff9b4b64b66569f0e5b7b97cf3638346eb95a2147fdb49ad5f/pydantic-2.11.5-py3-none-any.whl", hash = "sha256:f9c26ba06f9747749ca1e5c94d6a85cb84254577553c8785576fd38fa64dc0f7", size = 444229, upload-time = "2025-05-22T21:18:06.329Z" },
+    { url = "https://files.pythonhosted.org/packages/6a/c0/ec2b1c8712ca690e5d61979dee872603e92b8a32f94cc1b72d53beab008a/pydantic-2.11.7-py3-none-any.whl", hash = "sha256:dde5df002701f6de26248661f6835bbe296a47bf73990135c7d07ce741b9623b", size = 444782, upload-time = "2025-06-14T08:33:14.905Z" },
 ]
 
 [[package]]
@@ -376,14 +376,14 @@ wheels = [
 
 [[package]]
 name = "ruamel-yaml"
-version = "0.18.13"
+version = "0.18.14"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ruamel-yaml-clib", marker = "python_full_version < '3.14' and platform_python_implementation == 'CPython'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/aa/f9/0e3b3a678d087f8067249ecc9f2434428a93442004be86faed201ac7aeee/ruamel.yaml-0.18.13.tar.gz", hash = "sha256:b0d5ac0a2b0b4e39d87aed00ddff26e795de6750b064da364a8d009b97ce5f26", size = 145469, upload-time = "2025-06-06T14:22:43.83Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/39/87/6da0df742a4684263261c253f00edd5829e6aca970fff69e75028cccc547/ruamel.yaml-0.18.14.tar.gz", hash = "sha256:7227b76aaec364df15936730efbf7d72b30c0b79b1d578bbb8e3dcb2d81f52b7", size = 145511, upload-time = "2025-06-09T08:51:09.828Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a3/ce/409888a3f8421600d778f926768ee1353cfe61b4850bef3622701bd82dad/ruamel.yaml-0.18.13-py3-none-any.whl", hash = "sha256:cf9628cfdfe9d88b78429cd093aa766e9a4c69242f9f3c86ac1d9e56437e5572", size = 118588, upload-time = "2025-06-06T14:22:40.787Z" },
+    { url = "https://files.pythonhosted.org/packages/af/6d/6fe4805235e193aad4aaf979160dd1f3c487c57d48b810c816e6e842171b/ruamel.yaml-0.18.14-py3-none-any.whl", hash = "sha256:710ff198bb53da66718c7db27eec4fbcc9aa6ca7204e4c1df2f282b6fe5eb6b2", size = 118570, upload-time = "2025-06-09T08:51:06.348Z" },
 ]
 
 [[package]]
@@ -439,15 +439,15 @@ wheels = [
 
 [[package]]
 name = "sentry-sdk"
-version = "2.29.1"
+version = "2.30.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "certifi" },
     { name = "urllib3" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/22/67/d552a5f8e5a6a56b2feea6529e2d8ccd54349084c84176d5a1f7295044bc/sentry_sdk-2.29.1.tar.gz", hash = "sha256:8d4a0206b95fa5fe85e5e7517ed662e3888374bdc342c00e435e10e6d831aa6d", size = 325518, upload-time = "2025-05-19T14:27:38.512Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/04/4c/af31e0201b48469786ddeb1bf6fd3dfa3a291cc613a0fe6a60163a7535f9/sentry_sdk-2.30.0.tar.gz", hash = "sha256:436369b02afef7430efb10300a344fb61a11fe6db41c2b11f41ee037d2dd7f45", size = 326767, upload-time = "2025-06-12T10:34:34.733Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f0/e5/da07b0bd832cefd52d16f2b9bbbe31624d57552602c06631686b93ccb1bd/sentry_sdk-2.29.1-py2.py3-none-any.whl", hash = "sha256:90862fe0616ded4572da6c9dadb363121a1ae49a49e21c418f0634e9d10b4c19", size = 341553, upload-time = "2025-05-19T14:27:36.882Z" },
+    { url = "https://files.pythonhosted.org/packages/5a/99/31ac6faaae33ea698086692638f58d14f121162a8db0039e68e94135e7f1/sentry_sdk-2.30.0-py2.py3-none-any.whl", hash = "sha256:59391db1550662f746ea09b483806a631c3ae38d6340804a1a4c0605044f6877", size = 343149, upload-time = "2025-06-12T10:34:32.896Z" },
 ]
 
 [[package]]
