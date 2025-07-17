@@ -41,7 +41,7 @@ django_settings_module = "{{ project_name }}.settings"
 
 [tool.ruff]
 target-version = "py312"
-exclude = ["migrations", ".venv"]
+extend-exclude = ["migrations"]
 
 [tool.ruff.lint]
 select = ["ALL"]
