@@ -46,7 +46,6 @@ extend-exclude = ["migrations"]
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
-  "ANN101",   # Missing Type Annotation for "self"
   "ANN401",   # Dynamically typed expressions (typing.Any) are disallowed in `**kwargs`"
   "ARG001",   # Unused function argument (request, ...)
   "ARG002",   # Unused method argument (*args, **kwargs)
