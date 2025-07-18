@@ -17,6 +17,7 @@ from typing import Any
 
 import dj_database_url
 import sentry_sdk
+from csp.constants import SELF
 from sentry_sdk.integrations.django import DjangoIntegration
 
 from .config import config
@@ -164,7 +165,7 @@ SECURE_REDIRECT_EXEMPT = [r"^-/"]  # django-alive URLs
 
 # CSP
 # https://django-csp.readthedocs.io/en/latest/configuration.html#configuration-chapter
-CSP_DEFAULT_SRC = ("'self'",)
+CONTENT_SECURITY_POLICY = {"DIRECTIVES": {"default-src": [SELF]}}
 
 X_FRAME_OPTIONS = "DENY"
 REFERRER_POLICY = "same-origin"
