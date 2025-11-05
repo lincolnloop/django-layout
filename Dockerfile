@@ -10,7 +10,7 @@ RUN npm run build
 
 
 # STAGE 2: BUILD PYTHON
-FROM python:3.12-bullseye AS build-python
+FROM python:3.13-bullseye AS build-python
 WORKDIR /app
 RUN set -ex && pip install --root-user-action=ignore --no-cache-dir uv && uv venv
 
