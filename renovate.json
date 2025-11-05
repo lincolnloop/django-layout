@@ -1,6 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["helpers:pinGitHubActionDigests"],
+  "extends": [
+    "helpers:pinGitHubActionDigests"
+  ],
   "automerge": true,
   "automergeType": "pr",
   "lockFileMaintenance": {
@@ -15,11 +17,4 @@
     "enabled": true
   },
   "rangeStrategy": "pin",
-  "packageRules": [
-    {
-      "matchManagers": ["pep621"],
-      "matchDepNames": ["python"],
-      "enabled": false
-    }
-  ]
 }
