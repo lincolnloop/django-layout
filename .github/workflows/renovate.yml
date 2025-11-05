@@ -33,5 +33,5 @@ jobs:
         with:
           configurationFile: .github/renovate_global_config.json
         env:
-          LOG_LEVEL=debug
+          LOG_LEVEL: debug
           RENOVATE_TOKEN: ${{ steps.get_token.outputs.token }}
