@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["helpers:pinGitHubActionDigests"],
+  "automerge": true,
+  "automergeType": "pr",
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "platformAutomerge": true,
+  "poetry": {
+    "enabled": false
+  },
+  "prConcurrentLimit": 1,
+  "pre-commit": {
+    "enabled": true
+  },
+  "rangeStrategy": "pin"
+}
