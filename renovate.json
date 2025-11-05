@@ -17,9 +17,9 @@
   "rangeStrategy": "pin",
   "packageRules": [
     {
-      "matchDatasources": ["pypi"],
-      "matchPackageNames": ["python"],
-      "allowedVersions": ">=3.12"
+      "matchManagers": ["pep621"],
+      "matchDepNames": ["python"],
+      "enabled": false
     }
   ]
 }
