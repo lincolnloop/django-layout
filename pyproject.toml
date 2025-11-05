@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools==80.9.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,7 +7,7 @@ name = "django-layout"
 version = "4.0"
 requires-python = ">=3.12"
 dependencies = [
-  "django==5.1.*",
+  "django==5.1.11",
   "dj-database-url",
   "goodconf[yaml]",
   "django-alive",

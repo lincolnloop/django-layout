@@ -124,7 +124,7 @@ dev = [
 requires-dist = [
     { name = "cogapp", marker = "extra == 'dev'" },
     { name = "dj-database-url" },
-    { name = "django", specifier = "==5.1.*" },
+    { name = "django", specifier = "==5.1.11" },
     { name = "django-alive" },
     { name = "django-csp" },
     { name = "django-stubs", marker = "extra == 'dev'" },
