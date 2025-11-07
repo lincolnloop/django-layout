@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Install uv
         uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: false
+          ignore-empty-workdir: true
 
       - name: create project
         run: |
