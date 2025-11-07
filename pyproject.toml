@@ -32,7 +32,7 @@ plugins = ["mypy_django_plugin.main"]
 
 [tool.ruff]
 extend-exclude = ["migrations"]
-target-version = "py312"
+target-version = "py314"
 
 [tool.ruff.lint]
 ignore = [
