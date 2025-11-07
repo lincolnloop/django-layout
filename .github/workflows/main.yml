@@ -20,7 +20,7 @@ jobs:
           enable-cache: false
           ignore-empty-workdir: true
 
-      - name: create project
+      - name: Create Django project from template
         run: |
           uv run --with django django-admin startproject \
            --template="$TEMPLATE_URL" \
@@ -29,22 +29,16 @@ jobs:
            --exclude=.github \
            testproj .
 
-      - name: mock client build
+      - name: Create blank index.js file
         run: |
           mkdir -p client/dist
           touch client/dist/index.js
 
-      - name: build container
-        run: docker compose build
-
-      - name: start services
-        run: docker compose up -d db client
-
-      - name: run migrations
-        run: docker compose run --rm app python manage.py migrate --no-input
+      - name: Initialize project
+        run: make init
 
       - name: start django
-        run: docker compose up -d app
+        run: docker compose up -d
         timeout-minutes: 5
 
       - name: verify services running
@@ -60,7 +54,7 @@ jobs:
           curl -I --retry 10 --retry-all-errors --fail \
           localhost:8000/static/index.js
       - name: run tests
-        run: docker compose run --rm app make test
+        run: make test
       - name: verify README.md
         run: docker compose run --rm --no-deps app cog --check README.md
       - name: dump docker logs
