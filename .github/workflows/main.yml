@@ -1,6 +1,11 @@
+---
 name: test
 
-on:
+env:
+  # yamllint disable-line rule:line-length
+  TEMPLATE_URL: "https://github.com/lincolnloop/django-layout/zipball/${{ github.ref_name }}"
+
+"on":
   schedule:
     - cron: '0 5 * * 0'
   push:
@@ -18,7 +23,7 @@ jobs:
       - name: create project
         run: |
           uv run --with django django-admin startproject \
-           --template="https://github.com/lincolnloop/django-layout/zipball/$GITHUB_REF_NAME" \
+           --template="$TEMPLATE_URL" \
            --extension=py,md,gitignore,yaml,json,toml \
            --name=Makefile,Dockerfile \
            --exclude=.github \
@@ -36,7 +41,7 @@ jobs:
         run: docker compose up -d db client
 
       - name: run migrations
-        run:  docker compose run app python manage.py migrate --no-input
+        run: docker compose run app python manage.py migrate --no-input
 
       - name: start django
         run: docker compose up -d app
@@ -48,10 +53,12 @@ jobs:
           test $(docker ps -q | wc -l) = "3"
       - name: verify website running
         run: |
-          curl -I --retry 10 --retry-all-errors --fail localhost:8000/testproj-admin/login/
+          curl -I --retry 10 --retry-all-errors --fail \
+          localhost:8000/testproj-admin/login/
       - name: verify client build
         run: |
-          curl -I --retry 10 --retry-all-errors --fail localhost:8000/static/index.js
+          curl -I --retry 10 --retry-all-errors --fail \
+          localhost:8000/static/index.js
       - name: run tests
         run: docker compose run --rm app make test
       - name: verify README.md
