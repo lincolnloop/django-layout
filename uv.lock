@@ -92,7 +92,7 @@ wheels = [
 [[package]]
 name = "django-layout"
 version = "4.0"
-source = { editable = "." }
+source = { virtual = "." }
 dependencies = [
     { name = "dj-database-url" },
     { name = "django" },
