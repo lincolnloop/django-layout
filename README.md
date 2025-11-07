@@ -161,8 +161,6 @@ cog.out(
 Available make commands:
 
 README.md                 Update dynamic blocks in README.md
-fix                       Fix linting errors
-fmt                       Format Python code
 lint                      Lint Python code
 test                      Run tests
 upgrade-requirements      Upgrade all dependencies in uv.lock

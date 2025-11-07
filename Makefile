@@ -10,17 +10,9 @@ upgrade-requirements:  ## Upgrade all dependencies in uv.lock
 README.md: {{ project_name }}/config.py Makefile ## Update dynamic blocks in README.md
 	cog -r README.md
 
-.PHONY: fmt
-fmt:  ## Format Python code
-	ruff format .
-
 .PHONY: lint
 lint:  ## Lint Python code
-	ruff check .
-
-.PHONY: fix
-fix:  ## Fix linting errors
-	ruff check --fix .
+	uv run pre-commit run --all-files
 
 .PHONY: test
 test:  ## Run tests
