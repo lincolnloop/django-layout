@@ -10,7 +10,7 @@ RUN npm run build
 
 
 # STAGE 2: BUILD PYTHON
-FROM python:3.14 as build-python
+FROM python:3.14 AS build-python
 WORKDIR /app
 
 COPY --from=ghcr.io/astral-sh/uv:0.9.7 /uv /uvx /bin/
@@ -34,5 +34,13 @@ RUN SECRET_KEY=s python manage.py collectstatic --noinput
 EXPOSE 8000
 ENV PORT=8000
 # assumes the server is running behind a reverse proxy (Nginx, AWS ALB, etc.)
-# set the `WEB_CONCURRENCY` environment variable to the number of workers you'd like to run
-CMD gunicorn --access-logfile=- --timeout=10 --bind=0.0.0.0:$PORT --forwarded-allow-ips '*' {{ project_name }}.wsgi:application
+# set the `WEB_CONCURRENCY` environment variable to the number of workers you'd
+# like to run
+ENV GUNICORN_CMD_ARGS="\
+  --access-logfile=- \
+  --bind=0.0.0.0:$PORT \
+  --forwarded-allow-ips '*' \
+  --timeout=10 \
+  "
+
+CMD ["gunicorn", "{{ project_name }}.wsgi:application"]

@@ -1,24 +1,6 @@
 [build-system]
-requires = ["setuptools==80.9.0"]
 build-backend = "setuptools.build_meta"
-
-[project]
-name = "django-layout"
-version = "4.0"
-requires-python = "==3.14.0"
-dependencies = [
-  "django==5.2.8",
-  "dj-database-url",
-  "goodconf[yaml]",
-  "django-alive",
-  "django-csp",
-  "gunicorn",
-  "psycopg",
-  "python-json-logger",
-  "sentry-sdk",
-  "whitenoise",
-  "wsgi-basic-auth",
-]
+requires = ["setuptools==80.9.0"]
 
 [dependency-groups]
 dev = [
@@ -29,38 +11,55 @@ dev = [
   "ruff",
 ]
 
-[tool.setuptools]
-packages = { "find" = { } }
-include-package-data = true
-
-[tool.mypy]
-plugins = ["mypy_django_plugin.main"]
+[project]
+dependencies = [
+  "dj-database-url",
+  "django-alive",
+  "django-csp",
+  "django==5.2.8",
+  "goodconf[yaml]",
+  "gunicorn",
+  "psycopg",
+  "python-json-logger",
+  "sentry-sdk",
+  "whitenoise",
+  "wsgi-basic-auth",
+]
+name = "django-layout"
+requires-python = "==3.14.0"
+version = "4.0"
 
 [tool.django-stubs]
 django_settings_module = "{{ project_name }}.settings"
 
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+
 [tool.ruff]
-target-version = "py312"
 extend-exclude = ["migrations"]
+target-version = "py312"
 
 [tool.ruff.lint]
-select = ["ALL"]
 ignore = [
-  "ANN401",   # Dynamically typed expressions (typing.Any) are disallowed in `**kwargs`"
-  "ARG001",   # Unused function argument (request, ...)
-  "ARG002",   # Unused method argument (*args, **kwargs)
-  "D",        # Missing or badly formatted docstrings
-  "E501",     # Let the formatter handle long lines
-  "FBT",      # Flake Boolean Trap (don't use arg=True in functions)
-  "RUF012",   # Mutable class attributes https://github.com/astral-sh/ruff/issues/5243
-
-  "COM812",   # (ruff format) Checks for the absence of trailing commas
-  "ISC001",   # (ruff format) Checks for implicitly concatenated strings on a single line
+  "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed in `**kwargs`"
+  "ARG001",  # Unused function argument (request, ...)
+  "ARG002",  # Unused method argument (*args, **kwargs)
+  "D",  # Missing or badly formatted docstrings
+  "E501",  # Let the formatter handle long lines
+  "FBT",  # Flake Boolean Trap (don't use arg=True in functions)
+  "RUF012",  # Mutable class attributes https://github.com/astral-sh/ruff/issues/5243
+  "COM812",  # (ruff format) Checks for the absence of trailing commas
+  "ISC001",  # (ruff format) Checks for implicitly concatenated strings on a single line
 ]
+select = ["ALL"]
 
 [tool.ruff.lint.extend-per-file-ignores]
 # Also ignore `E402` in all `__init__.py` files.
 "test_*.py" = [
-  "S101",     # S101 Use of `assert` detected
+  "S101",  # S101 Use of `assert` detected
   "PLR2004",  # Magic value used in comparison,
 ]
+
+[tool.setuptools]
+include-package-data = true
+packages = {"find" = {}}
