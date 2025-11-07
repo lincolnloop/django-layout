@@ -1,6 +1,10 @@
 ---
 name: pre-commit
 
+env:
+  # yamllint disable-line rule:line-length
+  TEMPLATE_URL: "https://github.com/lincolnloop/django-layout/zipball/${{ github.ref_name }}"
+
 "on":
   pull_request:
   push:
