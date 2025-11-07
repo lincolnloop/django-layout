@@ -39,4 +39,7 @@ jobs:
            --exclude=.github \
            testproj .
 
+      - name: Init a git repo & add files
+        run: git init && git add .
+
       - uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
