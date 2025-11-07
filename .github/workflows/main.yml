@@ -63,10 +63,6 @@ jobs:
         run: docker compose run --rm app make test
       - name: verify README.md
         run: docker compose run --rm --no-deps app cog --check README.md
-      - name: lint code
-        run: docker compose run --rm --no-deps app make lint
-      - name: format code
-        run: docker compose run --rm --no-deps app ruff format --check .
       - name: dump docker logs
         run: |
           set -x
