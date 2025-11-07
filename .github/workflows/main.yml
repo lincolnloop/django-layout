@@ -41,7 +41,7 @@ jobs:
         run: docker compose up -d db client
 
       - name: run migrations
-        run: docker compose run app python manage.py migrate --no-input
+        run: docker compose run --rm app python manage.py migrate --no-input
 
       - name: start django
         run: docker compose up -d app
