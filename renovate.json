@@ -22,8 +22,8 @@
   "poetry": {
     "enabled": false
   },
-  "prConcurrentLimit": 2,
-  "branchConcurrentLimit": 2,
+  "prConcurrentLimit": 1,
+  "branchConcurrentLimit": 1,
   "pre-commit": {
     "enabled": true
   },
