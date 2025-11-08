@@ -1,6 +1,11 @@
+---
 name: test
 
-on:
+env:
+  # yamllint disable-line rule:line-length
+  TEMPLATE_URL: "https://github.com/lincolnloop/django-layout/zipball/${{ github.ref_name }}"
+
+"on":
   schedule:
     - cron: '0 5 * * 0'
   push:
@@ -9,57 +14,52 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
         with:
-          python-version: '3.14.0'
-      - name: create project
+          enable-cache: false
+          ignore-empty-workdir: true
+
+      - name: Create Django project from template
         run: |
-          pip install django
-          django-admin startproject \
-           --template="https://github.com/lincolnloop/django-layout/zipball/$GITHUB_REF_NAME" \
+          uv run --with django django-admin startproject \
+           --template="$TEMPLATE_URL" \
            --extension=py,md,gitignore,yaml,json,toml \
            --name=Makefile,Dockerfile \
            --exclude=.github \
-           testproj
-      - name: mock client build
+           testproj .
+
+      - name: Create blank index.js file
         run: |
           mkdir -p client/dist
           touch client/dist/index.js
-        working-directory: testproj
-      - name: start services
-        run: |
-          docker compose up -d
-          # wait for migrations to finish
-          docker attach $(docker compose ps -q django-migrate)
+
+      - name: Initialize project
+        run: make init
+
+      - name: start django
+        run: docker compose up -d
         timeout-minutes: 5
-        working-directory: testproj
+
       - name: verify services running
         run: |
           docker ps  # show service status for debugging
           test $(docker ps -q | wc -l) = "3"
       - name: verify website running
         run: |
-          curl -I --retry 10 --retry-all-errors --fail localhost:8000/testproj-admin/login/
+          curl -I --retry 10 --retry-all-errors --fail \
+          localhost:8000/testproj-admin/login/
       - name: verify client build
         run: |
-          curl -I --retry 10 --retry-all-errors --fail localhost:8000/static/index.js
+          curl -I --retry 10 --retry-all-errors --fail \
+          localhost:8000/static/index.js
       - name: run tests
-        run: docker compose run --rm app make test
-        working-directory: testproj
+        run: make test
       - name: verify README.md
         run: docker compose run --rm --no-deps app cog --check README.md
-        working-directory: testproj
-      - name: lint code
-        run: docker compose run --rm --no-deps app make lint
-        working-directory: testproj
-      - name: format code
-        run: docker compose run --rm --no-deps app ruff format --check .
-        working-directory: testproj
       - name: dump docker logs
         run: |
           set -x
           docker compose ps
           docker compose logs
-        working-directory: testproj
         if: always()

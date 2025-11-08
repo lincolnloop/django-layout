@@ -3,28 +3,30 @@
 
 SHELL=/bin/bash -eu -o pipefail
 
+.PHONY: init
+init:  ## Initialize the project
+	command -v uvx || curl -LsSf https://astral.sh/uv/install.sh | sh \
+		&& docker compose build \
+		&& docker compose run --rm app python manage.py migrate \
+		&& git init && git add . \
+		&& command -v pre-commit || uv tool install pre-commit \
+		&& pre-commit install
+
+.PHONY: run
+run:  ## Run the project
+	docker compose up
+
 .PHONY: upgrade-requirements
 upgrade-requirements:  ## Upgrade all dependencies in uv.lock
 	uv lock --upgrade
 
-README.md: {{ project_name }}/config.py Makefile ## Update dynamic blocks in README.md
-	cog -r README.md
-
-.PHONY: fmt
-fmt:  ## Format Python code
-	ruff format .
-
-.PHONY: lint
-lint:  ## Lint Python code
-	ruff check .
-
-.PHONY: fix
-fix:  ## Fix linting errors
-	ruff check --fix .
+.PHONY: README.md
+README.md:  ## Update dynamic blocks in README.md
+	docker compose run --rm app cog -r README.md
 
 .PHONY: test
 test:  ## Run tests
-	python manage.py test --parallel
+	docker compose run --rm app python manage.py test
 
 .PHONY: help
 help:

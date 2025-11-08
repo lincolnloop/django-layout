@@ -1,10 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["helpers:pinGitHubActionDigests"],
+  "extends": [
+    "helpers:pinGitHubActionDigests"
+  ],
   "automerge": true,
   "automergeType": "pr",
   "lockFileMaintenance": {
-    "enabled": true
+    "enabled": true,
+    "schedule": [
+      "at any time"
+    ],
+    "prPriority": -1
   },
   "platformAutomerge": true,
   "poetry": {
@@ -14,12 +20,5 @@
   "pre-commit": {
     "enabled": true
   },
-  "rangeStrategy": "pin",
-  "packageRules": [
-    {
-      "matchManagers": ["pep621"],
-      "matchDepNames": ["python"],
-      "enabled": false
-    }
-  ]
+  "rangeStrategy": "bump"
 }

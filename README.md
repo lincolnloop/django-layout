@@ -65,15 +65,16 @@ Then use `git add -p README.md` to only commit the changes you want. You can `gi
 
 Build and run the project:
 
-    docker compose up --build
+    make init
+    docker compose up
 
 To run Django commands like migrations and shell or to enter the
 container bash do:
 
     docker compose run --rm app bash
-    docker compose run --rm app manage.py createsuperuser
-    docker compose run --rm app manage.py migrate
-    docker compose run --rm app manage.py shell
+    docker compose run --rm app python manage.py createsuperuser
+    docker compose run --rm app python manage.py migrate
+    docker compose run --rm app python manage.py shell
 
 To stop containers run:
 
@@ -89,7 +90,7 @@ To update a container after adding a new requirement for example:
 
 Create super user:
 
-    docker compose run --rm app manage.py createsuperuser
+    docker compose run --rm app python manage.py createsuperuser
 
 Make sure you have the containers running:
 
@@ -161,9 +162,8 @@ cog.out(
 Available make commands:
 
 README.md                 Update dynamic blocks in README.md
-fix                       Fix linting errors
-fmt                       Format Python code
-lint                      Lint Python code
+init                      Initialize the project
+run                       Run the project
 test                      Run tests
 upgrade-requirements      Upgrade all dependencies in uv.lock
 ```
