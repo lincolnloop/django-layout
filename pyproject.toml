@@ -1,24 +1,24 @@
 [dependency-groups]
 dev = [
-  "cogapp",
-  "django-stubs",
-  "mypy",
-  "readable-log-formatter",
+  "cogapp>=3.6.0",
+  "django-stubs>=5.2.7",
+  "mypy>=1.18.2",
+  "readable-log-formatter>=0.1.4",
 ]
 
 [project]
 dependencies = [
-  "dj-database-url",
-  "django-alive",
-  "django-csp",
-  "django==5.2.8",
-  "goodconf[yaml]",
-  "gunicorn",
-  "psycopg",
-  "python-json-logger",
-  "sentry-sdk",
-  "whitenoise",
-  "wsgi-basic-auth",
+  "dj-database-url>=3.0.1",
+  "django-alive>=2.0.0",
+  "django-csp>=4.0",
+  "django>=5.2.8",
+  "goodconf[yaml]>=6.1.2",
+  "gunicorn>=23.0.0",
+  "psycopg>=3.2.12",
+  "python-json-logger>=4",
+  "sentry-sdk>=2.43.0",
+  "whitenoise>=6.11.0",
+  "wsgi-basic-auth>=1.1.0",
 ]
 name = "django-layout"
 requires-python = "==3.14.0"
