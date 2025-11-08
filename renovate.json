@@ -23,7 +23,7 @@
     "enabled": false
   },
   "prConcurrentLimit": 1,
-  "branchConcurrentLimit": 1,
+  "prHourlyLimit": 0,
   "pre-commit": {
     "enabled": true
   },
