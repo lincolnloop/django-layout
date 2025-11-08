@@ -1,7 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "helpers:pinGitHubActionDigests"
+    ":configMigration",
+    ":pinDevDependencies",
+    "config:recommended"
   ],
   "automerge": true,
   "automergeType": "pr",
@@ -9,9 +11,14 @@
     "enabled": true,
     "schedule": [
       "at any time"
-    ],
-    "prPriority": -1
+    ]
   },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "prPriority": -1
+    }
+  ],
   "platformAutomerge": true,
   "poetry": {
     "enabled": false
