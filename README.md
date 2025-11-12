@@ -44,11 +44,11 @@ If you're using `uv`, you can run the following command (replace `YOUR_PROJECT_N
 
 ## Development
 
-To update `README.md` after making changes to the config, run:
+This `README.md` file is kept up-to-date by pre-commit, and is run when
+composing a new commit. To execute it manually, run:
 
 ```
-find . -type f -name "*.py" -or -name Makefile -or -name README.md | xargs sed -i '' 's/{{ project_name }}/project_name/g'
-docker compose run --rm --no-deps app make README.md
+pre-commit run cog
 ```
 
 Then use `git add -p README.md` to only commit the changes you want. You can `git stash` the template changes after your commit.
@@ -110,14 +110,14 @@ if project_name.startswith("{{"):
 
 config_module = importlib.import_module(project_name + ".config")
 config = config_module.Config
-print(f"\nReading {config_module.__name__}.Config", end="")
+print(f"\nReading {config_module.__name__}.Config")
 mdown = config_module.Config.generate_markdown()
 cog.out('\n'.join(mdown.split('\n')[1:]))
 ]]] -->
 
 * **DEBUG**
   * type: `bool`
-  * default: `True`
+  * default: `False`
 * **ALLOWED_HOSTS**
   * description: Hosts allowed to serve the site https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#allowed-hosts
   * type: `list[str]`
@@ -170,9 +170,9 @@ cog.out(
 Available make commands:
 
 init                       Initialize the project
-README.md                  Update dynamic blocks in README.md
 run                        Run the project
 test                       Run tests
+test2                      Run tests
 upgrade-requirements       Upgrade all dependencies in uv.lock
 ```
 <!-- [[[end]]] -->

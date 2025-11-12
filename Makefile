@@ -20,14 +20,13 @@ run:  ## Run the project
 upgrade-requirements:  ## Upgrade all dependencies in uv.lock
 	uv lock --upgrade
 
-.PHONY: README.md
-README.md:  ## Update dynamic blocks in README.md
-	docker compose run --rm app cog -r README.md
-
 .PHONY: test
 test:  ## Run tests
 	docker compose run --rm app python manage.py test
 
+.PHONY: test
+test2:  ## Run tests
+	docker compose run --rm app python manage.py test
 .PHONY: help
 help:
 	@echo -e "Available make commands:"

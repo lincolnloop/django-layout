@@ -108,8 +108,11 @@ dependencies = [
 ]
 
 [package.dev-dependencies]
-dev = [
+cog = [
     { name = "cogapp" },
+    { name = "goodconf", extra = ["yaml"] },
+]
+dev = [
     { name = "django-stubs" },
     { name = "mypy" },
     { name = "readable-log-formatter" },
@@ -131,8 +134,11 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [
+cog = [
     { name = "cogapp", specifier = ">=3.6.0" },
+    { name = "goodconf", extras = ["yaml"], specifier = ">=6.1.2" },
+]
+dev = [
     { name = "django-stubs", specifier = ">=5.2.7" },
     { name = "mypy", specifier = ">=1.18.2" },
     { name = "readable-log-formatter", specifier = ">=0.1.4" },
