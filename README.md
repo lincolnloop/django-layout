@@ -101,15 +101,23 @@ Access [localhost:8000/{{ project_name }}-admin/](http://localhost:8000/{{ proje
 ## Configuration / Environment Variables
 
 <!-- [[[cog
+import importlib
 import cog
-from {{ project_name }}.config import Config
-mdown = Config.generate_markdown()
+
+project_name = "{{ project_name }}"
+if project_name.startswith("{{"):
+    project_name = "project_name"
+
+config_module = importlib.import_module(project_name + ".config")
+config = config_module.Config
+print(f"\nReading {config_module.__name__}.Config", end="")
+mdown = config_module.Config.generate_markdown()
 cog.out('\n'.join(mdown.split('\n')[1:]))
 ]]] -->
 
 * **DEBUG**
   * type: `bool`
-  * default: `False`
+  * default: `True`
 * **ALLOWED_HOSTS**
   * description: Hosts allowed to serve the site https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#allowed-hosts
   * type: `list[str]`
@@ -161,10 +169,10 @@ cog.out(
 ```shell
 Available make commands:
 
-README.md                 Update dynamic blocks in README.md
-init                      Initialize the project
-run                       Run the project
-test                      Run tests
-upgrade-requirements      Upgrade all dependencies in uv.lock
+init                       Initialize the project
+README.md                  Update dynamic blocks in README.md
+run                        Run the project
+test                       Run tests
+upgrade-requirements       Upgrade all dependencies in uv.lock
 ```
 <!-- [[[end]]] -->
