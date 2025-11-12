@@ -34,6 +34,10 @@ name = "django-layout"
 requires-python = "==3.14.0"
 version = "4.0"
 
+[too.pytest_env]
+DEBUG = 0
+TEMPLATE_DEBUG = 1
+
 [tool.coverage.report]
 exclude_lines = [
   "if TYPE_CHECKING:",
@@ -57,7 +61,6 @@ omit = [
   "dist/*",
   "*.egg-info/*",
 ]
-parallel = true
 patch = ["subprocess"]
 plugins = [
   'django_coverage_plugin',
