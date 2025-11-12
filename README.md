@@ -119,7 +119,7 @@ cog.out('\n'.join(mdown.split('\n')[1:]))
   * type: `bool`
   * default: `False`
 * **ALLOWED_HOSTS**
-  * description: Hosts allowed to serve the site https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#allowed-hosts
+  * description: Hosts allowed to serve the site https://docs.djangoproject.com/en/{{docs_version}}/ref/settings/#allowed-hosts
   * type: `list[str]`
   * default: `['*']`
 * **DATABASE_URL**
@@ -135,7 +135,7 @@ cog.out('\n'.join(mdown.split('\n')[1:]))
   * type: `Literal['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']`
   * default: `INFO`
 * **SECRET_KEY** _REQUIRED_
-  * description: A long random string you keep secret https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#secret-key
+  * description: A long random string you keep secret https://docs.djangoproject.com/en/{{docs_version}}/ref/settings/#secret-key
   * type: `str`
 * **ENVIRONMENT**
   * description: Name of deployed environment (e.g. 'staging', 'production')
@@ -153,6 +153,10 @@ cog.out('\n'.join(mdown.split('\n')[1:]))
   * description: Sentry trace sample rate https://docs.sentry.io/product/sentry-basics/concepts/tracing/trace-view/
   * type: `float`
   * default: `0.25`
+* **TEMPLATE_DEBUG**
+  * description: Enable to measure template coverage
+  * type: `bool`
+  * default: `False`
 <!-- [[[end]]] -->
 
 ## Makefile commands
