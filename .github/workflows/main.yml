@@ -53,8 +53,26 @@ jobs:
         run: |
           curl -I --retry 10 --retry-all-errors --fail \
           localhost:8000/static/index.js
+
       - name: run tests
-        run: make test
+        run: |
+          docker compose run --rm app \
+          pytest --cov=. --cov-report-xml --junitxml=junit.xml
+
+      - name: Upload coverage reports to Codecov
+        # Publish coverage on success, fail, but not cancel.
+        if: success() || failure()
+        uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5.5.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload test results to Codecov
+        # Upload JUnit test reports for test analytics
+        if: success() || failure()
+        uses: codecov/test-results-action@47f89e9acb64b76debcd5ea40642d25a4adced9f # v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
       - name: dump docker logs
         run: |
           set -x
