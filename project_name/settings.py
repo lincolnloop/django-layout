@@ -79,6 +79,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
+            "debug": config.TEMPLATE_DEBUG,
         },
     },
 ]
@@ -99,11 +100,13 @@ DATABASES = {
 
 
 # Password validation
-# https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/{{docs_version}}/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+        ),
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -136,7 +139,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = Path("/var/www/staticfiles")
 
 STATICFILES_DIRS = [
     BASE_DIR / "{{ project_name }}" / "static",

@@ -22,7 +22,7 @@ upgrade-requirements:  ## Upgrade all dependencies in uv.lock
 
 .PHONY: test
 test:  ## Run tests
-	docker compose run --rm app python manage.py test
+	docker compose run --rm app pytest
 
 .PHONY: help
 help:

@@ -4,8 +4,15 @@ cog = [
   "goodconf[yaml]>=6.1.2",
 ]
 dev = [
+  "django-coverage-plugin>=3.2.0",
   "django-stubs>=5.2.7",
   "mypy>=1.18.2",
+  "pytest-cov>=7.0.0",
+  "pytest-django>=4.11.1",
+  "pytest-env>=1.2.0",
+  "pytest-socket>=0.7.0",
+  "pytest-xdist>=3.8.0",
+  "pytest>=9.0.1",
   "readable-log-formatter>=0.1.4",
 ]
 
@@ -27,11 +34,51 @@ name = "django-layout"
 requires-python = "==3.14.0"
 version = "4.0"
 
+[tool.coverage.report]
+exclude_lines = [
+  "if TYPE_CHECKING:",
+  "if t.TYPE_CHECKING:",
+  "pragma: no cover",
+  "raise NotImplementedError",
+]
+
+[tool.coverage.run]
+branch = true
+core = "ctrace"
+disable_warnings = [
+  "module-not-imported",
+  "module-not-measured",
+  "no-data-collected",
+]
+omit = [
+  "**/node_modules/*",
+  ".venv/*",
+  "client/*",
+  "dist/*",
+  "*.egg-info/*",
+]
+parallel = true
+patch = ["subprocess"]
+plugins = [
+  'django_coverage_plugin',
+]
+
 [tool.django-stubs]
 django_settings_module = "{{ project_name }}.settings"
 
 [tool.mypy]
 plugins = ["mypy_django_plugin.main"]
+
+[tool.pytest.ini_options]
+addopts = [
+  "--allow-hosts=127.0.0.1,localhost",
+  "--allow-unix-socket",  # Allow async
+  "--disable-socket",  # Prevent network calls.
+  "--ds={{ project_name }}.settings",
+  "--fail-on-template-vars",  # Yell at invalid variables in templates
+  "--reuse-db",  # Reuse by default. Use --create-db to recreate test dbs.
+  "--strict-markers",
+]
 
 [tool.ruff]
 extend-exclude = ["migrations"]
@@ -39,21 +86,22 @@ target-version = "py314"
 
 [tool.ruff.lint]
 ignore = [
-  "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed in `**kwargs`"
+  "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed in `**kwargs`
   "ARG001",  # Unused function argument (request, ...)
   "ARG002",  # Unused method argument (*args, **kwargs)
+  "COM812",  # Check absence of trailing commas. Made redundant by formatter.
   "D",  # Missing or badly formatted docstrings
-  "E501",  # Let the formatter handle long lines
   "FBT",  # Flake Boolean Trap (don't use arg=True in functions)
+  "PLR2004",  # Allow "magic values" (e.g. status_code == 302)
   "RUF012",  # Mutable class attributes https://github.com/astral-sh/ruff/issues/5243
-  "COM812",  # (ruff format) Checks for the absence of trailing commas
-  "ISC001",  # (ruff format) Checks for implicitly concatenated strings on a single line
 ]
 select = ["ALL"]
 
 [tool.ruff.lint.extend-per-file-ignores]
-# Also ignore `E402` in all `__init__.py` files.
-"test_*.py" = [
-  "S101",  # S101 Use of `assert` detected
-  "PLR2004",  # Magic value used in comparison,
+"**/migrations/*" = [
+  "E501",  # Allow exceeded line length in migrations.
+]
+"**/tests/**/*" = [
+  "PLR2004",  # Magic value used in comparison
+  "S101",  # Allow use of asserts
 ]

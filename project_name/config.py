@@ -17,7 +17,7 @@ class Config(GoodConf):
     ALLOWED_HOSTS: list[str] = Field(
         default=["*"],
         description="Hosts allowed to serve the site "
-        "https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#allowed-hosts",
+        "https://docs.djangoproject.com/en/{{docs_version}}/ref/settings/#allowed-hosts",
     )
     DATABASE_URL: str = Field(
         default="sqlite:///./sqlite3.db",
@@ -35,7 +35,7 @@ class Config(GoodConf):
     SECRET_KEY: str = Field(
         initial=lambda: base64.b64encode(os.urandom(60)).decode(),
         description="A long random string you keep secret "
-        "https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#secret-key",
+        "https://docs.djangoproject.com/en/{{docs_version}}/ref/settings/#secret-key",
     )
     ENVIRONMENT: str = Field(
         "development",
@@ -43,7 +43,9 @@ class Config(GoodConf):
     )
     BASIC_AUTH_CREDENTIALS: str = Field(
         default="",
-        description="Basic Auth credentials for the site in the format 'username:password'",
+        description=(
+            "Basic Auth credentials for the site in the format 'username:password'"
+        ),
     )
     SENTRY_DSN: str = Field(
         default="",
@@ -53,6 +55,10 @@ class Config(GoodConf):
         default=0.25,
         description="Sentry trace sample rate "
         "https://docs.sentry.io/product/sentry-basics/concepts/tracing/trace-view/",
+    )
+    TEMPLATE_DEBUG: bool = Field(
+        default=DEBUG,
+        description="Enable to measure template coverage",
     )
 
     model_config = {"default_files": ["{{ project_name }}.yml"]}
