@@ -67,7 +67,9 @@ jobs:
           localhost:8000/static/index.js
 
       - name: Run tests
-        run: docker exec app pytest --cov=. --cov-report=xml --junitxml=junit.xml
+        run: |
+          docker compose exec app \
+          pytest --cov=. --cov-report=xml --junitxml=junit.xml
 
       - name: Upload coverage reports to Codecov
         # Publish coverage on success, fail, but not cancel.
