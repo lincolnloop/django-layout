@@ -1,4 +1,0 @@
-{
-  "$schema": "https://docs.renovatebot.com/renovate-global-schema.json",
-  "repositories": ["lincolnloop/django-layout"]
-}
