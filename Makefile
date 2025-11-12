@@ -20,10 +20,6 @@ run:  ## Run the project
 upgrade-requirements:  ## Upgrade all dependencies in uv.lock
 	uv lock --upgrade
 
-.PHONY: README.md
-README.md:  ## Update dynamic blocks in README.md
-	docker compose run --rm app cog -r README.md
-
 .PHONY: test
 test:  ## Run tests
 	docker compose run --rm app python manage.py test
@@ -32,6 +28,6 @@ test:  ## Run tests
 help:
 	@echo -e "Available make commands:"
 	@echo -e ""
-	@echo "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sort | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\1:\2/' | awk -F: '{ printf "%-25s %s\n", $$1, $$2 }')"
+	@echo "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sort | sed -E 's/:.*##[[:space:]]*/:/' | awk -F: '{ printf "%-25s %s\n", $$1, $$2 }')"
 
 .DEFAULT_GOAL := help

@@ -55,8 +55,6 @@ jobs:
           localhost:8000/static/index.js
       - name: run tests
         run: make test
-      - name: verify README.md
-        run: docker compose run --rm --no-deps app cog --check README.md
       - name: dump docker logs
         run: |
           set -x

@@ -47,3 +47,13 @@ repos:
     rev: v0.6.1
     hooks:
       - id: uv-sort
+
+  - repo: local
+    hooks:
+      - id: cog
+        name: Update README with cog
+        entry: uv run --only-group cog cog --check -r README.md
+        language: system
+        pass_filenames: false
+        files: (Makefile|README.md|config.py)
+        require_serial: true
