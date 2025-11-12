@@ -17,7 +17,7 @@ repos:
         args: [--strict]
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.34.1
+    rev: 0.35.0
     hooks:
       - id: check-github-workflows
       - id: check-renovate
