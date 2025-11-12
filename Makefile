@@ -24,13 +24,10 @@ upgrade-requirements:  ## Upgrade all dependencies in uv.lock
 test:  ## Run tests
 	docker compose run --rm app python manage.py test
 
-.PHONY: test
-test2:  ## Run tests
-	docker compose run --rm app python manage.py test
 .PHONY: help
 help:
 	@echo -e "Available make commands:"
 	@echo -e ""
-	@echo "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sort | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\1:\2/' | awk -F: '{ printf "%-25s %s\n", $$1, $$2 }')"
+	@echo "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sort | sed -E 's/:.*##[[:space:]]*/:/' | awk -F: '{ printf "%-25s %s\n", $$1, $$2 }')"
 
 .DEFAULT_GOAL := help

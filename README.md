@@ -169,10 +169,9 @@ cog.out(
 ```shell
 Available make commands:
 
-init                       Initialize the project
-run                        Run the project
-test                       Run tests
-test2                      Run tests
-upgrade-requirements       Upgrade all dependencies in uv.lock
+init                      Initialize the project
+run                       Run the project
+test                      Run tests
+upgrade-requirements      Upgrade all dependencies in uv.lock
 ```
 <!-- [[[end]]] -->
