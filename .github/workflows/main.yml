@@ -27,7 +27,7 @@ jobs:
            --extension=py,md,gitignore,yaml,json,toml \
            --name=Makefile,Dockerfile \
            --exclude=.github \
-           testproj .
+           project_name .
 
       - name: Create blank index.js file
         run: |
@@ -56,10 +56,10 @@ jobs:
       - name: Show running Docker containers
         run: docker ps
 
-      - name: curl /testproj-admin/login
+      - name: curl /project_name-admin/login
         run: |
           curl -I --retry 10 --retry-all-errors --fail \
-          localhost:8000/testproj-admin/login/
+          localhost:8000/project_name-admin/login/
 
       - name: curl /static/index.js
         run: |
