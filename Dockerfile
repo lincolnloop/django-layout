@@ -1,5 +1,5 @@
 # STAGE 1: BUILD NODE
-FROM node:25.2.0-alpine AS build-node
+FROM node:25.2.1-alpine AS build-node
 
 WORKDIR /home/node/app/client
 COPY client/package-lock.json client/package.json ./
