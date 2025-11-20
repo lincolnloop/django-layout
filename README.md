@@ -1,4 +1,4 @@
-{% comment %}
+<!-- {% comment %} -->
 
 # Django Layout
 
@@ -61,7 +61,7 @@ project._
 
 ---
 
-{% endcomment %}
+<!-- {% endcomment %} -->
 
 # {{ project_name }}
 
@@ -99,8 +99,7 @@ Make sure you have the containers running:
 
     docker compose up
 
-Access [localhost:8000/{{ project_name
-}}-admin/](http://localhost:8000/{{ project_name }}-admin/).
+Access http://localhost:8000/{{ project_name }}-admin/.
 
 ## Configuration / Environment Variables
 
