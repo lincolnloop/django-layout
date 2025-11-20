@@ -27,35 +27,70 @@ jobs:
            --extension=py,md,gitignore,yaml,json,toml \
            --name=Makefile,Dockerfile \
            --exclude=.github \
-           testproj .
+           project_name .
 
       - name: Create blank index.js file
         run: |
           mkdir -p client/dist
           touch client/dist/index.js
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3
+
+      - name: Build and cache
+        uses: docker/bake-action@3acf805d94d93a86cce4ca44798a76464a75b88c # v6
+        with:
+          load: true
+          set: |
+            *.cache-from=type=gha
+            *.cache-to=type=gha,mode=max
+          source: .
+
       - name: Initialize project
         run: make init
 
-      - name: start django
+      - name: Start dev server
         run: docker compose up -d
         timeout-minutes: 5
 
-      - name: verify services running
-        run: |
-          docker ps  # show service status for debugging
-          test $(docker ps -q | wc -l) = "3"
-      - name: verify website running
+      - name: Show running Docker containers
+        run: docker ps
+
+      - name: curl /project_name-admin/login
         run: |
           curl -I --retry 10 --retry-all-errors --fail \
-          localhost:8000/testproj-admin/login/
-      - name: verify client build
+          localhost:8000/project_name-admin/login/
+
+      - name: curl /static/index.js
         run: |
           curl -I --retry 10 --retry-all-errors --fail \
           localhost:8000/static/index.js
-      - name: run tests
-        run: make test
-      - name: dump docker logs
+
+      - name: Check missing migrations
+        run: docker compose exec app coverage run -m manage makemigrations --check
+
+      - name: Run tests
+        run: |
+          docker compose exec app \
+          pytest --cov=. --cov-append --cov-report=xml --junitxml=junit.xml
+
+      - name: Upload coverage reports to Codecov
+        # Publish coverage on success, fail, but not cancel.
+        if: success() || failure()
+        uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5.5.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: ${{ github.repository }}
+
+      - name: Upload test results to Codecov
+        # Upload JUnit test reports for test analytics
+        if: success() || failure()
+        uses: codecov/test-results-action@47f89e9acb64b76debcd5ea40642d25a4adced9f # v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: ${{ github.repository }}
+
+      - name: Dump Docker logs
         run: |
           set -x
           docker compose ps
