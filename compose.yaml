@@ -3,6 +3,7 @@ services:
   client:
     build:
       context: .
+      dockerfile: docker/app/Dockerfile
       target: build-node
     command: npm run dev
     volumes:
@@ -13,24 +14,22 @@ services:
 
   db:
     image: postgres:18-alpine
+    environment:
+      - POSTGRES_PASSWORD=postgres
     volumes:
       - pgdata:/var/lib/postgresql/data/
       - .data/db_dumps:/db_dumps
-    environment:
-      - POSTGRES_DB={{ project_name }}
-      - POSTGRES_PASSWORD=postgres
 
   app:
     <<: &COMMON
       build:
         context: .
+        dockerfile: docker/app/Dockerfile
         target: build-python
-        args:
-          UV_EXTRA_DEPENDENCIES: "dev"
       environment:
         - DEBUG=true
         - DJANGO_ENV=development
-        - DATABASE_URL=postgres://postgres:postgres@db:5432/{{ project_name }}
+        - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
         - SECRET_KEY=not-secret
       restart: on-failure
       depends_on:
@@ -43,8 +42,16 @@ services:
     volumes:
       - .:/app
       - /app/.venv
-      - /app/{{ project_name }}.egg-info
       - client:/app/client/dist
+
+  prettier:
+    build:
+      context: .
+      dockerfile: ./docker/prettier/Dockerfile
+    profiles:
+      - prettier
+    volumes:
+      - ./:/root/app
 
 volumes:
   client:
