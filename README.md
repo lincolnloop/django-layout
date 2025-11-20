@@ -3,26 +3,27 @@
 # Django Layout
 
 `django-layout` provides sane defaults for new Django projects based on established best
-practices and some configuration setups frequently used in Lincoln Loop\'s projects. It includes:
+practices and some configuration setups frequently used in Lincoln Loop\'s projects. It
+includes:
 
-* `uv` for fast dependency management
-* `ruff` for formatting and linting
-* `goodconf` for structured & documented environment variable configuration
-* structured logging in deployment and pretty logging in development
-* `gunicorn` and `whitenoise` for production deployments
-* production-hardened settings
+- `uv` for fast dependency management
+- `ruff` for formatting and linting
+- `goodconf` for structured & documented environment variable configuration
+- structured logging in deployment and pretty logging in development
+- `gunicorn` and `whitenoise` for production deployments
+- production-hardened settings
 
 ## Usage
 
 ### With `pip`
 
-1. create and activate a virtualenv:
+1.  create and activate a virtualenv:
 
         python -m venv --prompt . --upgrade-deps .venv
 
-2. install Django with `pip install django`
+2.  install Django with `pip install django`
 
-3. run the following command (replace `YOUR_PROJECT_NAME` with your preferred name):
+3.  run the following command (replace `YOUR_PROJECT_NAME` with your preferred name):
 
         django-admin startproject \
          --template=https://github.com/lincolnloop/django-layout/zipball/main \
@@ -33,7 +34,8 @@ practices and some configuration setups frequently used in Lincoln Loop\'s proje
 
 ### With `uv`
 
-If you're using `uv`, you can run the following command (replace `YOUR_PROJECT_NAME` with your preferred name):
+If you're using `uv`, you can run the following command (replace `YOUR_PROJECT_NAME`
+with your preferred name):
 
         uv run --with django django-admin startproject \
          --template=https://github.com/lincolnloop/django-layout/zipball/main \
@@ -44,18 +46,20 @@ If you're using `uv`, you can run the following command (replace `YOUR_PROJECT_N
 
 ## Development
 
-This `README.md` file is kept up-to-date by pre-commit, and is run when
-composing a new commit. To execute it manually, run:
+This `README.md` file is kept up-to-date by pre-commit, and is run when composing a new
+commit. To execute it manually, run:
 
 ```
 pre-commit run cog
 ```
 
-Then use `git add -p README.md` to only commit the changes you want. You can `git stash` the template changes after your commit.
+Then use `git add -p README.md` to only commit the changes you want. You can `git stash`
+the template changes after your commit.
 
-*Note:  The text following this comment block will become the README.md of the new project.*
+_Note: The text following this comment block will become the README.md of the new
+project._
 
-------------------------------------------------------------------------
+---
 
 {% endcomment %}
 
@@ -68,8 +72,7 @@ Build and run the project:
     make init
     docker compose up
 
-To run Django commands like migrations and shell or to enter the
-container bash do:
+To run Django commands like migrations and shell or to enter the container bash do:
 
     docker compose run --rm app bash
     docker compose run --rm app python manage.py createsuperuser
@@ -96,9 +99,12 @@ Make sure you have the containers running:
 
     docker compose up
 
-Access [localhost:8000/{{ project_name }}-admin/](http://localhost:8000/{{ project_name }}-admin/).
+Access [localhost:8000/{{ project_name
+}}-admin/](http://localhost:8000/{{ project_name }}-admin/).
 
 ## Configuration / Environment Variables
+
+<!-- prettier-ignore-start -->
 
 <!-- [[[cog
 import importlib
@@ -157,9 +163,13 @@ cog.out('\n'.join(mdown.split('\n')[1:]))
   * description: Enable to measure template coverage
   * type: `bool`
   * default: `False`
-<!-- [[[end]]] -->
+      <!-- [[[end]]] -->
+
+<!-- prettier-ignore-end -->
 
 ## Makefile commands
+
+<!-- prettier-ignore-start -->
 
 <!-- [[[cog
 import cog
@@ -179,3 +189,5 @@ test                      Run tests
 upgrade-requirements      Upgrade all dependencies in uv.lock
 ```
 <!-- [[[end]]] -->
+
+<!-- prettier-ignore-end -->
