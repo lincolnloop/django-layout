@@ -1,16 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "helpers:pinGitHubActionDigests",
-    ":configMigration"
-  ],
+  "extends": ["helpers:pinGitHubActionDigests", ":configMigration"],
   "automerge": true,
   "automergeType": "pr",
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": [
-      "at any time"
-    ]
+    "schedule": ["at any time"]
   },
   "packageRules": [
     {

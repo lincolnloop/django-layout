@@ -13,3 +13,9 @@ files = ["*.html"]
 
 [overrides.options]
 parser = "jinja-template"
+
+[[overrides]]
+files = ["*.md"]
+
+[overrides.options]
+proseWrap = "always"
