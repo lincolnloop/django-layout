@@ -41,6 +41,7 @@ exclude_lines = [
   "pragma: no cover",
   "raise NotImplementedError",
 ]
+skip_covered = true
 
 [tool.coverage.run]
 branch = true
