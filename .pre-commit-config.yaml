@@ -57,3 +57,15 @@ repos:
         pass_filenames: false
         files: (Makefile|README.md|config.py)
         require_serial: true
+
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        language: system
+        pass_filenames: true
+        entry: >-
+          docker compose --profile prettier run -T --rm prettier
+          npx prettier --write --ignore-unknown
+        exclude_types: [python]
+        require_serial: true
