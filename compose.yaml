@@ -44,6 +44,15 @@ services:
       - /app/.venv
       - client:/app/client/dist
 
+  prettier:
+    build:
+      context: .
+      dockerfile: ./docker/prettier/Dockerfile
+    profiles:
+      - prettier
+    volumes:
+      - ./:/root/app
+
 volumes:
   client:
   pgdata:
