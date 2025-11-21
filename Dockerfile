@@ -13,7 +13,7 @@ RUN npm run build
 FROM python:3.14 AS build-python
 WORKDIR /app
 
-COPY --from=ghcr.io/astral-sh/uv:0.9.10 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.9.11 /uv /uvx /bin/
 ENV PYTHONPYCACHEPREFIX=/tmp/pycache
 ENV PYTHONUNBUFFERED=1
 ENV UV_COMPILE_BYTECODE=1
