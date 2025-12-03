@@ -4,7 +4,7 @@
 
 # Django Layout
 
-[![codecov](https://codecov.io/github/lincolnloop/django-layout/graph/badge.svg?token=49GGtPkTeh)](https://codecov.io/github/lincolnloop/django-layout)
+[![codecov](https://codecov.io/github/lincolnloop/django-layout/branch/main/graph/badge.svg?token=49GGtPkTeh)](https://codecov.io/github/lincolnloop/django-layout)
 
 `django-layout` provides sane defaults for new Django projects based on established best
 practices and some configuration setups frequently used in Lincoln Loop\'s projects. It
