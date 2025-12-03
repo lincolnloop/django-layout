@@ -1,0 +1,21 @@
+plugins = [
+  "prettier-plugin-jinja-template",
+]
+printWidth = 88
+semi = true
+singleAttributePerLine = true
+singleQuote = false
+tabWidth = 2
+trailingComma = "all"
+
+[[overrides]]
+files = ["*.html"]
+
+[overrides.options]
+parser = "jinja-template"
+
+[[overrides]]
+files = ["*.md"]
+
+[overrides.options]
+proseWrap = "always"
