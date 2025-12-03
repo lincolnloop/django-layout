@@ -17,7 +17,7 @@ from typing import Any
 
 import dj_database_url
 import sentry_sdk
-from csp.constants import SELF
+from django.utils.csp import CSP
 from sentry_sdk.integrations.django import DjangoIntegration
 
 from .config import config
@@ -62,7 +62,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "csp.middleware.CSPMiddleware",
+    "django.middleware.csp.ContentSecurityPolicyMiddleware",
 ]
 
 ROOT_URLCONF = "{{ project_name }}.urls"
@@ -131,8 +131,6 @@ TIME_ZONE = "UTC"
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = True
 
 
@@ -151,7 +149,14 @@ STATICFILES_DIRS = [
 # Whitenoise
 # http://whitenoise.evans.io/en/stable/
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 # Match filename with 12 hex digits before the extension
 WHITENOISE_IMMUTABLE_FILE_TEST = lambda _, url: re.match(  # noqa: E731
@@ -169,8 +174,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 SECURE_REDIRECT_EXEMPT = [r"^-/"]  # django-alive URLs
 
 # CSP
-# https://django-csp.readthedocs.io/en/latest/configuration.html#configuration-chapter
-CONTENT_SECURITY_POLICY = {"DIRECTIVES": {"default-src": [SELF]}}
+# https://docs.djangoproject.com/en/6.0/ref/settings/#secure-csp
+SECURE_CSP = {"default-src": [CSP.SELF]}
 
 X_FRAME_OPTIONS = "DENY"
 REFERRER_POLICY = "same-origin"
