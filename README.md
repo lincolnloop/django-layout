@@ -1,6 +1,10 @@
 <!-- {% comment %} -->
 
+<a href="http://www.djangoproject.com/"><img src="https://www.djangoproject.com/m/img/badges/djangoproject120x25.gif" border="0" alt="A Django project." title="A Django project." /></a>
+
 # Django Layout
+
+[![codecov](https://codecov.io/github/lincolnloop/django-layout/branch/main/graph/badge.svg?token=49GGtPkTeh)](https://codecov.io/github/lincolnloop/django-layout)
 
 `django-layout` provides sane defaults for new Django projects based on established best
 practices and some configuration setups frequently used in Lincoln Loop\'s projects. It
@@ -56,10 +60,10 @@ pre-commit run cog
 Then use `git add -p README.md` to only commit the changes you want. You can `git stash`
 the template changes after your commit.
 
-_Note: The text following this comment block will become the README.md of the new
-project._
-
 ---
+
+<details>
+<summary>Click to preview the generated project README</summary>
 
 <!-- {% endcomment %} -->
 
@@ -190,3 +194,7 @@ upgrade-requirements      Upgrade all dependencies in uv.lock
 <!-- [[[end]]] -->
 
 <!-- prettier-ignore-end -->
+
+<!-- {% comment %} -->
+</details>
+<!-- {% endcomment %} -->
