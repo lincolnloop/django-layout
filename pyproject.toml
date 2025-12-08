@@ -12,7 +12,7 @@ dev = [
   "pytest-env>=1.2.0",
   "pytest-socket>=0.7.0",
   "pytest-xdist>=3.8.0",
-  "pytest>=9.0.1",
+  "pytest>=9.0.2",
   "readable-log-formatter>=0.1.4",
 ]
 
