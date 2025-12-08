@@ -21,7 +21,7 @@ jobs:
       - name: Get GitHub App Token
         id: get_token
         # yamllint disable-line rule:line-length
-        uses: actions/create-github-app-token@7e473efe3cb98aa54f8d4bac15400b15fad77d94 # v2
+        uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2
         with:
           app-id: ${{ vars.RENOVATE_BOT_APP_ID }}
           private-key: ${{ secrets.RENOVATE_BOT_PRIVATE_KEY }}
