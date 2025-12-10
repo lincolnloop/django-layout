@@ -4,6 +4,7 @@ name: test
 env:
   # yamllint disable-line rule:line-length
   TEMPLATE_URL: "https://github.com/lincolnloop/django-layout/zipball/${{ github.ref_name }}"
+  RUN: docker compose run --rm --no-deps
 
 "on":
   schedule:
@@ -44,6 +45,19 @@ jobs:
       - name: Initialize project
         run: make init
 
+      - name: Start dependencies
+        run: docker compose up db -d
+
+      # pytest-cov doesn't support parallel mode, so manually set the coverage
+      # filename with a random suffix so it can be combined with other runs.
+      - name: Run tests
+        run: >-
+          ${RUN} -e COVERAGE_FILE=.coverage.$RANDOM app
+          pytest --cov --cov-report= --junitxml=junit.xml
+
+      - name: Check missing migrations
+        run: ${RUN} app coverage run -m manage makemigrations --check
+
       - name: Start dev server
         run: docker compose up -d
         timeout-minutes: 5
@@ -51,23 +65,11 @@ jobs:
       - name: Show running Docker containers
         run: docker ps
 
-      - name: curl /project_name-admin/login
-        run: |
-          curl -I --retry 10 --retry-all-errors --fail \
-          localhost:8000/project_name-admin/login/
+      - name: Test dev server
+        run: curl -I --retry 10 --retry-all-errors --fail localhost:8000/
 
-      - name: curl /static/bundles/main.css
-        run: |
-          curl -I --retry 10 --retry-all-errors --fail \
-          localhost:8000/static/bundles/main.css
-
-      - name: Check missing migrations
-        run: docker compose exec app coverage run -m manage makemigrations --check
-
-      - name: Run tests
-        run: |
-          docker compose exec app \
-          pytest --cov=. --cov-append --cov-report=xml --junitxml=junit.xml
+      - name: Generate coverage report
+        run: ${RUN} app bash -c "coverage combine && coverage xml"
 
       - name: Upload coverage reports to Codecov
         # Publish coverage on success, fail, but not cancel.
