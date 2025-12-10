@@ -20,8 +20,6 @@ repos:
     rev: 0.35.0
     hooks:
       - id: check-github-workflows
-      - id: check-renovate
-        files: ^(renovate\.json|\.github/renovate_global_config\.json)$
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.14.8
@@ -69,3 +67,9 @@ repos:
           npx prettier --write --ignore-unknown
         exclude_types: [python]
         require_serial: true
+
+  - repo: https://github.com/renovatebot/pre-commit-hooks
+    rev: 42.42.4
+    hooks:
+      - id: renovate-config-validator
+        args: [--strict]
