@@ -1,8 +1,13 @@
+{% load static %}
 <!doctype html>
 <html>
   <head>
     <title>{% block head_title %}{% endblock %}</title>
     <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="{% static 'bundles/main.css' %}"
+    />
   </head>
   <body>
     <div id="container">{% block content %}{% endblock %}</div>

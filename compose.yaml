@@ -1,17 +1,5 @@
 ---
 services:
-  client:
-    build:
-      context: .
-      dockerfile: docker/app/Dockerfile
-      target: build-node
-    command: npm run dev
-    volumes:
-      - .:/home/node/app
-      # node_modules is not shared with the host
-      - /home/node/app/node_modules
-      - client:/home/node/app/client/dist
-
   db:
     image: postgres:18-alpine
     environment:
@@ -34,6 +22,7 @@ services:
       restart: on-failure
       depends_on:
         - db
+        - tailwind
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - ${PORT:-8000}:8000
@@ -42,7 +31,18 @@ services:
     volumes:
       - .:/app
       - /app/.venv
-      - client:/app/client/dist
+
+  tailwind:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+      target: build-node
+    command: npm run tailwind-watch
+    tty: true
+    stop_grace_period: 0s
+    volumes:
+      - ./:/app
+      - /app/node_modules # node_modules is not shared with the host
 
   prettier:
     build:
