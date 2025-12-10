@@ -3,10 +3,12 @@
   "extends": ["helpers:pinGitHubActionDigests", ":configMigration"],
   "automerge": true,
   "automergeType": "pr",
+  "dependencyDashboard": true,
   "lockFileMaintenance": {
     "enabled": true,
     "schedule": ["at any time"]
   },
+  "minimumReleaseAge": "7 days",
   "packageRules": [
     {
       "matchUpdateTypes": ["lockFileMaintenance"],
