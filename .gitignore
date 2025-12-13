@@ -6,3 +6,4 @@
 /staticfiles
 /{{ project_name }}.yml
 __pycache__
+dist/

@@ -8,6 +8,7 @@ init:  ## Initialize the project
 	command -v uvx || curl -LsSf https://astral.sh/uv/install.sh | sh \
 		&& docker compose build \
 		&& docker compose run --rm app python manage.py migrate \
+    && docker compose stop \
 		&& git init && git add . \
 		&& command -v pre-commit || uv tool install pre-commit \
 		&& pre-commit install

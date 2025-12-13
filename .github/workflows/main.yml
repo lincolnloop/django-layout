@@ -29,11 +29,6 @@ jobs:
            --exclude=.github \
            project_name .
 
-      - name: Create blank index.js file
-        run: |
-          mkdir -p client/dist
-          touch client/dist/index.js
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3
 
@@ -61,10 +56,10 @@ jobs:
           curl -I --retry 10 --retry-all-errors --fail \
           localhost:8000/project_name-admin/login/
 
-      - name: curl /static/index.js
+      - name: curl /static/bundles/main.css
         run: |
           curl -I --retry 10 --retry-all-errors --fail \
-          localhost:8000/static/index.js
+          localhost:8000/static/bundles/main.css
 
       - name: Check missing migrations
         run: docker compose exec app coverage run -m manage makemigrations --check
