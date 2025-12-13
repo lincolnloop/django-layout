@@ -24,10 +24,10 @@
   </head>
 
   <body
-    class="bg-(--color-teal) min-h-screen flex flex-col items-center justify-center px-4"
+    class="flex min-h-screen flex-col items-center justify-center bg-(--color-teal) px-4"
   >
-    <div class="text-center max-w-2xl">
-      <div class="flex justify-center mb-8">
+    <div class="max-w-2xl text-center">
+      <div class="mb-8 flex justify-center">
         <svg
           class="w-48"
           viewBox="0 0 176 71"
@@ -53,27 +53,27 @@
         </svg>
       </div>
 
-      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+      <h1 class="mb-4 text-4xl font-bold text-white md:text-5xl">
         Welcome to
         <span class="text-(--color-gold-drop) italic">{{ project_name }}</span>
       </h1>
 
-      <p class="text-xl text-(--color-spray) mb-8">
+      <p class="mb-8 text-xl text-(--color-spray)">
         Built with
         <a
           href="https://github.com/lincolnloop/django-layout"
-          class="text-(--color-porcelain) hover:underline transition-colors"
+          class="text-(--color-porcelain) transition-colors hover:underline"
           >django-layout</a
         >
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+      <div class="mb-12 flex flex-col justify-center gap-4 sm:flex-row">
         <a
           href="https://github.com/lincolnloop/django-layout"
-          class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-(--color-spray) text-(--color-teal) font-semibold rounded-lg hover:bg-(--color-spray-light) transition-colors"
+          class="inline-flex items-center justify-center gap-2 rounded-lg bg-(--color-spray) px-6 py-3 font-semibold text-(--color-teal) transition-colors hover:bg-(--color-spray-light)"
         >
           <svg
-            class="w-5 h-5"
+            class="h-5 w-5"
             fill="currentColor"
             viewBox="0 0 24 24"
           >
@@ -87,13 +87,13 @@
         </a>
         <a
           href="https://lincolnloop.com"
-          class="inline-flex items-center justify-center px-6 py-3 border-2 border-(--color-spray) text-(--color-spray) font-semibold rounded-lg hover:bg-(--color-spray) hover:text-(--color-teal) transition-colors"
+          class="inline-flex items-center justify-center rounded-lg border-2 border-(--color-spray) px-6 py-3 font-semibold text-(--color-spray) transition-colors hover:bg-(--color-spray) hover:text-(--color-teal)"
         >
           Visit Lincoln Loop
         </a>
       </div>
 
-      <p class="text-(--color-porcelain)/70 text-sm">
+      <p class="text-sm text-(--color-porcelain)/70">
         Brought to you by
         <a
           href="https://lincolnloop.com"
