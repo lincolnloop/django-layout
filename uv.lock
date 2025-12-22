@@ -190,7 +190,7 @@ cog = [
 dev = [
     { name = "django-coverage-plugin", specifier = ">=3.2.0" },
     { name = "django-stubs", specifier = ">=5.2.8" },
-    { name = "mypy", specifier = ">=1.19.0" },
+    { name = "mypy", specifier = ">=1.19.1" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "pytest-cov", specifier = ">=7.0.0" },
     { name = "pytest-django", specifier = ">=4.11.1" },
