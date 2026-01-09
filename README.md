@@ -19,6 +19,17 @@ includes:
 
 ## Usage
 
+### With `uv`
+
+Run the following command (replace `YOUR_PROJECT_NAME` with your preferred name):
+
+        uv run --with django django-admin startproject \
+         --template=https://github.com/lincolnloop/django-layout/zipball/main \
+         --extension=py,md,gitignore,yaml,json,toml \
+         --name=Makefile,Dockerfile \
+         --exclude=.github \
+         YOUR_PROJECT_NAME
+
 ### With `pip`
 
 1.  create and activate a virtualenv:
@@ -36,19 +47,10 @@ includes:
          --exclude=.github \
          YOUR_PROJECT_NAME
 
-### With `uv`
-
-If you're using `uv`, you can run the following command (replace `YOUR_PROJECT_NAME`
-with your preferred name):
-
-        uv run --with django django-admin startproject \
-         --template=https://github.com/lincolnloop/django-layout/zipball/main \
-         --extension=py,md,gitignore,yaml,json,toml \
-         --name=Makefile,Dockerfile \
-         --exclude=.github \
-         YOUR_PROJECT_NAME
-
 ## Development
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on setting up the development
+environment and testing the template.
 
 This `README.md` file is kept up-to-date by pre-commit, and is run when composing a new
 commit. To execute it manually, run:
