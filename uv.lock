@@ -226,7 +226,7 @@ dev = [
     { name = "pytest-xdist", specifier = ">=3.8.0" },
     { name = "readable-log-formatter", specifier = ">=0.1.4" },
     { name = "requests", specifier = ">=2.32.5" },
-    { name = "types-requests", specifier = ">=2.32.0" },
+    { name = "types-requests", specifier = ">=2.32.4.20260107" },
 ]
 
 [[package]]
