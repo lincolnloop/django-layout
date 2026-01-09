@@ -182,7 +182,6 @@ SECURE_CSP = {
     "style-src": [CSP.SELF, CSP.NONCE],
 }
 
-X_FRAME_OPTIONS = "DENY"
 REFERRER_POLICY = "same-origin"
 
 
@@ -251,8 +250,6 @@ with contextlib.suppress(ModuleNotFoundError):
 if config.DJANGO_ENV == "production":
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
-    SECURE_BROWSER_XSS_FILTER = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
 
     # HTTPS only behind a proxy that terminates SSL/TLS
     SECURE_SSL_REDIRECT = True
@@ -270,11 +267,10 @@ def _sentry_traces_sampler(ctx: dict[str, Any]) -> float:
     return 0 if is_static or is_healthcheck else config.SENTRY_TRACES_SAMPLE_RATE
 
 
-if config.SENTRY_DSN:
-    sentry_sdk.init(
-        dsn=config.SENTRY_DSN,
-        integrations=[DjangoIntegration()],
-        environment=config.ENVIRONMENT,
-        send_default_pii=True,
-        traces_sampler=_sentry_traces_sampler,
-    )
+sentry_sdk.init(
+    dsn=config.SENTRY_DSN,
+    integrations=[DjangoIntegration()],
+    environment=config.ENVIRONMENT,
+    send_default_pii=True,
+    traces_sampler=_sentry_traces_sampler,
+)

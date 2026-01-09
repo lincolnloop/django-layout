@@ -49,4 +49,4 @@ ENV GUNICORN_CMD_ARGS="\
   --timeout=10 \
   "
 
-CMD ["gunicorn", "{{ project_name }}.wsgi:application"]
+CMD ["gunicorn", "{{ project_name }}.wsgi"]

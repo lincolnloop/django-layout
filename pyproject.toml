@@ -14,6 +14,7 @@ dev = [
   "pytest-xdist>=3.8.0",
   "pytest>=9.0.2",
   "readable-log-formatter>=0.1.4",
+  "requests>=2.32.0",
 ]
 
 [project]
@@ -50,17 +51,11 @@ disable_warnings = [
   "module-not-measured",
   "no-data-collected",
 ]
-omit = [
-  "**/node_modules/*",
-  ".venv/*",
-  "client/*",
-  "dist/*",
-  "*.egg-info/*",
-]
 patch = ["subprocess"]
 plugins = [
   'django_coverage_plugin',
 ]
+source = ["{{ project_name }}", "tests"]
 
 [tool.django-stubs]
 django_settings_module = "{{ project_name }}.settings"
@@ -78,9 +73,13 @@ addopts = [
   "--reuse-db",  # Reuse by default. Use --create-db to recreate test dbs.
   "--strict-markers",
 ]
+markers = [
+  "server_env(env_dict): Pass environment variables to server fixture",
+]
 
 [tool.pytest_env]
 DEBUG = 0
+SENTRY_DSN = ""
 TEMPLATE_DEBUG = 1
 
 [tool.ruff]
@@ -105,6 +104,5 @@ select = ["ALL"]
   "E501",  # Allow exceeded line length in migrations.
 ]
 "**/tests/**/*" = [
-  "PLR2004",  # Magic value used in comparison
   "S101",  # Allow use of asserts
 ]
