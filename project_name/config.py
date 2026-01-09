@@ -5,13 +5,11 @@ from typing import Literal
 
 from goodconf import Field, GoodConf
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "{{ project_name }}.settings")
-
 PROJECT_DIR = Path(__file__).parents[1].resolve()
 
 
 class Config(GoodConf):
-    """Configuration for {{ project_name }}"""
+    """Configuration for {{ project_name }}."""
 
     DEBUG: bool = False
     ALLOWED_HOSTS: list[str] = Field(
