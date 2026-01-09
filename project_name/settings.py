@@ -243,7 +243,7 @@ LOGGING = {
 with contextlib.suppress(ModuleNotFoundError):
     import readable_log_formatter  # noqa: F401
 
-    LOGGING["formatters"]["default"] = {
+    LOGGING["formatters"]["default"] = {  # type: ignore[index]
         "()": "readable_log_formatter.ReadableFormatter",
     }
 

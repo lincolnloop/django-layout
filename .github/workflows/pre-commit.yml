@@ -17,6 +17,8 @@ jobs:
   # Run pre-commit on repo source.
   pre-commit-source:
     runs-on: ubuntu-latest
+    env:
+      PROJECT_NAME: project_name
     steps:
       - uses: astral-sh/setup-uv@61cb8a9741eeb8a550a1b8544337180c0fc8476b # v7
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6

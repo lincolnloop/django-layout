@@ -9,7 +9,7 @@ if t.TYPE_CHECKING:
     from pytest_django.fixtures import SettingsWrapper
 
 
-def error_view(request: HttpRequest) -> None:
+def error_view(request: HttpRequest) -> t.NoReturn:
     """View that raises a server error."""
     raise ValueError
 

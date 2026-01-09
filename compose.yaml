@@ -11,6 +11,8 @@ services:
   app:
     <<: &COMMON
       build:
+        args:
+          - PROJECT_NAME
         context: .
         dockerfile: docker/app/Dockerfile
         target: build-python
@@ -35,6 +37,8 @@ services:
 
   tailwind:
     build:
+      args:
+        - PROJECT_NAME
       context: .
       dockerfile: docker/app/Dockerfile
       target: build-node
