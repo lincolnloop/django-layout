@@ -203,7 +203,7 @@ requires-dist = [
     { name = "gunicorn", specifier = ">=23.0.0" },
     { name = "psycopg", specifier = ">=3.3.2" },
     { name = "python-json-logger", specifier = ">=4" },
-    { name = "sentry-sdk", specifier = ">=2.48.0" },
+    { name = "sentry-sdk", specifier = ">=2.49.0" },
     { name = "whitenoise", specifier = ">=6.11.0" },
     { name = "wsgi-basic-auth", specifier = ">=1.1.0" },
 ]
