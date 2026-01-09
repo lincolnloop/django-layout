@@ -14,7 +14,7 @@ dev = [
   "pytest-xdist>=3.8.0",
   "pytest>=9.0.2",
   "readable-log-formatter>=0.1.4",
-  "requests>=2.32.0",
+  "requests>=2.32.5",
 ]
 
 [project]
