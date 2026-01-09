@@ -49,8 +49,8 @@ Run the following command (replace `YOUR_PROJECT_NAME` with your preferred name)
 
 ## Development
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on setting up the development
-environment and testing the template.
+See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for instructions on setting up the
+development environment and testing the template.
 
 This `README.md` file is kept up-to-date by pre-commit, and is run when composing a new
 commit. To execute it manually, run:
