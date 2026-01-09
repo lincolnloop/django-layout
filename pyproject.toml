@@ -21,7 +21,7 @@ dev = [
 dependencies = [
   "dj-database-url>=3.1.0",
   "django-alive>=2.0.0",
-  "django==6",
+  "django==6.0.1",
   "goodconf[yaml]>=6.1.2",
   "gunicorn>=23.0.0",
   "psycopg>=3.3.2",
