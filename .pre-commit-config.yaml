@@ -17,12 +17,12 @@ repos:
         args: [--strict]
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.35.0
+    rev: 0.36.0
     hooks:
       - id: check-github-workflows
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.8
+    rev: v0.14.10
     hooks:
       - id: ruff-check
         args: [--fix]
@@ -69,7 +69,7 @@ repos:
         require_serial: true
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 42.42.4
+    rev: 42.69.2
     hooks:
       - id: renovate-config-validator
         args: [--strict]
