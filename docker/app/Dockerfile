@@ -1,12 +1,18 @@
 # STAGE 1: BUILD NODE
-FROM node:25.2.1-alpine AS build-node
+FROM node:25.2-alpine AS build-node
+ARG PROJECT_NAME="{{ project_name }}"
 
-WORKDIR /home/node/app/client
-COPY client/package-lock.json client/package.json ./
-RUN --mount=type=cache,target=/home/node/.npm \
-  set -ex && npm install -g npm@latest && npm ci
-COPY client/ ./
-RUN npm run build
+WORKDIR /app
+RUN --mount=type=bind,source=package.json,target=package.json \
+  --mount=type=bind,source=package-lock.json,target=package-lock.json \
+  npm install --no-save
+
+RUN --mount=type=bind,source=package.json,target=package.json \
+  --mount=type=bind,source=package-lock.json,target=package-lock.json \
+  --mount=type=bind,source=ui/,target=ui/ \
+  --mount=type=bind,source=${PROJECT_NAME},target=${PROJECT_NAME}/ \
+  npm run tailwind-build
+
 
 
 # STAGE 2: BUILD PYTHON
@@ -28,7 +34,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
   uv sync --locked
 
 COPY . ./
-COPY --from=build-node /home/node/app/client/dist ./client/dist
+COPY --from=build-node /app/dist/ /opt/static/
 RUN SECRET_KEY=s python manage.py collectstatic --noinput
 
 EXPOSE 8000

@@ -80,6 +80,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.csp",
             ],
             "debug": config.TEMPLATE_DEBUG,
         },
@@ -143,7 +144,8 @@ STATIC_ROOT = Path("/var/www/staticfiles")
 
 STATICFILES_DIRS = [
     BASE_DIR / "{{ project_name }}" / "static",
-    BASE_DIR / "client" / "dist",
+    BASE_DIR / "dist",  # Built at runtime
+    Path("/opt/static"),  # Prod (populated by docker build)
 ]
 
 # Whitenoise
@@ -175,7 +177,10 @@ SECURE_REDIRECT_EXEMPT = [r"^-/"]  # django-alive URLs
 
 # CSP
 # https://docs.djangoproject.com/en/6.0/ref/settings/#secure-csp
-SECURE_CSP = {"default-src": [CSP.SELF]}
+SECURE_CSP = {
+    "default-src": [CSP.SELF],
+    "style-src": [CSP.SELF, CSP.NONCE],
+}
 
 X_FRAME_OPTIONS = "DENY"
 REFERRER_POLICY = "same-origin"
