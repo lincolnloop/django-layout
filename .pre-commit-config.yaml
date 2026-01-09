@@ -68,6 +68,16 @@ repos:
         exclude_types: [python]
         require_serial: true
 
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        language: system
+        pass_filenames: true
+        entry: docker compose run -T --rm --no-deps app mypy
+        types: [python]
+        require_serial: true
+
   - repo: https://github.com/renovatebot/pre-commit-hooks
     rev: 42.70.1
     hooks:

@@ -15,6 +15,7 @@ dev = [
   "pytest>=9.0.2",
   "readable-log-formatter>=0.1.4",
   "requests>=2.32.5",
+  "types-requests>=2.32.0",
 ]
 
 [project]
@@ -58,17 +59,23 @@ plugins = [
 source = ["{{ project_name }}", "tests"]
 
 [tool.django-stubs]
-django_settings_module = "{{ project_name }}.settings"
 
 [tool.mypy]
 plugins = ["mypy_django_plugin.main"]
+
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+module = [
+  "django.utils.csp",
+  "readable_log_formatter",
+  "wsgi_basic_auth",
+]
 
 [tool.pytest.ini_options]
 addopts = [
   "--allow-hosts=127.0.0.1,localhost",
   "--allow-unix-socket",  # Allow async
   "--disable-socket",  # Prevent network calls.
-  "--ds={{ project_name }}.settings",
   "--fail-on-template-vars",  # Yell at invalid variables in templates
   "--reuse-db",  # Reuse by default. Use --create-db to recreate test dbs.
   "--strict-markers",

@@ -27,6 +27,9 @@ ENV UV_LINK_MODE=copy
 ENV LC_ALL=C.UTF-8 LANG=C.UTF-8 \
   PATH=/app/.venv/bin:${PATH}
 
+ARG PROJECT_NAME="{{ project_name }}"
+ENV DJANGO_SETTINGS_MODULE=${PROJECT_NAME}.settings
+
 
 RUN --mount=type=cache,target=/root/.cache/uv \
   --mount=type=bind,source=uv.lock,target=uv.lock \
