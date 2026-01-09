@@ -42,7 +42,7 @@ repos:
         files: \.toml
 
   - repo: https://github.com/ninoseki/uv-sort
-    rev: v0.6.1
+    rev: v0.7.0
     hooks:
       - id: uv-sort
 
