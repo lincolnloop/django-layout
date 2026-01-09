@@ -1,7 +1,7 @@
 # Contributing
 
-This repository is a Django project template. It uses `{{ project_name }}` placeholders
-that get replaced when users run `django-admin startproject --template`.
+This repository is a Django project template. It uses `\{\{ project_name \}\}`
+placeholders that get replaced when users run `django-admin startproject --template`.
 
 To develop and test the template directly, we need to configure the environment so
 Django can resolve these placeholders at runtime.
