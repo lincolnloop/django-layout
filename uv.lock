@@ -196,7 +196,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "dj-database-url", specifier = ">=3.0.1" },
+    { name = "dj-database-url", specifier = ">=3.1.0" },
     { name = "django", specifier = "==6" },
     { name = "django-alive", specifier = ">=2.0.0" },
     { name = "goodconf", extras = ["yaml"], specifier = ">=6.1.2" },
