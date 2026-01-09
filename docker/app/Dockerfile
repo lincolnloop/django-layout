@@ -1,6 +1,8 @@
+ARG PROJECT_NAME="{{ project_name }}"
+
 # STAGE 1: BUILD NODE
 FROM node:25.2-alpine AS build-node
-ARG PROJECT_NAME="{{ project_name }}"
+ARG PROJECT_NAME
 
 WORKDIR /app
 RUN --mount=type=bind,source=package.json,target=package.json \
@@ -27,7 +29,7 @@ ENV UV_LINK_MODE=copy
 ENV LC_ALL=C.UTF-8 LANG=C.UTF-8 \
   PATH=/app/.venv/bin:${PATH}
 
-ARG PROJECT_NAME="{{ project_name }}"
+ARG PROJECT_NAME
 ENV DJANGO_SETTINGS_MODULE=${PROJECT_NAME}.settings
 
 
