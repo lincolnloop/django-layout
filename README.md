@@ -11,56 +11,86 @@ practices and some configuration setups frequently used in Lincoln Loop\'s proje
 includes:
 
 - `uv` for fast dependency management
-- `ruff` for formatting and linting
+- `ruff`, `prettier` for formatting and linting all code & templates
 - `goodconf` for structured & documented environment variable configuration
 - structured logging in deployment and pretty logging in development
 - `gunicorn` and `whitenoise` for production deployments
+- `tailwindcss` for utility-first CSS
+- `pytest` for testing, `pytest-xdist` for parallel suport, `pytest-socket` to block
+  network connections, and `coverage`
+- `mypy` for type checks
 - production-hardened settings
+
+## Requirements
+
+- Docker
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) (recommended)
 
 ## Usage
 
-### With `uv`
+### Start project
 
 Run the following command (replace `YOUR_PROJECT_NAME` with your preferred name):
 
-        uv run --with django django-admin startproject \
-         --template=https://github.com/lincolnloop/django-layout/zipball/main \
-         --extension=py,md,gitignore,yaml,json,toml \
-         --name=Makefile,Dockerfile \
-         --exclude=.github \
-         YOUR_PROJECT_NAME
-
-### With `pip`
-
-1.  create and activate a virtualenv:
-
-        python -m venv --prompt . --upgrade-deps .venv
-
-2.  install Django with `pip install django`
-
-3.  run the following command (replace `YOUR_PROJECT_NAME` with your preferred name):
-
-        django-admin startproject \
-         --template=https://github.com/lincolnloop/django-layout/zipball/main \
-         --extension=py,md,gitignore,yaml,json,toml \
-         --name=Makefile,Dockerfile \
-         --exclude=.github \
-         YOUR_PROJECT_NAME
-
-## Development
-
-See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for instructions on setting up the
-development environment and testing the template.
-
-This `README.md` file is kept up-to-date by pre-commit, and is run when composing a new
-commit. To execute it manually, run:
-
-```
-pre-commit run cog
+```bash
+uv run --with django django-admin startproject \
+  --template=https://github.com/lincolnloop/django-layout/zipball/main \
+  --extension=py,md,gitignore,yaml,json,toml \
+  --name=Makefile,Dockerfile \
+  --exclude=.github \
+  YOUR_PROJECT_NAME
 ```
 
-Then use `git add -p README.md` to only commit the changes you want. You can `git stash`
-the template changes after your commit.
+<details>
+<summary>Not using uv? Expand for usage with <code>pip</code></summary>
+
+1. Create and activate a virtualenv:
+
+   ```bash
+   python -m venv --prompt . --upgrade-deps .venv
+   ```
+
+2. Install Django with `pip install django`
+
+3. Run the following command (replace `YOUR_PROJECT_NAME` with your preferred name):
+
+   ```bash
+   django-admin startproject \
+     --template=https://github.com/lincolnloop/django-layout/zipball/main \
+     --extension=py,md,gitignore,yaml,json,toml \
+     --name=Makefile,Dockerfile \
+     --exclude=.github \
+     YOUR_PROJECT_NAME
+   ```
+
+</details>
+
+### Quick start
+
+Enter the project directory:
+
+```bash
+cd YOUR_PROJECT_NAME
+```
+
+Initialize the project & tooling:
+
+```bash
+make init
+```
+
+Start the Django test server:
+
+```bash
+make run
+```
+
+Open browser at `http://localhost:8000`
+
+## Contributing
+
+See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for instructions on how to contribute to
+and maintain this project.
 
 ---
 
@@ -71,43 +101,69 @@ the template changes after your commit.
 
 # {{ project_name }}
 
-## Docker Installation
+## Requirements
 
-Build and run the project:
+- Docker
 
-    make init
-    docker compose up
+## Installation
 
-To run Django commands like migrations and shell or to enter the container bash do:
+Build the project:
 
-    docker compose run --rm app bash
-    docker compose run --rm app python manage.py createsuperuser
-    docker compose run --rm app python manage.py migrate
-    docker compose run --rm app python manage.py shell
+```bash
+make init
+```
 
-To stop containers run:
+## Usage
 
-    docker compose down
+### Run the project
 
-To update a container after adding a new requirement for example:
+```bash
+make run
+```
 
-    docker compose build
+Open http://localhost:8000/.
 
-## Running the project
-
-### Docker
+### Admin access
 
 Create super user:
 
-    docker compose run --rm app python manage.py createsuperuser
-
-Make sure you have the containers running:
-
-    docker compose up
+```bash
+docker compose run --rm app python manage.py createsuperuser
+```
 
 Access http://localhost:8000/{{ project_name }}-admin/.
 
-## Configuration / Environment Variables
+### Running commands
+
+To run Django commands like migrations and shell or to enter the container bash do:
+
+```bash
+docker compose run --rm app bash
+docker compose run --rm app python manage.py createsuperuser
+docker compose run --rm app python manage.py migrate
+docker compose run --rm app python manage.py shell
+```
+
+### Stop containers
+
+To stop containers run:
+
+```bash
+docker compose down
+```
+
+### Update project
+
+To rebuild the project after adding or updating requirements:
+
+```bash
+docker compose build
+```
+
+### Configuration / Environment Variables
+
+These are the environment variables defined in `config.py`. This documentation is
+automatically regenerated by precommit when modified.
 
 <!-- prettier-ignore-start -->
 
@@ -180,12 +236,12 @@ cog.out('\n'.join(mdown.split('\n')[1:]))
 import cog
 import subprocess
 cog.out(
-    "```shell\n" +
+    "```\n" +
     subprocess.check_output(["make", "help"]).decode() +
     "```"
 )
 ]]] -->
-```shell
+```
 Available make commands:
 
 init                      Initialize the project
