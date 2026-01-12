@@ -5,6 +5,7 @@ import time
 import typing as t
 
 import pytest
+from django.conf import settings
 
 if t.TYPE_CHECKING:
     from collections.abc import Iterator
@@ -44,7 +45,12 @@ def server(
         env.update(marker.args[0])
 
     proc = subprocess.Popen(  # noqa: S603
-        ["/app/.venv/bin/gunicorn", "{{ project_name }}.wsgi", "-b", f"{host}:{port}"],
+        [
+            "/app/.venv/bin/gunicorn",
+            f"{settings.PROJECT_NAME}.wsgi",
+            "-b",
+            f"{host}:{port}",
+        ],
         env=env,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,

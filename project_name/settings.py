@@ -26,6 +26,7 @@ config.load()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).parents[1].resolve()
+PROJECT_NAME = Path(__file__).parent.name
 
 
 # Quick-start development settings - unsuitable for production
@@ -65,13 +66,13 @@ MIDDLEWARE = [
     "django.middleware.csp.ContentSecurityPolicyMiddleware",
 ]
 
-ROOT_URLCONF = "{{ project_name }}.urls"
+ROOT_URLCONF = f"{PROJECT_NAME}.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            BASE_DIR / "{{ project_name }}" / "templates",
+            BASE_DIR / PROJECT_NAME / "templates",
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -87,7 +88,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "{{ project_name }}.wsgi.application"
+WSGI_APPLICATION = f"{PROJECT_NAME}.wsgi.application"
 
 
 # Database
@@ -143,7 +144,7 @@ STATIC_URL = "/static/"
 STATIC_ROOT = Path("/var/www/staticfiles")
 
 STATICFILES_DIRS = [
-    BASE_DIR / "{{ project_name }}" / "static",
+    BASE_DIR / PROJECT_NAME / "static",
     BASE_DIR / "dist",  # Built at runtime
     Path("/opt/static"),  # Prod (populated by docker build)
 ]
@@ -230,7 +231,7 @@ LOGGING = {
             "handlers": ["console"],
         },
         # Our application code
-        "{{ project_name }}": {
+        PROJECT_NAME: {
             "level": config.LOG_LEVEL,
             "handlers": ["console"],
             # Avoid double logging because of root logger

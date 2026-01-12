@@ -1,9 +1,17 @@
+import typing as t
+
 import requests
 
+if t.TYPE_CHECKING:
+    from django.conf import LazySettings
 
-def test_admin_login_page(server: str) -> None:
+
+def test_admin_login_page(
+    server: str,
+    settings: LazySettings,
+) -> None:
     """Admin login page returns 200."""
-    response = requests.get(f"{server}/{{ project_name }}-admin/login/", timeout=1)
+    response = requests.get(f"{server}/{settings.PROJECT_NAME}-admin/login/", timeout=1)
     assert response.status_code == 200
 
 
