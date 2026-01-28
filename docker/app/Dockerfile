@@ -1,7 +1,7 @@
 ARG PROJECT_NAME="{{ project_name }}"
 
 # STAGE 1: BUILD NODE
-FROM node:25.4-alpine AS build-node
+FROM node:25.5-alpine AS build-node
 ARG PROJECT_NAME
 
 WORKDIR /app
