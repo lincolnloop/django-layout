@@ -1,4 +1,4 @@
-FROM node:25.5-alpine AS ui
+FROM node:25.6-alpine AS ui
 
 WORKDIR /root
 RUN --mount=type=bind,source=docker/prettier/package.json,target=package.json \
