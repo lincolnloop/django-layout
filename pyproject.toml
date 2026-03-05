@@ -20,7 +20,7 @@ dev = [
 
 [project]
 dependencies = [
-  "dj-database-url>=3.1.1",
+  "dj-database-url>=3.1.2",
   "django-alive>=2.0.0",
   "django==6.0.3",
   "goodconf[yaml]>=6.1.2",
