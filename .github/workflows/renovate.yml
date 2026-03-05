@@ -31,7 +31,7 @@ jobs:
 
       - name: Self-hosted Renovate
         # yamllint disable-line rule:line-length
-        uses: renovatebot/github-action@d65ef9e20512193cc070238b49c3873a361cd50c # v46.1.1
+        uses: renovatebot/github-action@7b4b65bf31e07d4e3e51708d07700fb41bc03166 # v46.1.3
         env:
           LOG_LEVEL: debug
           RENOVATE_TOKEN: ${{ steps.get_token.outputs.token }}
