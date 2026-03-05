@@ -204,7 +204,7 @@ requires-dist = [
     { name = "dj-database-url", specifier = ">=3.1.2" },
     { name = "django", specifier = "==6.0.3" },
     { name = "django-alive", specifier = ">=2.0.0" },
-    { name = "goodconf", extras = ["yaml"], specifier = ">=6.1.2" },
+    { name = "goodconf", extras = ["yaml"], specifier = ">=7.0.0" },
     { name = "gunicorn", specifier = ">=25.1.0" },
     { name = "psycopg", specifier = ">=3.3.2" },
     { name = "python-json-logger", specifier = ">=4" },
@@ -216,7 +216,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 cog = [
     { name = "cogapp", specifier = ">=3.6.0" },
-    { name = "goodconf", extras = ["yaml"], specifier = ">=6.1.2" },
+    { name = "goodconf", extras = ["yaml"], specifier = ">=7.0.0" },
 ]
 dev = [
     { name = "django-coverage-plugin", specifier = ">=3.2.0" },
