@@ -206,7 +206,7 @@ requires-dist = [
     { name = "django-alive", specifier = ">=2.0.0" },
     { name = "goodconf", extras = ["yaml"], specifier = ">=7.0.0" },
     { name = "gunicorn", specifier = ">=25.1.0" },
-    { name = "psycopg", specifier = ">=3.3.2" },
+    { name = "psycopg", specifier = ">=3.3.3" },
     { name = "python-json-logger", specifier = ">=4" },
     { name = "sentry-sdk", specifier = ">=2.53.0" },
     { name = "whitenoise", specifier = ">=6.11.0" },

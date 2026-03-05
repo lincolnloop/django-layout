@@ -25,7 +25,7 @@ dependencies = [
   "django==6.0.3",
   "goodconf[yaml]>=7.0.0",
   "gunicorn>=25.1.0",
-  "psycopg>=3.3.2",
+  "psycopg>=3.3.3",
   "python-json-logger>=4",
   "sentry-sdk>=2.53.0",
   "whitenoise>=6.11.0",
