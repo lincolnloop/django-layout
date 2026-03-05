@@ -28,7 +28,7 @@ dependencies = [
   "psycopg>=3.3.3",
   "python-json-logger>=4",
   "sentry-sdk>=2.54.0",
-  "whitenoise>=6.11.0",
+  "whitenoise>=6.12.0",
   "wsgi-basic-auth>=1.1.0",
 ]
 name = "django-layout"
