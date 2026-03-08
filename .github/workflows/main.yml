@@ -2,14 +2,16 @@
 name: test
 
 env:
-  # yamllint disable-line rule:line-length
-  TEMPLATE_URL: "https://github.com/lincolnloop/django-layout/zipball/${{ github.ref_name }}"
+  GIT_REF: ${{ github.event.pull_request.head.sha || github.sha }}
   RUN: docker compose run --rm --no-deps
 
 "on":
   schedule:
     - cron: "0 5 * * 0"
   push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   test:
@@ -24,7 +26,7 @@ jobs:
       - name: Create Django project from template
         run: |
           uv run --with django django-admin startproject \
-           --template="$TEMPLATE_URL" \
+           --template="https://github.com/lincolnloop/django-layout/zipball/$GIT_REF" \
            --extension=py,md,gitignore,yaml,json,toml \
            --name=Makefile,Dockerfile \
            --exclude=.github \
