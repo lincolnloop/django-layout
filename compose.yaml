@@ -21,7 +21,7 @@ services:
         - DJANGO_ENV=${DJANGO_ENV:-development}
         - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
         - SECRET_KEY=not-secret
-        - TEMPLATE_DEBUG=1
+        - TEMPLATE_DEBUG=${TEMPLATE_DEBUG:-1}
       restart: on-failure
       depends_on:
         - db
