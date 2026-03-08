@@ -233,9 +233,7 @@ LOGGING = {
         # Our application code
         PROJECT_NAME: {
             "level": config.LOG_LEVEL,
-            "handlers": ["console"],
-            # Avoid double logging because of root logger
-            "propagate": False,
+            "propagate": True,
         },
     },
 }
