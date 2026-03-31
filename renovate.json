@@ -1,13 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["helpers:pinGitHubActionDigests", ":configMigration"],
+  "extends": ["helpers:pinGitHubActionDigests", ":configMigration", "group:monorepos"],
   "automerge": true,
   "automergeType": "pr",
   "dependencyDashboard": true,
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["at any time"]
+    "schedule": ["* 0 * * 1"]
   },
+  "minimumReleaseAge": "7 days",
   "packageRules": [
     {
       "matchUpdateTypes": ["lockFileMaintenance"],
