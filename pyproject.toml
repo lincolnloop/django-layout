@@ -14,8 +14,8 @@ dev = [
   "pytest-xdist>=3.8.0",
   "pytest>=9.0.2",
   "readable-log-formatter>=0.1.4",
-  "requests>=2.33.1",
-  "types-requests>=2.33.0.20260327",
+  "requests>=2.32.0",
+  "types-requests>=2.32.0",
 ]
 
 [project]
@@ -24,10 +24,10 @@ dependencies = [
   "django-alive>=2.0.0",
   "django==6.0.3",
   "goodconf[yaml]>=7.0.0",
-  "gunicorn>=25.3.0",
+  "gunicorn>=25.1.0",
   "psycopg>=3.3.3",
-  "python-json-logger>=4.1.0",
-  "sentry-sdk>=2.57.0",
+  "python-json-logger>=4.0.0",
+  "sentry-sdk>=2.56.0",
   "whitenoise>=6.12.0",
   "wsgi-basic-auth>=1.1.0",
 ]
