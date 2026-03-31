@@ -113,6 +113,3 @@ select = ["ALL"]
 "**/tests/**/*" = [
   "S101",  # Allow use of asserts
 ]
-
-[tool.uv]
-exclude-newer = "1 week"
