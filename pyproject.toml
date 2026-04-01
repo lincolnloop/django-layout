@@ -115,4 +115,5 @@ select = ["ALL"]
 ]
 
 [tool.uv]
+add-bounds = "exact"
 exclude-newer = "7 days"
