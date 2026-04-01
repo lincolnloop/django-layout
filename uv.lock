@@ -3,7 +3,7 @@ revision = 3
 requires-python = "==3.14.3"
 
 [options]
-exclude-newer = "2026-03-25T15:36:00.456681955Z"
+exclude-newer = "2026-03-25T15:44:45.27445365Z"
 exclude-newer-span = "P7D"
 
 [[package]]
@@ -221,36 +221,36 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "dj-database-url", specifier = ">=3.1.2" },
+    { name = "dj-database-url", specifier = "==3.1.2" },
     { name = "django", specifier = "==6.0.3" },
-    { name = "django-alive", specifier = ">=2.0.0" },
-    { name = "goodconf", extras = ["yaml"], specifier = ">=7.0.0" },
-    { name = "gunicorn", specifier = ">=25.1.0" },
-    { name = "psycopg", specifier = ">=3.3.3" },
-    { name = "python-json-logger", specifier = ">=4.0.0" },
-    { name = "sentry-sdk", specifier = ">=2.56.0" },
-    { name = "whitenoise", specifier = ">=6.12.0" },
-    { name = "wsgi-basic-auth", specifier = ">=1.1.0" },
+    { name = "django-alive", specifier = "==2.0.0" },
+    { name = "goodconf", extras = ["yaml"], specifier = "==7.0.0" },
+    { name = "gunicorn", specifier = "==25.1.0" },
+    { name = "psycopg", specifier = "==3.3.3" },
+    { name = "python-json-logger", specifier = "==4.0.0" },
+    { name = "sentry-sdk", specifier = "==2.56.0" },
+    { name = "whitenoise", specifier = "==6.12.0" },
+    { name = "wsgi-basic-auth", specifier = "==1.1.0" },
 ]
 
 [package.metadata.requires-dev]
 cog = [
-    { name = "cogapp", specifier = ">=3.6.0" },
-    { name = "goodconf", extras = ["yaml"], specifier = ">=7.0.0" },
+    { name = "cogapp", specifier = "==3.6.0" },
+    { name = "goodconf", extras = ["yaml"], specifier = "==7.0.0" },
 ]
 dev = [
-    { name = "django-coverage-plugin", specifier = ">=3.2.0" },
-    { name = "django-stubs", specifier = ">=6.0.1" },
-    { name = "mypy", specifier = ">=1.19.1" },
-    { name = "pytest", specifier = ">=9.0.2" },
-    { name = "pytest-cov", specifier = ">=7.1.0" },
-    { name = "pytest-django", specifier = ">=4.12.0" },
-    { name = "pytest-env", specifier = ">=1.6.0" },
-    { name = "pytest-socket", specifier = ">=0.7.0" },
-    { name = "pytest-xdist", specifier = ">=3.8.0" },
-    { name = "readable-log-formatter", specifier = ">=0.1.4" },
-    { name = "requests", specifier = ">=2.32.5" },
-    { name = "types-requests", specifier = ">=2.32.0" },
+    { name = "django-coverage-plugin", specifier = "==3.2.0" },
+    { name = "django-stubs", specifier = "==6.0.1" },
+    { name = "mypy", specifier = "==1.19.1" },
+    { name = "pytest", specifier = "==9.0.2" },
+    { name = "pytest-cov", specifier = "==7.1.0" },
+    { name = "pytest-django", specifier = "==4.12.0" },
+    { name = "pytest-env", specifier = "==1.6.0" },
+    { name = "pytest-socket", specifier = "==0.7.0" },
+    { name = "pytest-xdist", specifier = "==3.8.0" },
+    { name = "readable-log-formatter", specifier = "==0.1.4" },
+    { name = "requests", specifier = "==2.33.0" },
+    { name = "types-requests", specifier = "==2.32.4.20260324" },
 ]
 
 [[package]]
