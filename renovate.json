@@ -6,7 +6,7 @@
   "dependencyDashboard": true,
   "lockFileMaintenance": {
     "enabled": true,
-    "schedule": ["* 0 * * 1"]
+    "schedule": ["before 4am on monday"]
   },
   "minimumReleaseAge": "7 days",
   "packageRules": [
