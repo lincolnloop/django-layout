@@ -4,17 +4,7 @@
   "automerge": true,
   "automergeType": "pr",
   "dependencyDashboard": true,
-  "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": ["before 4am on monday"]
-  },
   "minimumReleaseAge": "7 days",
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["lockFileMaintenance"],
-      "prPriority": -1
-    }
-  ],
   "platformAutomerge": true,
   "poetry": {
     "enabled": false
