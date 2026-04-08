@@ -180,7 +180,8 @@ SECURE_REDIRECT_EXEMPT = [r"^-/"]  # django-alive URLs
 # https://docs.djangoproject.com/en/6.0/ref/settings/#secure-csp
 SECURE_CSP = {
     "default-src": [CSP.SELF],
-    "style-src": [CSP.SELF, CSP.NONCE],
+    "script-src": [CSP.SELF],
+    "style-src": [CSP.SELF, "'unsafe-inline'"],
 }
 
 REFERRER_POLICY = "same-origin"

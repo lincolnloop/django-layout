@@ -40,6 +40,19 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 COPY . ./
 COPY --from=build-node /app/dist/ /opt/static/
+
+# Copy JS vendor libs to be included globally in Django
+ARG VENDOR_PATH=/opt/static/vendor
+ARG MODULES_PATH=/app/node_modules
+
+RUN mkdir -p ${VENDOR_PATH}
+# Copy Alpine.js (CSP-compatible build):
+COPY --from=build-node ${MODULES_PATH}/@alpinejs/csp/dist/cdn.js ${VENDOR_PATH}/alpine.js
+COPY --from=build-node ${MODULES_PATH}/@alpinejs/csp/dist/cdn.min.js ${VENDOR_PATH}/alpine.min.js
+# Copy HTMX:
+COPY --from=build-node ${MODULES_PATH}/htmx.org/dist/htmx.js ${VENDOR_PATH}/htmx.js
+COPY --from=build-node ${MODULES_PATH}/htmx.org/dist/htmx.min.js ${VENDOR_PATH}/htmx.min.js
+
 RUN SECRET_KEY=s python manage.py collectstatic --noinput
 
 EXPOSE 8000
