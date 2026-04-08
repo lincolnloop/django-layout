@@ -7,19 +7,38 @@
 [![codecov](https://codecov.io/github/lincolnloop/django-layout/branch/main/graph/badge.svg?token=49GGtPkTeh)](https://codecov.io/github/lincolnloop/django-layout)
 
 `django-layout` provides sane defaults for new Django projects based on established best
-practices and some configuration setups frequently used in Lincoln Loop\'s projects. It
-includes:
+practices and some configuration setups frequently used in Lincoln Loop's projects.
 
-- `uv` for fast dependency management
-- `ruff`, `prettier` for formatting and linting all code & templates
+🔒 **Production-hardened from commit one** — Gunicorn, WhiteNoise, Sentry, and settings
+are secure by default.
+
+🚀 **HTML-first** — Alpine.js, htmx, and Tailwind CSS. No complicated JS toolchain.
+Simple, fast, transparent.
+
+🧪 **100% test coverage on day one** — pytest, parallel execution, network isolation,
+and full coverage — configured and passing out of the box.
+
+✅ **Code quality on every commit and on every push** — Pre-commit hooks lint, format,
+and type-check your code locally. GitHub Actions runs the full suite on every push.
+
+🐳 **One image, every environment** — The same Docker image runs on your laptop, in CI,
+and in production.
+
+It includes:
+
+- Always on the latest `django` — kept current with `renovate` automatic dependency
+  updates
+- `alpine.js` (CSP-compatible build), `htmx`, and `tailwindcss` — no JS build step
+- `uv` for fast, deterministic dependency management
 - `goodconf` for structured & documented environment variable configuration
-- structured logging in deployment and pretty logging in development
-- `gunicorn` and `whitenoise` for production deployments
-- `tailwindcss` for utility-first CSS
-- `pytest` for testing, `pytest-xdist` for parallel suport, `pytest-socket` to block
-  network connections, and `coverage`
-- `mypy` for type checks
-- production-hardened settings
+- `ruff`, `mypy`, and `prettier` for linting, type-checking, and formatting
+- `pytest`, `pytest-xdist`, `pytest-cov`, and `pytest-socket` for testing
+- `gunicorn` and `whitenoise` for production static file serving
+- `sentry-sdk` for error tracking and performance monitoring
+- `docker` multi-stage builds with `docker compose` for local development
+- Content Security Policy (CSP), HSTS, and secure cookie defaults
+- Structured JSON logging in production, pretty logging in development
+- Pre-commit hooks and GitHub Actions CI workflows
 
 ## Requirements
 
