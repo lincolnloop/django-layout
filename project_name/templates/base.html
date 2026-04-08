@@ -11,5 +11,10 @@
   </head>
   <body>
     <div id="container">{% block content %}{% endblock %}</div>
+    <script src="{% static 'vendor/htmx.min.js' %}"></script>
+    <script
+      defer
+      src="{% static 'vendor/alpine.min.js' %}"
+    ></script>
   </body>
 </html>
