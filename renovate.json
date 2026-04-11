@@ -9,6 +9,11 @@
   "poetry": {
     "enabled": false
   },
+  "lockFileMaintenance": {
+    "dependencyDashboardApproval": true,
+    "enabled": true,
+    "schedule": ["at any time"]
+  },
   "prConcurrentLimit": 1,
   "prHourlyLimit": 0,
   "pre-commit": {
