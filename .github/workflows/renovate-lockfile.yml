@@ -1,41 +1,65 @@
 ---
+# Triggers lock file maintenance by checking the approval checkbox on
+# the Renovate Dependency Dashboard issue, then dispatches a Renovate
+# run to pick it up. Runs weekly on a cron schedule and can be manually
+# dispatched at any time.
 name: Renovate (Lock File Maintenance)
 
 "on":
   schedule:
-    - cron: "0 6 * * 4"
+    - cron: "0 6 * * 4" # 6am UTC on Thursday
   workflow_dispatch:
 
-concurrency:
-  group: ${{ github.workflow }}
-  cancel-in-progress: true
-
 jobs:
-  lockfile-maintenance:
+  approve-lockfile-maintenance:
     runs-on: ubuntu-latest
 
     steps:
       - name: Get GitHub App Token
         id: get_token
         # yamllint disable-line rule:line-length
-        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3
+        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3
         with:
-          app-id: ${{ vars.RENOVATE_BOT_APP_ID }}
+          client-id: ${{ vars.RENOVATE_BOT_CLIENT_ID }}
           private-key: ${{ secrets.RENOVATE_BOT_PRIVATE_KEY }}
 
-      - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-
-      - name: Self-hosted Renovate
-        # yamllint disable-line rule:line-length
-        uses: renovatebot/github-action@3633cede7d4d4598438e654eac4a695e46004420 # v46.1.7
+      - name: Approve lock file maintenance
         env:
-          LOG_LEVEL: debug
-          RENOVATE_TOKEN: ${{ steps.get_token.outputs.token }}
-          RENOVATE_REPOSITORIES: '["${{ github.repository }}"]'
-          RENOVATE_PR_CONCURRENT_LIMIT: "0"
-          RENOVATE_REBASE_WHEN: never
+          GH_TOKEN: ${{ steps.get_token.outputs.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          ISSUE_NUM=$(gh issue list \
+            --search "Dependency Dashboard" \
+            --state open \
+            --json number \
+            --jq '.[0].number')
+
+          if [ -z "$ISSUE_NUM" ]; then
+            echo "No Dependency Dashboard issue found"
+            exit 0
+          fi
+
+          BODY=$(gh issue view "$ISSUE_NUM" \
+            --json body --jq '.body')
+
+          BRANCH="renovate/lock-file-maintenance"
+
+          PATTERN="<!-- [a-zA-Z]*-branch=$BRANCH -->"
+
           # yamllint disable-line rule:line-length
-          RENOVATE_LOCK_FILE_MAINTENANCE: '{"enabled": true, "schedule": ["at any time"]}'
+          if echo "$BODY" | grep -q "\- \[ \] $PATTERN"; then
+            NEW_BODY=$(echo "$BODY" | sed -E \
+              "s|- \[ \] ($PATTERN)|- [x] \1|")
+            gh issue edit "$ISSUE_NUM" --body "$NEW_BODY"
+            echo "Checked lockfile maintenance checkbox"
           # yamllint disable-line rule:line-length
-          RENOVATE_PACKAGE_RULES: '[{"matchDepNames": ["*"], "enabled": false}, {"matchUpdateTypes": ["lockFileMaintenance"], "enabled": true, "schedule": ["at any time"]}]'
+          elif echo "$BODY" | grep -q "\- \[x\] $PATTERN"; then
+            echo "Checkbox already checked"
+          else
+            echo "Checkbox not found"
+            exit 0
+          fi
+
+          # yamllint disable-line rule:line-length
+          gh api repos/${{ github.repository }}/dispatches \
+            -f event_type=renovate
