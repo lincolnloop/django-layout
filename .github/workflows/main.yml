@@ -6,8 +6,6 @@ env:
   RUN: docker compose run --rm --no-deps
 
 "on":
-  schedule:
-    - cron: "0 5 * * 0"
   push:
     branches: [main]
   pull_request:
