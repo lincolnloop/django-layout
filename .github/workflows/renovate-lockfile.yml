@@ -10,6 +10,11 @@ name: Renovate (Lock File Maintenance)
     - cron: "0 6 * * 4" # 6am UTC on Thursday
   workflow_dispatch:
 
+# Least-privilege workflow token. All gh CLI operations use the App token
+# (GH_TOKEN), not the workflow's GITHUB_TOKEN.
+permissions:
+  contents: read
+
 jobs:
   approve-lockfile-maintenance:
     runs-on: ubuntu-latest

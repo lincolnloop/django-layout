@@ -15,6 +15,13 @@ concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
 
+# Least-privilege workflow token. Renovate authenticates via the GitHub App
+# (RENOVATE_TOKEN), so the workflow's GITHUB_TOKEN only needs read access for
+# actions/checkout. Write operations (PRs, branches, comments) go through the
+# App's own permissions, configured at install time.
+permissions:
+  contents: read
+
 jobs:
   renovate:
     runs-on: ubuntu-latest
