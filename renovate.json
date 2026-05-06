@@ -1,10 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["helpers:pinGitHubActionDigests", ":configMigration", "group:monorepos"],
+  "extends": [
+    ":configMigration",
+    "docker:pinDigests",
+    "group:monorepos",
+    "helpers:pinGitHubActionDigests"
+  ],
   "automerge": true,
   "automergeType": "pr",
   "dependencyDashboard": true,
+  "dependencyDashboardOSVVulnerabilitySummary": "all",
   "minimumReleaseAge": "7 days",
+  "osvVulnerabilityAlerts": true,
   "platformAutomerge": true,
   "poetry": {
     "enabled": false
