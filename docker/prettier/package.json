@@ -2,7 +2,7 @@
   "name": "prettier",
   "private": true,
   "devDependencies": {
-    "prettier": "3.8.2",
+    "prettier": "3.8.3",
     "prettier-plugin-jinja-template": "2.1.0",
     "prettier-plugin-tailwindcss": "0.7.2",
     "tailwindcss": "4.2.2"
