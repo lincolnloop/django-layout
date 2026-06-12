@@ -10,7 +10,7 @@ dev = [
   "pytest-cov==7.1.0",
   "pytest-django==4.12.0",
   "pytest-env==1.6.0",
-  "pytest-socket==0.7.0",
+  "pytest-socket==0.8.0",
   "pytest-xdist==3.8.0",
   "pytest==9.0.3",
   "readable-log-formatter==0.1.4",
