@@ -12,6 +12,18 @@
   "dependencyDashboardOSVVulnerabilitySummary": "all",
   "minimumReleaseAge": "7 days",
   "osvVulnerabilityAlerts": true,
+  "packageRules": [
+    {
+      "description": "uv has no release timestamps; skip cooloff.",
+      "matchPackageNames": ["ghcr.io/astral-sh/**"],
+      "minimumReleaseAge": "0"
+    },
+    {
+      "description": "Bump uv with Python.",
+      "groupName": "python runtime",
+      "matchPackageNames": ["python", "ghcr.io/astral-sh/uv"]
+    }
+  ],
   "platformAutomerge": true,
   "poetry": {
     "enabled": false
