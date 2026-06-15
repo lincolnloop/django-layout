@@ -1,7 +1,7 @@
 ARG PROJECT_NAME="{{ project_name }}"
 
 # STAGE 1: BUILD NODE
-FROM node:25.9-alpine@sha256:bdf2cca6fe3dabd014ea60163eca3f0f7015fbd5c7ee1b0e9ccb4ced6eb02ef4 AS build-node
+FROM node:26.2-alpine@sha256:7c6af15abe4e3de859690e7db171d0d711bf37d27528eddfe625b2fe89e097f8 AS build-node
 ARG PROJECT_NAME
 
 WORKDIR /app
