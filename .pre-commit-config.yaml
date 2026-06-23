@@ -56,17 +56,17 @@ repos:
         files: (Makefile|README.md|config.py)
         require_serial: true
 
-  - repo: local
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.8.4
     hooks:
       - id: prettier
-        name: prettier
-        language: system
-        pass_filenames: true
-        entry: >-
-          docker compose --profile prettier run -T --rm prettier
-          npx prettier --write --ignore-unknown
+        language: node
         exclude_types: [python]
-        require_serial: true
+        additional_dependencies:
+          - prettier@3.8.4
+          - prettier-plugin-jinja-template@2.2.0
+          - prettier-plugin-tailwindcss@0.8.0
+          - tailwindcss@4.3.1
 
   - repo: local
     hooks:

@@ -50,15 +50,6 @@ services:
       - ./:/app
       - /app/node_modules # node_modules is not shared with the host
 
-  prettier:
-    build:
-      context: .
-      dockerfile: ./docker/prettier/Dockerfile
-    profiles:
-      - prettier
-    volumes:
-      - ./:/root/app
-
 volumes:
   client:
   pgdata:
