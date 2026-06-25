@@ -114,6 +114,16 @@ select = ["ALL"]
   "S101",  # Allow use of asserts
 ]
 
+[tool.ruff.lint.flake8-import-conventions]
+banned-from = [
+  "datetime",  # Use `import datetime as dt`, not `from datetime import ...`
+  "typing",  # Use `import typing as t`, not `from typing import ...`
+]
+
+[tool.ruff.lint.flake8-import-conventions.extend-aliases]
+datetime = "dt"
+typing = "t"
+
 [tool.uv]
 add-bounds = "exact"
 exclude-newer = "7 days"

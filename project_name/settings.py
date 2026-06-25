@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 
 import contextlib
 import re
+import typing as t
 from pathlib import Path
-from typing import Any
 
 import dj_database_url
 import sentry_sdk
@@ -258,7 +258,7 @@ if config.DJANGO_ENV == "production":
     SECURE_HSTS_PRELOAD = True
 
 
-def _sentry_traces_sampler(ctx: dict[str, Any]) -> float:
+def _sentry_traces_sampler(ctx: dict[str, t.Any]) -> float:
     """Don't capture traces on static files or healthchecks."""
     wsgi_environ = ctx.get("wsgi_environ", {})
     path = wsgi_environ.get("PATH_INFO", "")
