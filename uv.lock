@@ -264,7 +264,7 @@ requires-dist = [
     { name = "dj-database-url", specifier = "==3.1.2" },
     { name = "django", specifier = "==6.0.6" },
     { name = "django-alive", specifier = "==2.0.0" },
-    { name = "goodconf", extras = ["yaml"], specifier = "==7.0.0" },
+    { name = "goodconf", extras = ["yaml"], specifier = "==7.1.0" },
     { name = "gunicorn", specifier = "==26.0.0" },
     { name = "psycopg", specifier = "==3.3.4" },
     { name = "python-json-logger", specifier = "==4.1.0" },
@@ -276,7 +276,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 cog = [
     { name = "cogapp", specifier = "==3.6.0" },
-    { name = "goodconf", extras = ["yaml"], specifier = "==7.0.0" },
+    { name = "goodconf", extras = ["yaml"], specifier = "==7.1.0" },
 ]
 dev = [
     { name = "django-coverage-plugin", specifier = "==3.2.2" },
@@ -332,15 +332,15 @@ wheels = [
 
 [[package]]
 name = "goodconf"
-version = "7.0.0"
+version = "7.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
     { name = "pydantic-settings" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d8/3d/bd98f593d286dcf5a024f1c24e6f234b00c6ac4d2b6ba031c61a04fbc069/goodconf-7.0.0.tar.gz", hash = "sha256:1eb282520b87b2a4ddf009fcc0eedc282e47cda215f20353166f2ce9f871e300", size = 14213, upload-time = "2026-03-03T23:08:22.945Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/36/4c/44d167ec9de9b5d256ebb3ef0a3a5d4b69e366cc96835bdc5de006545019/goodconf-7.1.0.tar.gz", hash = "sha256:b000fdd93e931257648523bc2c15a32406c54223936b2fccca767cb9a94b13f9", size = 67400, upload-time = "2026-06-17T17:07:50.618Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f2/cd/c9e6dca5447f25648b807b60d52b844d7147ef298094b102a414fa8c8105/goodconf-7.0.0-py3-none-any.whl", hash = "sha256:57d1c8bd4312ff8bf802ecf7e9c631d10362607e91a65908a257ad56bc7bdd30", size = 10831, upload-time = "2026-03-03T23:03:43.639Z" },
+    { url = "https://files.pythonhosted.org/packages/51/c9/7a4ad029d73f70293ed369b367bd91337d6f898e0c3a88c9607838afeb4a/goodconf-7.1.0-py3-none-any.whl", hash = "sha256:cf622f9501ef90f90de231e8804a1436123fb2098cd4bc5805aab8c038fca9ea", size = 11683, upload-time = "2026-06-17T17:07:49.546Z" },
 ]
 
 [package.optional-dependencies]
