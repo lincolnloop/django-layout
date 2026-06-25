@@ -1,7 +1,7 @@
 import base64
 import os
+import typing as t
 from pathlib import Path
-from typing import Literal
 
 from goodconf import Field, GoodConf
 
@@ -22,11 +22,11 @@ class Config(GoodConf):
         description="A string with the database URL as defined in "
         "https://github.com/jazzband/dj-database-url#url-schema",
     )
-    DJANGO_ENV: Literal["development", "dev", "production"] = Field(
+    DJANGO_ENV: t.Literal["development", "dev", "production"] = Field(
         default="production",
         description="Toggle deployment settings for local development or production",
     )
-    LOG_LEVEL: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = Field(
+    LOG_LEVEL: t.Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = Field(
         default="INFO",
         description="Python logging level",
     )
