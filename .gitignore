@@ -1,5 +1,7 @@
 *.egg-info
 *.pyc
+.coverage
+.coverage.*
 .venv
 .vscode
 /.ruff_cache
