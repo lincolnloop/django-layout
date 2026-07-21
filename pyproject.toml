@@ -15,7 +15,7 @@ dev = [
   "pytest==9.1.1",
   "readable-log-formatter==0.1.4",
   "requests==2.34.2",
-  "types-requests==2.33.0.20260518",
+  "types-requests==2.33.0.20260712",
 ]
 
 [project]
