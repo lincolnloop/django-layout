@@ -18,10 +18,10 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 
 
 # STAGE 2: BUILD PYTHON
-FROM python:3.14@sha256:5f1cdbcab9a50594a79502dd73e885456d2a2fc31f1a1fa18484815b37ee9152 AS build-python
+FROM python:3.14@sha256:3a9d2dd3f18e5c7a9d8de7b3659418a4ab848ccd409fb9e91ef9d7a6a3520ba7 AS build-python
 WORKDIR /app
 
-COPY --from=ghcr.io/astral-sh/uv:0.12.0@sha256:606e70c71c852d03f611b1e56a195d08648507018a7057fab82c4974c4eae105 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.12.2@sha256:069a51314a7bb6031777a9273205fe1b0b19e914ef418207d1338b268df641dd /uv /uvx /bin/
 ENV PYTHONPYCACHEPREFIX=/tmp/pycache
 ENV PYTHONUNBUFFERED=1
 ENV UV_COMPILE_BYTECODE=1
