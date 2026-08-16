@@ -6,7 +6,7 @@ from pytest_django.asserts import assertTemplateUsed
 if t.TYPE_CHECKING:
     from django.http import HttpRequest
     from django.test import Client
-    from pytest_django.fixtures import SettingsWrapper
+    from pytest_django import Settings
 
 
 def error_view(request: HttpRequest) -> t.NoReturn:
@@ -24,7 +24,7 @@ def test_404_page(client: Client) -> None:
     assertTemplateUsed(response, "404.html")
 
 
-def test_500_page(client: Client, settings: SettingsWrapper) -> None:
+def test_500_page(client: Client, settings: Settings) -> None:
     settings.ROOT_URLCONF = "tests.test_error_pages"
     client.raise_request_exception = False
     response = client.get("/error/")
