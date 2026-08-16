@@ -99,6 +99,7 @@ ignore = [
   "ARG001",  # Unused function argument (request, ...)
   "ARG002",  # Unused method argument (*args, **kwargs)
   "COM812",  # Check absence of trailing commas. Made redundant by formatter.
+  "CPY001",  # Missing copyright notice. This project doesn't use file headers.
   "D",  # Missing or badly formatted docstrings
   "FBT",  # Flake Boolean Trap (don't use arg=True in functions)
   "PLR2004",  # Allow "magic values" (e.g. status_code == 302)
