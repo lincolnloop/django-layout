@@ -10,7 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "@tailwindcss/cli": "4.3.3",
-    "@alpinejs/csp": "3.15.12",
+    "@alpinejs/csp": "3.16.0",
     "htmx.org": "2.0.10",
     "tailwindcss": "4.3.3"
   }
