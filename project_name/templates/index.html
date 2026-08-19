@@ -12,7 +12,8 @@
       rel="stylesheet"
       href="{% static 'bundles/main.css' %}"
     />
-    <style nonce="{{ csp_nonce }}">
+    <!-- prettier-ignore -->
+    <style {% csp_nonce_attr %}>
       :root {
         --color-teal: #153e42;
         --color-spray: #76ccd6;

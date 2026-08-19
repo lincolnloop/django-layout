@@ -64,7 +64,6 @@ plugins = ["mypy_django_plugin.main"]
 [[tool.mypy.overrides]]
 ignore_missing_imports = true
 module = [
-  "django.utils.csp",
   "readable_log_formatter",
   "wsgi_basic_auth",
 ]
