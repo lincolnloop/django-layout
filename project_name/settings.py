@@ -177,7 +177,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 SECURE_REDIRECT_EXEMPT = [r"^-/"]  # django-alive URLs
 
 # CSP
-# https://docs.djangoproject.com/en/6.0/ref/settings/#secure-csp
+# https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#secure-csp
 SECURE_CSP = {
     "default-src": [CSP.SELF],
     "script-src": [CSP.SELF],
