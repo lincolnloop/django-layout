@@ -78,7 +78,7 @@ repos:
         require_serial: true
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 44.39.3
+    rev: 44.40.0
     hooks:
       - id: renovate-config-validator
         args: [--strict]
