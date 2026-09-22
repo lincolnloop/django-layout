@@ -5,7 +5,7 @@ cog = [
 ]
 dev = [
   "django-coverage-plugin==3.2.2",
-  "django-stubs==6.1.0",
+  "django-stubs==6.1.1",
   "mypy==2.3.1",
   "pytest-cov==7.1.0",
   "pytest-django==4.14.0",
