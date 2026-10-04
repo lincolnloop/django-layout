@@ -21,7 +21,7 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 FROM python:3.14@sha256:4fad23465a06cc5149a541fbec6f87e234a64dc0550f6bfdd2d290d8f03240df AS build-python
 WORKDIR /app
 
-COPY --from=ghcr.io/astral-sh/uv:0.12.22@sha256:f513a91fc62fe7c17567eee97230dd198e43edb8a9fbecca843714a4358fe1bc /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.12.23@sha256:61d393e44e249f2e4b526b6c7ddcecce245946826e608e11c93ad4f5bba55b21 /uv /uvx /bin/
 ENV PYTHONPYCACHEPREFIX=/tmp/pycache
 ENV PYTHONUNBUFFERED=1
 ENV UV_COMPILE_BYTECODE=1
