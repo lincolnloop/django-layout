@@ -9,7 +9,7 @@ dev = [
   "mypy==2.4.0",
   "pytest-cov==7.1.0",
   "pytest-django==4.14.0",
-  "pytest-env==1.7.1",
+  "pytest-env==1.8.1",
   "pytest-socket==0.8.1",
   "pytest-xdist==3.8.0",
   "pytest==9.1.1",
