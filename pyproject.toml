@@ -12,7 +12,7 @@ dev = [
   "pytest-env==1.8.3",
   "pytest-socket==0.8.1",
   "pytest-xdist==3.8.0",
-  "pytest==9.1.1",
+  "pytest==9.2.0",
   "readable-log-formatter==0.1.4",
   "requests==2.34.2",
   "types-requests==2.33.0.20261006",
