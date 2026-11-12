@@ -8,8 +8,10 @@
   ],
   "automerge": true,
   "automergeType": "pr",
-  "dependencyDashboard": true,
-  "dependencyDashboardOSVVulnerabilitySummary": "all",
+  "dependencyDashboard": {
+    "enabled": true,
+    "osvVulnerabilitySummary": "all"
+  },
   "minimumReleaseAge": "7 days",
   "osvVulnerabilityAlerts": true,
   "packageRules": [
