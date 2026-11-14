@@ -9,9 +9,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@tailwindcss/cli": "4.3.4",
+    "@tailwindcss/cli": "4.3.5",
     "@alpinejs/csp": "3.17.5",
     "htmx.org": "2.0.11",
-    "tailwindcss": "4.3.4"
+    "tailwindcss": "4.3.5"
   }
 }
