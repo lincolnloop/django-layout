@@ -24,11 +24,6 @@
       "description": "Bump uv with Python.",
       "groupName": "python runtime",
       "matchPackageNames": ["python", "ghcr.io/astral-sh/uv"]
-    },
-    {
-      "description": "Keep the config validator on the bot's Renovate version.",
-      "groupName": "renovate",
-      "matchPackageNames": ["renovate/renovate", "renovatebot/pre-commit-hooks"]
     }
   ],
   "platformAutomerge": true,
