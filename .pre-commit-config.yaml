@@ -22,7 +22,7 @@ repos:
       - id: check-github-workflows
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.17.3
+    rev: v0.17.4
     hooks:
       - id: ruff-check
         args: [--fix]
@@ -78,7 +78,7 @@ repos:
         require_serial: true
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 44.206.2
+    rev: 44.221.6
     hooks:
       - id: renovate-config-validator
         args: [--strict]
