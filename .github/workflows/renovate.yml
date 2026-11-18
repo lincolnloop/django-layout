@@ -1,4 +1,12 @@
 ---
+# Runs Renovate to open dependency update PRs. Configured to open at most
+# 1 PR at a time (via prConcurrentLimit in renovate.json) to avoid burning
+# through CI usage. Triggers on push to main (so merging a Renovate PR
+# immediately queues the next one), on a daily cron, and via manual or
+# repository dispatch.
+#
+# Lock file maintenance requires manual approval on the Dependency Dashboard
+# issue, or is automatically dispatched by renovate-lockfile.yml.
 name: Renovate
 
 "on":
@@ -29,18 +37,16 @@ jobs:
     steps:
       - name: Get GitHub App Token
         id: get_token
-        # yamllint disable-line rule:line-length
-        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        uses: actions/create-github-app-token@v3.3.0
         with:
           client-id: ${{ vars.RENOVATE_BOT_CLIENT_ID }}
           private-key: ${{ secrets.RENOVATE_BOT_PRIVATE_KEY }}
 
       - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
 
       - name: Self-hosted Renovate
-        # yamllint disable-line rule:line-length
-        uses: renovatebot/github-action@266fef21329c44765ad42f9dea1f01f5d2d91084 # v46.3.13
+        uses: renovatebot/github-action@v46.3.13
         env:
           LOG_LEVEL: debug
           RENOVATE_TOKEN: ${{ steps.get_token.outputs.token }}

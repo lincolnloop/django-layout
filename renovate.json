@@ -1,11 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    ":configMigration",
-    "docker:pinDigests",
-    "group:monorepos",
-    "helpers:pinGitHubActionDigests"
-  ],
+  "extends": [":configMigration", "docker:pinDigests", "group:monorepos"],
   "automerge": true,
   "automergeType": "pr",
   "dependencyDashboard": {
@@ -24,6 +19,14 @@
       "description": "Bump uv with Python.",
       "groupName": "python runtime",
       "matchPackageNames": ["python", "ghcr.io/astral-sh/uv"]
+    },
+    {
+      "groupName": "django",
+      "matchPackageNames": ["django", "django-stubs"]
+    },
+    {
+      "groupName": "requests",
+      "matchPackageNames": ["requests", "types-requests"]
     }
   ],
   "platformAutomerge": true,
