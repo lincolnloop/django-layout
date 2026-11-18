@@ -1,11 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    ":configMigration",
-    "docker:pinDigests",
-    "group:monorepos",
-    "helpers:pinGitHubActionDigests"
-  ],
+  "extends": [":configMigration", "docker:pinDigests", "group:monorepos"],
   "automerge": true,
   "automergeType": "pr",
   "dependencyDashboard": {
