@@ -1,4 +1,12 @@
 ---
+# Runs Renovate to open dependency update PRs. Configured to open at most
+# 1 PR at a time (via prConcurrentLimit in renovate.json) to avoid burning
+# through CI usage. Triggers on push to main (so merging a Renovate PR
+# immediately queues the next one), on a daily cron, and via manual or
+# repository dispatch.
+#
+# Lock file maintenance requires manual approval on the Dependency Dashboard
+# issue, or is automatically dispatched by renovate-lockfile.yml.
 name: Renovate
 
 "on":
