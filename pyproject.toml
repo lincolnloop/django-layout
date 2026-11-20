@@ -27,7 +27,7 @@ dependencies = [
   "gunicorn==27.0.1",
   "psycopg==3.3.9",
   "python-json-logger==4.2.0",
-  "sentry-sdk==2.74.0",
+  "sentry-sdk==2.75.0",
   "whitenoise==6.12.0",
   "wsgi-basic-auth==1.1.0",
 ]
