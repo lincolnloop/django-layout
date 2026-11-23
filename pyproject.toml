@@ -1,6 +1,6 @@
 [dependency-groups]
 cog = [
-  "cogapp==3.6.0",
+  "cogapp==3.6.1",
   "goodconf[yaml]==7.1.0",
 ]
 dev = [
