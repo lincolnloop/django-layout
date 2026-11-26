@@ -13,10 +13,10 @@ workflows:
         - 'astral-sh/setup-uv@v10.3.3'
         - 'pre-commit/action@v3.0.1'
     '.github/workflows/renovate-lockfile.yml':
-        - 'actions/create-github-app-token@v3.3.0'
+        - 'actions/create-github-app-token@v3.4.0'
     '.github/workflows/renovate.yml':
         - 'actions/checkout@v7.0.1'
-        - 'actions/create-github-app-token@v3.3.0'
+        - 'actions/create-github-app-token@v3.4.0'
         - 'renovatebot/github-action@v46.3.14'
 dependencies:
     'actions/cache@v4':
@@ -29,9 +29,9 @@ dependencies:
         commit: 'sha1-3d3c42e5aac5ba805825da76410c181273ba90b1'
         owner_id: 44036562
         repo_id: 197814629
-    'actions/create-github-app-token@v3.3.0':
-        ref: 'v3.3.0'
-        commit: 'sha1-64ab729a6294000f5aa4a4bc0b73d1f32bc45510'
+    'actions/create-github-app-token@v3.4.0':
+        ref: 'v3.4.0'
+        commit: 'sha1-f418cff399f7aef4c2f0ad47e25ca7a6abbdd6fc'
         owner_id: 44036562
         repo_id: 642580244
     'actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd':

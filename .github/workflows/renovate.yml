@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Get GitHub App Token
         id: get_token
-        uses: actions/create-github-app-token@v3.3.0
+        uses: actions/create-github-app-token@v3.4.0
         with:
           client-id: ${{ vars.RENOVATE_BOT_CLIENT_ID }}
           private-key: ${{ secrets.RENOVATE_BOT_PRIVATE_KEY }}
