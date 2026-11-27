@@ -1,0 +1,12 @@
+{
+  "name": "django-layout-release",
+  "private": true,
+  "description": "Tags django-layout releases from conventional commits. Not part of the template.",
+  "devDependencies": {
+    "@semantic-release/commit-analyzer": "13.0.1",
+    "@semantic-release/github": "12.0.11",
+    "@semantic-release/release-notes-generator": "14.1.1",
+    "conventional-changelog-conventionalcommits": "9.3.1",
+    "semantic-release": "26.0.1"
+  }
+}
