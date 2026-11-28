@@ -4,13 +4,13 @@
 version: 'v0.0.3'
 workflows:
     '.github/workflows/main.yml':
-        - 'astral-sh/setup-uv@v10.3.3'
+        - 'astral-sh/setup-uv@v10.4.0'
         - 'codecov/codecov-action@v7.1.1'
         - 'docker/bake-action@v7.5.0'
         - 'docker/setup-buildx-action@v4.4.1'
     '.github/workflows/pre-commit.yml':
         - 'actions/checkout@v7.0.1'
-        - 'astral-sh/setup-uv@v10.3.3'
+        - 'astral-sh/setup-uv@v10.4.0'
         - 'pre-commit/action@v3.0.1'
     '.github/workflows/release.yml':
         - 'actions/checkout@v7.0.1'
@@ -48,9 +48,9 @@ dependencies:
         commit: 'sha1-949feb2413d6458794dcd2491c4babbbce0c15c1'
         owner_id: 44036562
         repo_id: 189476904
-    'astral-sh/setup-uv@v10.3.3':
-        ref: 'v10.3.3'
-        commit: 'sha1-68559e99cc807c1eb7e9238fd43a15bba460eec2'
+    'astral-sh/setup-uv@v10.4.0':
+        ref: 'v10.4.0'
+        commit: 'sha1-1db35dd8eee11c5894872e0b383ae6c406cf738d'
         owner_id: 115962839
         repo_id: 846733598
     'codecov/codecov-action@v7.1.1':
